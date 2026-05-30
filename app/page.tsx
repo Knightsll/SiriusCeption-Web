@@ -6,7 +6,7 @@ type Locale = "en" | "zh";
 
 const copy = {
   en: {
-    nav: { product: "Product", cases: "Applications", software: "Software", media: "Media", blog: "Blog", videos: "Videos" },
+    nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Media", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
       eyebrow: "Embodied Intelligence Data Engine",
@@ -116,7 +116,7 @@ const copy = {
     }
   },
   zh: {
-    nav: { product: "产品", cases: "应用", software: "软件", media: "视频", blog: "Blog", videos: "视频库" },
+    nav: { product: "产品", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
       eyebrow: "具身智能数据引擎",
@@ -234,6 +234,7 @@ export default function Home() {
           <a href="#product">{t.nav.product}</a>
           <a href="#cases">{t.nav.cases}</a>
           <a href="#software">{t.nav.software}</a>
+          <a href="/docs">{t.nav.docs}</a>
           <a href="#media">{t.nav.media}</a>
           <a href="#blog">{t.nav.blog}</a>
           <a href="/videos">{t.nav.videos}</a>
@@ -404,6 +405,9 @@ export default function Home() {
             <p>{locale === "en" ? "Select device, calibrate, and inspect live orientation for teleoperation debugging." : "选择设备、校准，并查看实时姿态，用于遥操作调试。"}</p>
           </article>
         </div>
+        <a className="cta ghost software-doc-link" href="/docs">
+          {locale === "en" ? "Read product docs" : "查看产品文档"}
+        </a>
       </section>
 
       <section id="media" className="section media">
