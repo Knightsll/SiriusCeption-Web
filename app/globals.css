@@ -681,6 +681,42 @@ button {
   line-height: 1.7;
 }
 
+.software {
+  background: radial-gradient(circle at 85% 15%, rgba(44, 197, 255, 0.10), transparent 35%);
+}
+
+.software-steps {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.step-card {
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+}
+
+.step-index {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--accent-2);
+  font-family: "Unbounded", sans-serif;
+  font-size: 13px;
+}
+
+.step-card h3 {
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .media-grid {
   margin-top: 32px;
   display: grid;

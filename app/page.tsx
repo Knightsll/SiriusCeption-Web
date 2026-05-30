@@ -6,7 +6,7 @@ type Locale = "en" | "zh";
 
 const copy = {
   en: {
-    nav: { product: "Product", cases: "Applications", media: "Media", blog: "Blog", videos: "Videos" },
+    nav: { product: "Product", cases: "Applications", software: "Software", media: "Media", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
       eyebrow: "Embodied Intelligence Data Engine",
@@ -116,7 +116,7 @@ const copy = {
     }
   },
   zh: {
-    nav: { product: "产品", cases: "应用", media: "视频", blog: "Blog", videos: "视频库" },
+    nav: { product: "产品", cases: "应用", software: "软件", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
       eyebrow: "具身智能数据引擎",
@@ -233,6 +233,7 @@ export default function Home() {
         <nav className="nav-links">
           <a href="#product">{t.nav.product}</a>
           <a href="#cases">{t.nav.cases}</a>
+          <a href="#software">{t.nav.software}</a>
           <a href="#media">{t.nav.media}</a>
           <a href="#blog">{t.nav.blog}</a>
           <a href="/videos">{t.nav.videos}</a>
@@ -378,6 +379,30 @@ export default function Home() {
             <h3>{t.cases.items[2].title}</h3>
             <p>{t.cases.items[2].body}</p>
           </div>
+        </div>
+      </section>
+
+      <section id="software" className="section software">
+        <div className="section-title">
+          <h2>{locale === "en" ? "Client Workflow" : "客户端使用流程"}</h2>
+          <p>{locale === "en" ? "Three focused pages: configure nodes, monitor receiver data, visualize pose." : "三个页面分工明确：节点配置、接收端监控、姿态可视化。"}</p>
+        </div>
+        <div className="software-steps reveal">
+          <article className="step-card">
+            <span className="step-index">01</span>
+            <h3>{locale === "en" ? "Node Config" : "节点配置"}</h3>
+            <p>{locale === "en" ? "USB serial setup for ID, Wi-Fi, receiver IP, UDP port, and stream rate." : "通过 USB 串口设置 ID、Wi-Fi、接收端 IP、UDP 端口与发送频率。"}</p>
+          </article>
+          <article className="step-card">
+            <span className="step-index">02</span>
+            <h3>{locale === "en" ? "Receiver Monitor" : "接收端监控"}</h3>
+            <p>{locale === "en" ? "Start UDP, view devices, packet rate, age, quaternion, gyro, and accel." : "启动 UDP，查看设备、包频率、延迟、四元数、陀螺仪与加速度。"}</p>
+          </article>
+          <article className="step-card">
+            <span className="step-index">03</span>
+            <h3>{locale === "en" ? "Pose Visualizer" : "姿态可视化"}</h3>
+            <p>{locale === "en" ? "Select device, calibrate, and inspect live orientation for teleoperation debugging." : "选择设备、校准，并查看实时姿态，用于遥操作调试。"}</p>
+          </article>
         </div>
       </section>
 
