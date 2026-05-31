@@ -6,7 +6,7 @@ type Locale = "en" | "zh";
 
 const copy = {
   en: {
-    nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Media", blog: "Blog", videos: "Videos" },
+    nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
       eyebrow: "Embodied Intelligence Data Engine",
@@ -231,13 +231,12 @@ export default function Home() {
           <span className="brand-name">SiriusCeption</span>
         </div>
         <nav className="nav-links">
-          <a href="#product">{t.nav.product}</a>
-          <a href="#cases">{t.nav.cases}</a>
-          <a href="#software">{t.nav.software}</a>
+          <a href="/product">{t.nav.product}</a>
+          <a href="/applications">{t.nav.cases}</a>
+          <a href="/software">{t.nav.software}</a>
           <a href="/docs">{t.nav.docs}</a>
-          <a href="#media">{t.nav.media}</a>
-          <a href="#blog">{t.nav.blog}</a>
-          <a href="/videos">{t.nav.videos}</a>
+          <a href="/videos">{t.nav.media}</a>
+          <a href="/blog">{t.nav.blog}</a>
         </nav>
         <div className="nav-actions">
           <div className="lang-select">
@@ -323,158 +322,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="product" className="section product">
+      <section className="section overview-hub">
         <div className="section-title">
-          <h2>{t.product.title}</h2>
-          <p>{t.product.lead}</p>
-        </div>
-        <div className="cards reveal">
-          <article className="card highlight">
-            <h3>{t.product.cards[0].title}</h3>
-            <p>{t.product.cards[0].lead}</p>
-            <ul>
-              <li>{t.product.cards[0].points[0]}</li>
-              <li>{t.product.cards[0].points[1]}</li>
-              <li>{t.product.cards[0].points[2]}</li>
-            </ul>
-          </article>
-          <article className="card">
-            <h3>{t.product.cards[1].title}</h3>
-            <p>{t.product.cards[1].lead}</p>
-            <ul>
-              <li>{t.product.cards[1].points[0]}</li>
-              <li>{t.product.cards[1].points[1]}</li>
-              <li>{t.product.cards[1].points[2]}</li>
-            </ul>
-          </article>
-          <article className="card">
-            <h3>{t.product.cards[2].title}</h3>
-            <p>{t.product.cards[2].lead}</p>
-            <ul>
-              <li>{t.product.cards[2].points[0]}</li>
-              <li>{t.product.cards[2].points[1]}</li>
-              <li>{t.product.cards[2].points[2]}</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="cases" className="section use-cases">
-        <div className="section-title">
-          <h2>{t.cases.title}</h2>
-          <p>{t.cases.lead}</p>
-        </div>
-        <div className="case-grid reveal">
-          <div className="case">
-            <span className="tag">{t.cases.items[0].tag}</span>
-            <h3>{t.cases.items[0].title}</h3>
-            <p>{t.cases.items[0].body}</p>
-          </div>
-          <div className="case">
-            <span className="tag">{t.cases.items[1].tag}</span>
-            <h3>{t.cases.items[1].title}</h3>
-            <p>{t.cases.items[1].body}</p>
-          </div>
-          <div className="case">
-            <span className="tag">{t.cases.items[2].tag}</span>
-            <h3>{t.cases.items[2].title}</h3>
-            <p>{t.cases.items[2].body}</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="software" className="section software">
-        <div className="section-title">
-          <h2>{locale === "en" ? "Software Platform" : "软件平台"}</h2>
+          <h2>{locale === "en" ? "Explore SiriusCeption" : "浏览 SiriusCeption"}</h2>
           <p>
             {locale === "en"
-              ? "A private companion software layer for device setup, motion visualization, teleoperation, and robot integration. Detailed operator screens are provided during deployment, not exposed on the public website."
-              : "配套软件用于设备设置、动作可视化、遥操作与机器人集成。具体操作页面只在部署交付中提供，不在官网公开展示。"}
+              ? "The website is now split into focused pages so the homepage stays clear while deeper product, application, software, media, and research content can grow independently."
+              : "官网已拆分为独立页面：首页保持清晰，产品、应用、软件、视频和研究内容可以分别扩展。"}
           </p>
         </div>
-        <div className="software-steps reveal">
-          <article className="step-card">
+        <div className="hub-grid reveal">
+          <a className="hub-card highlight" href="/product">
             <span className="step-index">01</span>
-            <h3>{locale === "en" ? "Device setup" : "设备接入"}</h3>
-            <p>{locale === "en" ? "Guided onboarding for SiriusCeption wearable nodes and receiver-side readiness." : "为 SiriusCeption 可穿戴节点与接收端就绪状态提供引导式接入。"}</p>
-          </article>
-          <article className="step-card">
-            <span className="step-index">02</span>
-            <h3>{locale === "en" ? "Motion preview" : "动作预览"}</h3>
-            <p>{locale === "en" ? "Visualization tools help teams validate motion quality before using data downstream." : "通过可视化工具确认动作质量，再进入后续数据或控制流程。"}</p>
-          </article>
-          <article className="step-card">
-            <span className="step-index">03</span>
-            <h3>{locale === "en" ? "Teleoperation workflow" : "遥操作流程"}</h3>
-            <p>{locale === "en" ? "Arm teleoperation is designed around a three-wearable interaction model for stable upper-limb mapping." : "手臂遥操作围绕三设备交互模型设计，以保证上肢映射稳定。"}</p>
-          </article>
-          <article className="step-card highlight-step">
-            <span className="step-index">04</span>
-            <h3>{locale === "en" ? "Robot integration" : "机器人集成"}</h3>
-            <p>{locale === "en" ? "Robot-specific mapping and preview remain gated until the target hardware and safety workflow are confirmed." : "机器人映射与预览会在目标硬件和安全流程确认后再开放。"}</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="media" className="section media">
-        <div className="section-title">
-          <h2>{t.media.title}</h2>
-          <p>{t.media.lead}</p>
-        </div>
-        <div className="media-groups reveal">
-          {t.media.groups.map((group) => (
-            <div className="media-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <div className="media-grid">
-                {group.items.map((item) => (
-                  <div className="media-card" key={item.title}>
-                    <div className="media-embed">
-                      <iframe
-                        src={item.url}
-                        title={item.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
-                    </div>
-                    <div className="media-meta">
-                      <span>{item.title}</span>
-                      <button className="cta ghost small">{locale === "en" ? "Watch" : "观看"}</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-          <a className="cta ghost media-more" href="/videos">
-            {t.media.more}
+            <h3>{locale === "en" ? "Product" : "产品"}</h3>
+            <p>{locale === "en" ? "Hardware versions, sensing stack, and system capabilities." : "硬件版本、传感栈与系统能力。"}</p>
           </a>
-        </div>
-      </section>
-
-      <section id="blog" className="section blog">
-        <div className="section-title">
-          <h2>{t.blog.title}</h2>
-          <p>{t.blog.lead}</p>
-        </div>
-        <div className="blog-grid reveal">
-          <article className="blog-card">
-            <span className="tag">{t.blog.items[0].tag}</span>
-            <h3>{t.blog.items[0].title}</h3>
-            <p>{t.blog.items[0].body}</p>
-            <button className="cta ghost small">{locale === "en" ? "Read" : "阅读"}</button>
-          </article>
-          <article className="blog-card">
-            <span className="tag">{t.blog.items[1].tag}</span>
-            <h3>{t.blog.items[1].title}</h3>
-            <p>{t.blog.items[1].body}</p>
-            <button className="cta ghost small">{locale === "en" ? "Read" : "阅读"}</button>
-          </article>
-          <article className="blog-card">
-            <span className="tag">{t.blog.items[2].tag}</span>
-            <h3>{t.blog.items[2].title}</h3>
-            <p>{t.blog.items[2].body}</p>
-            <button className="cta ghost small">{locale === "en" ? "Read" : "阅读"}</button>
-          </article>
+          <a className="hub-card" href="/applications">
+            <span className="step-index">02</span>
+            <h3>{locale === "en" ? "Applications" : "应用"}</h3>
+            <p>{locale === "en" ? "Embodied-AI data, teleoperation, and immersive interaction scenarios." : "具身智能数据、遥操作和沉浸式交互场景。"}</p>
+          </a>
+          <a className="hub-card" href="/software">
+            <span className="step-index">03</span>
+            <h3>{locale === "en" ? "Software" : "软件"}</h3>
+            <p>{locale === "en" ? "High-level companion software story without exposing operator details." : "只展示配套软件定位，不公开具体操作细节。"}</p>
+          </a>
+          <a className="hub-card" href="/videos">
+            <span className="step-index">04</span>
+            <h3>{locale === "en" ? "Videos" : "视频"}</h3>
+            <p>{locale === "en" ? "Pose tracking and robot teleoperation demos." : "姿态跟踪与机器人遥操作演示。"}</p>
+          </a>
+          <a className="hub-card" href="/blog">
+            <span className="step-index">05</span>
+            <h3>{locale === "en" ? "Blog" : "Blog"}</h3>
+            <p>{locale === "en" ? "Research updates, technical notes, and collaboration stories." : "研究进展、技术文章与合作案例。"}</p>
+          </a>
+          <a className="hub-card" href="/docs">
+            <span className="step-index">06</span>
+            <h3>{locale === "en" ? "Docs" : "文档"}</h3>
+            <p>{locale === "en" ? "Product guide and deployment-facing documentation." : "产品指南与面向交付的文档。"}</p>
+          </a>
         </div>
       </section>
 
