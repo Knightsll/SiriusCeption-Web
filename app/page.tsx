@@ -406,7 +406,7 @@ export default function Home() {
       <section id="software" className="section software">
         <div className="section-title">
           <h2>{locale === "en" ? "Client Workflow" : "客户端使用流程"}</h2>
-          <p>{locale === "en" ? "Four focused pages: configure nodes, monitor UDP receiver data, visualize one-node pose, then run the three-device Teleop Console." : "四个页面分工明确：节点配置、接收端监控、单设备姿态可视化，以及三设备遥操作控制台。"}</p>
+          <p>{locale === "en" ? "Five focused pages: configure nodes, monitor UDP receiver data, visualize pose, calibrate three-device teleop, then inspect robot-specific control with a real URDF viewer." : "五个页面分工明确：节点配置、接收端监控、姿态可视化、三设备遥操作标定，以及带真实 URDF 视图的机器人控制。"}</p>
         </div>
         <div className="software-steps reveal">
           <article className="step-card">
@@ -424,10 +424,15 @@ export default function Home() {
             <h3>{locale === "en" ? "Pose Visualizer" : "姿态可视化"}</h3>
             <p>{locale === "en" ? "Select device, calibrate, and inspect live orientation for teleoperation debugging." : "选择设备、校准，并查看实时姿态，用于遥操作调试。"}</p>
           </article>
-          <article className="step-card highlight-step">
+          <article className="step-card">
             <span className="step-index">04</span>
             <h3>{locale === "en" ? "Teleop Console" : "遥操作控制台"}</h3>
             <p>{locale === "en" ? "Bind three live IMU nodes to upper arm, forearm, and hand, calibrate them together, then start teleop frame preview." : "绑定上臂、前臂、手部三个在线 IMU 节点，统一标定后启动遥操作帧预览。"}</p>
+          </article>
+          <article className="step-card highlight-step">
+            <span className="step-index">05</span>
+            <h3>{locale === "en" ? "Robot Control" : "机器人控制"}</h3>
+            <p>{locale === "en" ? "Select Unitree Z1 or another robot profile, inspect joint mapping, and use the real URDF viewer with the robot base fixed at the world origin." : "选择 Unitree Z1 或其他机器人模型，检查关节映射，并在真实 URDF 视图中确认机器人底座固定在世界原点。"}</p>
           </article>
         </div>
 

@@ -11,7 +11,7 @@ const copy = {
     title: "SiriusCeption Product & Software Guide",
     lead:
       "A practical product documentation page for teams evaluating, installing, configuring, and operating the SiriusCeption IMU motion-capture system.",
-    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleop Console"],
+    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleop Console", "Robot Control"],
     sections: [
       {
         id: "overview",
@@ -61,7 +61,8 @@ const copy = {
           "Node Config: USB serial setup for ID, Wi-Fi, receiver IP, UDP port, and streaming rate.",
           "Receiver Monitor: start/stop UDP receiver, inspect connected devices and live packet status.",
           "Pose Visualizer: select one device, calibrate, and inspect live orientation for debugging.",
-          "Teleop Console: bind upper arm, forearm, and hand IDs; the page requires three unique online devices before calibration and start."
+          "Teleop Console: bind upper arm, forearm, and hand IDs; the page requires three unique online devices before calibration and start.",
+          "Robot Control: select Unitree Z1 or another robot profile, inspect joint mapping and limits, and verify the real URDF viewer with the robot base fixed at the world origin."
         ]
       },
       {
@@ -78,8 +79,21 @@ const copy = {
         ]
       },
       {
-        id: "troubleshooting",
+        id: "robot-control",
         label: "06",
+        title: "Robot Control",
+        lead:
+          "Robot Control is the robot-specific stage after three-IMU calibration: select the target robot, inspect joint mapping, and use a safe preview before any real output is armed.",
+        items: [
+          "Select Unitree Z1, SO-100/SO-101 style arm, Unitree G1, Custom 6DoF, Franka Panda, UR5e, or xArm6 from the model selector.",
+          "Review joint names, limits, command format, and keep the Operator gate separate from Enable output.",
+          "The real URDF viewer renders Unitree Z1 meshes with the robot base fixed at the world origin instead of centering the whole bounding box.",
+          "Use the viewer to confirm base frame, joint tree, and command-preview shape before connecting any robot SDK/CAN/serial transport."
+        ]
+      },
+      {
+        id: "troubleshooting",
+        label: "07",
         title: "Troubleshooting checklist",
         lead:
           "Most setup problems come from network mismatch, duplicate node IDs, wrong receiver IP, closed UDP port, or an uncalibrated coordinate frame.",
@@ -104,7 +118,7 @@ const copy = {
     terminalTitle: "Serial console example",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "Recommended first-run flow",
-    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, then open Teleop Console for role binding and calibration."
+    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, open Teleop Console for role binding and calibration, then move to Robot Control for model selection and URDF-based command preview."
   },
   zh: {
     back: "返回首页",
@@ -112,7 +126,7 @@ const copy = {
     title: "SiriusCeption 产品与软件使用指南",
     lead:
       "面向评估、安装、配置和使用 SiriusCeption IMU 动作捕捉系统的文档页，集中说明产品信息、连接方式、节点配置、接收端监控与遥操作数据链路。",
-    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作控制台"],
+    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作控制台", "机器人控制"],
     sections: [
       {
         id: "overview",
@@ -162,7 +176,8 @@ const copy = {
           "Node Config：通过 USB 串口配置 ID、Wi-Fi、接收端 IP、UDP 端口和发送频率。",
           "Receiver Monitor：启动/停止 UDP 接收端，查看在线设备和实时数据包状态。",
           "Pose Visualizer：选择单个设备、执行校准、查看实时姿态，用于调试。",
-          "Teleop Console：绑定上臂、前臂、手部 ID；必须三个唯一设备都在线后才能标定和启动。"
+          "Teleop Console：绑定上臂、前臂、手部 ID；必须三个唯一设备都在线后才能标定和启动。",
+          "Robot Control：选择 Unitree Z1 或其他机器人模型，检查关节映射和限位，并确认真实 URDF 视图中机器人底座固定在世界原点。"
         ]
       },
       {
@@ -179,8 +194,21 @@ const copy = {
         ]
       },
       {
-        id: "troubleshooting",
+        id: "robot-control",
         label: "06",
+        title: "机器人控制",
+        lead:
+          "Robot Control 是三 IMU 标定之后的机器人专用阶段：选择目标机器人、检查关节映射，并在任何真实输出使能前使用安全预览。",
+        items: [
+          "可在模型选择器中选择 Unitree Z1、SO-100/SO-101、Unitree G1、Custom 6DoF、Franka Panda、UR5e 或 xArm6。",
+          "检查关节名称、限位、命令格式，并保持 Operator gate 与 Enable output 分离。",
+          "真实 URDF 视图会渲染 Unitree Z1 mesh，并让机器人底座固定在世界原点，而不是把整个 bounding box 居中。",
+          "连接任何机器人 SDK/CAN/串口传输前，先用该视图确认 base frame、joint tree 和 command preview 形状。"
+        ]
+      },
+      {
+        id: "troubleshooting",
+        label: "07",
         title: "排查清单",
         lead:
           "大多数问题来自网络不一致、节点 ID 重复、接收端 IP 错误、UDP 端口未打开或坐标系未正确标定。",
@@ -205,7 +233,7 @@ const copy = {
     terminalTitle: "串口命令示例",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "推荐首次使用流程",
-    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，最后进入 Teleop Console 绑定角色并标定。"
+    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，进入 Teleop Console 绑定角色并标定，最后进入 Robot Control 选择机器人模型并查看基于 URDF 的命令预览。"
   }
 } as const;
 
