@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-
-type Locale = "en" | "zh";
+import { useMemo } from "react";
+import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
   en: { back: "Home", badge: 'Software', title: 'Software Platform', lead: 'A high-level companion software layer. Public content stays product-facing; concrete operator screens remain part of private deployment.', cards: [
@@ -18,7 +17,7 @@ const copy = {
 } as const;
 
 export default function SplitPage() {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useLocale();
   const t = useMemo(() => copy[locale], [locale]);
   return (
     <main className="page split-page" data-locale={locale}>

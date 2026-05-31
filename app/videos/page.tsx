@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-
-type Locale = "en" | "zh";
+import { useMemo } from "react";
+import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
   en: {
@@ -52,7 +51,7 @@ const copy = {
 } as const;
 
 export default function VideosPage() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useLocale();
   const t = useMemo(() => copy[locale], [locale]);
 
   return (

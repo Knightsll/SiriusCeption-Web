@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-
-type Locale = "en" | "zh";
+import { useMemo } from "react";
+import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
   en: { back: "Home", badge: 'Blog', title: 'Blog / Research Updates', lead: 'A separate home for technical notes, project updates, and collaboration stories so the landing page stays lightweight.', cards: [
@@ -18,7 +17,7 @@ const copy = {
 } as const;
 
 export default function SplitPage() {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useLocale();
   const t = useMemo(() => copy[locale], [locale]);
   return (
     <main className="page split-page" data-locale={locale}>
