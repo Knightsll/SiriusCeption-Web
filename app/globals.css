@@ -218,6 +218,18 @@ button {
   transform: translateY(-2px);
 }
 
+.cta:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  filter: saturate(0.55);
+  transform: none;
+  box-shadow: none;
+}
+
+.cta:disabled:hover {
+  transform: none;
+}
+
 .cta.small {
   padding: 8px 14px;
   font-size: 12px;
@@ -1143,6 +1155,65 @@ button {
   font-size: 13px;
 }
 
+.teleop-role-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.teleop-role-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(246, 196, 69, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.teleop-role-card[data-valid="true"] {
+  border-color: rgba(53, 240, 177, 0.26);
+  background: rgba(53, 240, 177, 0.07);
+}
+
+.teleop-role-card .role-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-3);
+  box-shadow: 0 0 18px rgba(246, 196, 69, 0.45);
+}
+
+.teleop-role-card[data-valid="true"] .role-dot {
+  background: var(--accent);
+  box-shadow: 0 0 18px rgba(53, 240, 177, 0.5);
+}
+
+.teleop-role-card strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.teleop-role-card p,
+.teleop-role-card em,
+.teleop-role-card small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.teleop-role-card em {
+  font-style: normal;
+  color: var(--accent-2);
+}
+
+.teleop-role-card small {
+  grid-column: 2 / 4;
+  color: #ff9c7d;
+}
+
 .teleop-config {
   display: grid;
   gap: 16px;
@@ -1200,6 +1271,110 @@ button {
   color: #b7fadd;
   line-height: 1.7;
   overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.teleop-preview {
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.teleop-preview[data-ready="true"] {
+  border-color: rgba(53, 240, 177, 0.28);
+  box-shadow: inset 0 0 24px rgba(53, 240, 177, 0.06);
+}
+
+.teleop-preview-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.teleop-preview-head span {
+  color: var(--accent-2);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.teleop-preview-head strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.arm-preview {
+  position: relative;
+  height: 132px;
+  margin: 4px 0 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 30% 35%, rgba(53, 240, 177, 0.16), transparent 34%),
+    rgba(0, 0, 0, 0.28);
+  background-size: 22px 22px, 22px 22px, auto, auto;
+}
+
+.arm-preview .joint {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid rgba(5, 16, 20, 0.9);
+  box-shadow: 0 0 22px rgba(53, 240, 177, 0.55);
+  z-index: 2;
+}
+
+.arm-preview .shoulder { left: 16%; top: 54%; }
+.arm-preview .elbow { left: 46%; top: 34%; }
+.arm-preview .hand { left: 76%; top: 58%; }
+
+.arm-preview .link {
+  position: absolute;
+  height: 6px;
+  border-radius: 999px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 18px rgba(44, 197, 255, 0.35);
+}
+
+.arm-preview .link.upper {
+  left: 18%;
+  top: 59%;
+  width: 32%;
+  transform: rotate(-28deg);
+}
+
+.arm-preview .link.fore {
+  left: 48%;
+  top: 40%;
+  width: 33%;
+  transform: rotate(28deg);
+}
+
+.arm-preview .label {
+  position: absolute;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.arm-preview .shoulder-label { left: 11%; top: 73%; }
+.arm-preview .elbow-label { left: 43%; top: 14%; }
+.arm-preview .hand-label { left: 73%; top: 76%; }
+
+.teleop-preview ol {
+  display: grid;
+  gap: 7px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .teleop-actions {

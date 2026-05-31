@@ -222,10 +222,21 @@ export default function Home() {
   const [teleopPose, setTeleopPose] = useState("forward");
   const t = useMemo(() => copy[locale], [locale]);
 
-  const assignedTeleopIds = Object.values(teleopIds).filter(Boolean);
+  const assignedTeleopIds = Object.values(teleopIds).map((id) => id.trim()).filter(Boolean);
   const hasThreeTeleopDevices = assignedTeleopIds.length === 3;
+  const duplicateTeleopIds = assignedTeleopIds.filter((id, index) => assignedTeleopIds.indexOf(id) !== index);
   const hasUniqueTeleopDevices = new Set(assignedTeleopIds).size === assignedTeleopIds.length;
   const teleopReady = hasThreeTeleopDevices && hasUniqueTeleopDevices;
+  const teleopBlockReason = !hasThreeTeleopDevices
+    ? (locale === "en" ? "Needs 3 devices" : "需要 3 个设备")
+    : !hasUniqueTeleopDevices
+      ? (locale === "en" ? "Fix duplicate IDs" : "修正重复 ID")
+      : (locale === "en" ? "Ready to calibrate" : "可进入标定");
+  const teleopRoles = [
+    { key: "upper", labelEn: "Upper arm", labelZh: "上臂", id: teleopIds.upper, body: locale === "en" ? "Shoulder → elbow segment" : "肩部 → 肘部骨段" },
+    { key: "fore", labelEn: "Forearm", labelZh: "前臂", id: teleopIds.fore, body: locale === "en" ? "Elbow → wrist segment" : "肘部 → 腕部骨段" },
+    { key: "hand", labelEn: "Hand", labelZh: "手部", id: teleopIds.hand, body: locale === "en" ? "Wrist / hand orientation" : "腕部 / 手部朝向" }
+  ];
   const teleopCommand = `python teleop_3joint_visualizer.py --upper-id ${teleopIds.upper || "<upper>"} --fore-id ${teleopIds.fore || "<fore>"} --hand-id ${teleopIds.hand || "<hand>"} --l-upper ${teleopLengths.upper || "0.30"} --l-fore ${teleopLengths.fore || "0.25"} --init-pose ${teleopPose} --earth-frame SEU --port 9999`;
 
   return (
@@ -430,8 +441,26 @@ export default function Home() {
                 : "客户端已经加入独立 Teleop 页面。进入标定前必须有三个唯一且在线的 SiriusCeption 节点：上臂、前臂、手部；任一角色缺失或 ID 重复都会阻止启动。"}
             </p>
             <div className="teleop-status" data-ready={teleopReady}>
-              <strong>{teleopReady ? (locale === "en" ? "Ready to calibrate" : "可进入标定") : (locale === "en" ? "Needs 3 unique devices" : "需要 3 个唯一设备")}</strong>
+              <strong>{teleopBlockReason}</strong>
               <span>{assignedTeleopIds.length}/3 {locale === "en" ? "assigned" : "已绑定"}</span>
+            </div>
+            <div className="teleop-role-list" aria-label={locale === "en" ? "Required teleop device roles" : "遥操作必需设备角色"}>
+              {teleopRoles.map((role) => {
+                const roleId = role.id.trim();
+                const duplicate = roleId !== "" && duplicateTeleopIds.includes(roleId);
+                const valid = roleId !== "" && !duplicate;
+                return (
+                  <div className="teleop-role-card" data-valid={valid} key={role.key}>
+                    <span className="role-dot" />
+                    <div>
+                      <strong>{locale === "en" ? role.labelEn : role.labelZh}</strong>
+                      <p>{role.body}</p>
+                    </div>
+                    <em>{roleId ? `ID ${roleId}` : (locale === "en" ? "Unassigned" : "未绑定")}</em>
+                    {duplicate && <small>{locale === "en" ? "Duplicate ID" : "ID 重复"}</small>}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -475,8 +504,33 @@ export default function Home() {
               <code>{teleopCommand}</code>
             </div>
 
+            <div className="teleop-preview" data-ready={teleopReady}>
+              <div className="teleop-preview-head">
+                <span>{locale === "en" ? "Page interaction flow" : "页面交互流程"}</span>
+                <strong>{teleopReady ? (locale === "en" ? "3 devices mapped" : "3 个设备已映射") : teleopBlockReason}</strong>
+              </div>
+              <div className="arm-preview" aria-hidden="true">
+                <span className="joint shoulder" />
+                <span className="joint elbow" />
+                <span className="joint hand" />
+                <span className="link upper" />
+                <span className="link fore" />
+                <b className="label shoulder-label">{locale === "en" ? "upper" : "上臂"}</b>
+                <b className="label elbow-label">{locale === "en" ? "fore" : "前臂"}</b>
+                <b className="label hand-label">{locale === "en" ? "hand" : "手部"}</b>
+              </div>
+              <ol>
+                <li>{locale === "en" ? "Bind upper / forearm / hand IDs" : "绑定上臂 / 前臂 / 手部 ID"}</li>
+                <li>{locale === "en" ? "Verify three unique live nodes in Receiver Monitor" : "在接收端监控确认三个唯一在线节点"}</li>
+                <li>{locale === "en" ? "Calibrate all three together, then start teleop preview" : "三设备同步标定后启动遥操作预览"}</li>
+              </ol>
+            </div>
+
             <div className="teleop-actions">
-              <a className="cta primary small" href="/docs#teleop">
+              <button className="cta primary small" disabled={!teleopReady} type="button">
+                {teleopReady ? (locale === "en" ? "Start Teleop Preview" : "启动遥操作预览") : teleopBlockReason}
+              </button>
+              <a className="cta ghost small" href="/docs#teleop">
                 {locale === "en" ? "Open Teleop guide" : "打开遥操作指南"}
               </a>
               <a className="cta ghost small" href="/software/teleop_3joint_visualizer.py" download>
