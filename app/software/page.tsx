@@ -4,15 +4,15 @@ import { useMemo } from "react";
 import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
-  en: { back: "Home", badge: 'Software', title: 'Software Platform', lead: 'A high-level companion software layer. Public content stays product-facing; concrete operator screens remain part of private deployment.', cards: [
-      { title: 'Device onboarding', body: 'Guided setup and receiver readiness for wearable nodes.', points: ['Deployment-oriented', 'Hardware-aware', 'Operator-friendly'] },
-      { title: 'Motion validation', body: 'Visual checks for motion quality before downstream use.', points: ['Pose preview', 'Signal quality checks', 'Calibration support'] },
-      { title: 'Robot integration', body: 'Safe mapping and preview once target hardware is confirmed.', points: ['Model-specific mapping', 'Preview before output', 'Safety-gated workflow'] }
+  en: { back: "Home", badge: 'Software', title: 'Data Acquisition Software Roadmap', lead: 'Software is positioned as the future control layer of the one-stop embodied-intelligence data acquisition system: device onboarding, quality checks, teleop, labeling, replay, and export.', cards: [
+      { title: 'Device onboarding', body: 'Turn the current hardware product into a managed capture setup.', points: ['Node identity', 'Receiver readiness', 'Multi-device status'] },
+      { title: 'Data quality validation', body: 'Check motion quality before data enters training or teleoperation workflows.', points: ['Pose preview', 'Signal quality checks', 'Calibration evidence'] },
+      { title: 'Dataset workflow', body: 'The planned system connects sessions, labels, replay, and robot/simulation export.', points: ['Capture sessions', 'Label and replay', 'Robot-ready export'] }
     ] },
-  zh: { back: "首页", badge: '软件', title: '软件平台', lead: '高层次的配套软件介绍。官网只展示产品定位，具体操作页面属于私有交付内容。', cards: [
-      { title: '设备接入', body: '为可穿戴节点和接收端状态提供引导。', points: ['面向交付', '理解硬件', '便于操作者使用'] },
-      { title: '动作验证', body: '在进入下游流程前检查动作质量。', points: ['姿态预览', '信号质量检查', '标定支持'] },
-      { title: '机器人集成', body: '目标硬件确认后进行安全映射与预览。', points: ['模型专用映射', '输出前预览', '安全门控流程'] }
+  zh: { back: "首页", badge: '软件', title: '数据采集软件路线', lead: '软件会成为一站式具身智能数据采集系统的控制层：设备接入、质量检查、遥操作、标注、回放和导出。', cards: [
+      { title: '设备接入', body: '把当前硬件产品变成可管理的采集配置。', points: ['节点身份', '接收端就绪', '多设备状态'] },
+      { title: '数据质量验证', body: '在数据进入训练或遥操作流程前检查动作质量。', points: ['姿态预览', '信号质量检查', '标定证据'] },
+      { title: '数据集流程', body: '规划中的系统会串联采集会话、标签、回放和机器人/仿真导出。', points: ['采集会话', '标注与回放', '机器人可用数据导出'] }
     ] }
 } as const;
 

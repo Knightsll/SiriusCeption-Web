@@ -4,12 +4,12 @@ import { useMemo } from "react";
 import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
-  en: { back: "Home", badge: 'Blog', title: 'Blog / Research Updates', lead: 'A separate home for technical notes, project updates, and collaboration stories so the landing page stays lightweight.', cards: [
+  en: { back: "Home", badge: 'Blog', title: 'Blog / Research Updates', lead: 'Technical notes and roadmap updates around embodied-intelligence data acquisition: hardware today, one-stop data workflows next.', cards: [
       { title: 'Embodied motion library', body: 'How structured capture workflows improve training data value.', points: ['Motion decomposition', 'Label design', 'Dataset reuse'] },
       { title: 'Teleoperation latency', body: 'End-to-end optimization from sensing to control output.', points: ['Sensor fusion', 'Transport timing', 'Control preview'] },
       { title: 'Wearable tracker maintenance', body: 'Reliability and calibration practices for high-frequency use.', points: ['Calibration routine', 'Mounting checks', 'Field maintenance'] }
     ] },
-  zh: { back: "首页", badge: 'Blog', title: 'Blog / 研究与进展', lead: '技术文章、项目动态和合作案例放在独立页面，让首页保持轻量。', cards: [
+  zh: { back: "首页", badge: 'Blog', title: 'Blog / 研究与进展', lead: '围绕具身智能数据采集的技术文章与路线更新：当前硬件产品，下一步是一站式数据流程。', cards: [
       { title: '具身动作库', body: '结构化采集流程如何提升训练数据价值。', points: ['动作拆解', '标签设计', '数据集复用'] },
       { title: '遥操作延迟', body: '从感知到控制输出的端到端优化。', points: ['传感融合', '传输时序', '控制预览'] },
       { title: '可穿戴设备维护', body: '高频使用下的可靠性与标定实践。', points: ['标定流程', '佩戴检查', '现场维护'] }

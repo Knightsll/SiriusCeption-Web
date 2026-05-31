@@ -7,9 +7,9 @@ const copy = {
   en: {
     back: "Back to Home",
     badge: "Product Docs",
-    title: "SiriusCeption Product & Software Guide",
+    title: "SiriusCeption Data Acquisition System Guide",
     lead:
-      "A practical product documentation page for teams evaluating, installing, configuring, and operating the SiriusCeption IMU motion-capture system.",
+      "A practical guide for teams evaluating the current SiriusCeption IMU hardware product and the software path toward a one-stop embodied-intelligence data acquisition system.",
     quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleop Console", "Robot Control"],
     sections: [
       {
@@ -17,11 +17,11 @@ const copy = {
         label: "01",
         title: "What SiriusCeption is",
         lead:
-          "SiriusCeption is a wearable IMU motion-capture device for robot teleoperation and embodied-AI data collection. Each node streams orientation and motion data over Wi-Fi/UDP to an Ubuntu receiver, where the software monitors devices, visualizes pose, and exposes data for robot-control pipelines.",
+          "SiriusCeption is currently a wearable IMU hardware product for robot teleoperation and embodied-AI data collection. The product direction is a one-stop data acquisition system where hardware, receiver software, teleop, validation, labeling, replay, and export work as one workflow.",
         items: [
           "Use human motion as a low-friction control interface for robots and simulation.",
           "Collect reusable motion demonstrations for embodied-intelligence training data.",
-          "Start with arm-only teleoperation, then extend to full-body capture workflows."
+          "Start with hardware-based arm teleoperation, then extend toward managed data sessions, labels, replay, and full-body workflows."
         ]
       },
       {
@@ -122,9 +122,9 @@ const copy = {
   zh: {
     back: "返回首页",
     badge: "产品文档",
-    title: "SiriusCeption 产品与软件使用指南",
+    title: "SiriusCeption 数据采集系统指南",
     lead:
-      "面向评估、安装、配置和使用 SiriusCeption IMU 动作捕捉系统的文档页，集中说明产品信息、连接方式、节点配置、接收端监控与遥操作数据链路。",
+      "面向评估当前 SiriusCeption IMU 硬件产品以及未来一站式具身智能数据采集系统的软件路线，集中说明连接、配置、监控、遥操作与数据链路。",
     quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作控制台", "机器人控制"],
     sections: [
       {
@@ -132,11 +132,11 @@ const copy = {
         label: "01",
         title: "SiriusCeption 是什么",
         lead:
-          "SiriusCeption 是用于机器人遥操作与具身智能数据采集的可穿戴 IMU 动作捕捉设备。每个节点通过 Wi-Fi/UDP 将姿态与运动数据发送到 Ubuntu 接收端，软件端负责设备监控、姿态可视化，并为机器人控制管线提供数据。",
+          "SiriusCeption 当前是用于机器人遥操作与具身智能数据采集的可穿戴 IMU 硬件产品。长期方向是一站式数据采集系统，让硬件、接收端软件、遥操作、质量验证、标注、回放和导出形成一个完整流程。",
         items: [
           "把人体动作变成低门槛的机器人与仿真控制接口。",
           "采集可复用的动作示教数据，用于具身智能训练。",
-          "可先从手臂遥操作开始，再扩展到全身姿态采集流程。"
+          "可先从硬件驱动的手臂遥操作开始，再扩展到可管理的数据会话、标签、回放和全身采集流程。"
         ]
       },
       {

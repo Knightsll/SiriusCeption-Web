@@ -8,36 +8,36 @@ const copy = {
     nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
-      eyebrow: "Embodied Intelligence Data Engine",
+      eyebrow: "Embodied Intelligence Data Acquisition System",
       title1: "SiriusCeption",
-      title2: "Full-body Motion Tracking",
-      title3: "Make robots truly understand human actions",
+      title2: "Embodied Data Collection",
+      title3: "From wearable hardware to a one-stop data platform",
       lead:
-        "Wearable full-body and arm-only versions, built for embodied intelligence data capture and robot teleoperation. Wear-and-collect, low-friction labeling, immersive control."
+        "SiriusCeption starts with wearable IMU hardware today, and is evolving into a one-stop embodied-intelligence data acquisition system covering capture, teleoperation, validation, labeling, replay, and robot-ready datasets."
     },
     metrics: [
-      { metric: "17+ joints", meta: "High-precision pose capture" },
-      { metric: "Millisecond latency", meta: "Real-time teleoperation" },
-      { metric: "Multi-platform API", meta: "Robots & simulation ready" }
+      { metric: "Hardware now", meta: "Wearable IMU capture" },
+      { metric: "3-device teleop", meta: "Upper arm · forearm · hand" },
+      { metric: "Data platform next", meta: "Capture · label · replay · export" }
     ],
     product: {
-      title: "Versions for Every Scenario",
-      lead: "Full-body and arm-only versions cover the full pipeline from motion capture to robot teleoperation.",
+      title: "Hardware Today, Data System Tomorrow",
+      lead: "The current product is the wearable motion-capture hardware layer; the product direction is a one-stop embodied data acquisition workflow from device setup to robot-ready datasets.",
       cards: [
         {
-          title: "Full-body Control",
-          lead: "Capture torso, limbs, and joints for complex motions and multi-modal behaviors.",
-          points: ["3D full-body pose & motion reconstruction", "Human-robot & simulation mapping", "Motion library & batch labeling"]
+          title: "Wearable capture hardware",
+          lead: "Reliable IMU nodes collect human motion as the first layer of the embodied data stack.",
+          points: ["3D pose & motion reconstruction", "Arm-only and full-body expansion path", "Stable field-ready capture sessions"]
         },
         {
-          title: "Arm-only Control",
-          lead: "Lightweight deployment for fast teleoperation workflows, ideal for mobile arms and cobots.",
-          points: ["Lower cost, high-frequency capture", "Plug-and-play calibration", "Combine with vision & force control"]
+          title: "Three-device teleoperation",
+          lead: "The arm teleop workflow is designed around three devices: upper arm, forearm, and hand.",
+          points: ["Role-based device binding", "Safe calibration before start", "Robot preview before real output"]
         },
         {
-          title: "Extensible Stack",
-          lead: "Multi-device collaboration, sensor fusion, and custom labels form a reusable data pipeline.",
-          points: ["Open SDK & data formats", "Fleet monitoring & management", "Automated capture & replay"]
+          title: "One-stop data pipeline",
+          lead: "Future software layers will connect capture, quality checks, labels, replay, and export into one acquisition system.",
+          points: ["Dataset session management", "Labeling and validation workflow", "Robot & simulation data export"]
         }
       ]
     },
@@ -110,7 +110,7 @@ const copy = {
       lead: "Talk to the SiriusCeption team to deploy embodied data and teleoperation workflows."
     },
     footer: {
-      tagline: "Embodied Data & Teleoperation Platform",
+      tagline: "Embodied Intelligence Data Acquisition System",
       locations: "Beijing · Shanghai · Shenzhen"
     }
   },
@@ -118,36 +118,36 @@ const copy = {
     nav: { product: "产品", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
-      eyebrow: "具身智能数据引擎",
+      eyebrow: "具身智能数据采集系统",
       title1: "SiriusCeption",
-      title2: "全身姿态跟踪",
-      title3: "让机器人真正理解人类动作",
+      title2: "具身智能数据采集",
+      title3: "从可穿戴硬件走向一站式数据平台",
       lead:
-        "可穿戴全身与手臂姿态控制版本，专为具身智能数据采集与机器人遥操作打造。即穿即采、低门槛标注、沉浸式控制体验。"
+        "SiriusCeption 现阶段以可穿戴 IMU 硬件为核心，未来目标是形成覆盖采集、遥操作、质检、标注、回放与机器人数据导出的具身智能一站式数据采集系统。"
     },
     metrics: [
-      { metric: "全身 17+ 关节", meta: "高精度姿态捕捉" },
-      { metric: "毫秒级延迟", meta: "遥操作实时控制" },
-      { metric: "多平台 API", meta: "接入机器人与仿真" }
+      { metric: "当前硬件产品", meta: "可穿戴 IMU 采集" },
+      { metric: "三设备遥操作", meta: "上臂 · 前臂 · 手部" },
+      { metric: "未来数据平台", meta: "采集 · 标注 · 回放 · 导出" }
     ],
     product: {
-      title: "多版本覆盖多场景",
-      lead: "全身姿态控制与手臂姿态控制版本，满足从动作采集到机器人遥操作的完整链路。",
+      title: "当前是硬件，目标是数据系统",
+      lead: "现阶段产品重点是可穿戴动作采集硬件；长期方向是把设备接入、遥操作、数据质检、标注、回放和导出整合为一站式具身智能数据采集系统。",
       cards: [
         {
-          title: "全身姿态控制版本",
-          lead: "完整覆盖躯干、四肢与关节动捕，支持复杂动作、多模态操作行为采集。",
-          points: ["全身 3D 姿态捕捉与动作重建", "适配人形机器人与仿真平台", "动作库沉淀与批量标注"]
+          title: "可穿戴采集硬件",
+          lead: "以稳定的 IMU 节点采集人体动作，作为具身智能数据栈的第一层。",
+          points: ["3D 姿态捕捉与动作重建", "从手臂版本扩展到全身采集", "支持高频真实场景采集"]
         },
         {
-          title: "手臂姿态控制版本",
-          lead: "聚焦上肢动作，轻量部署，快速建立遥操作流程，适合移动机械臂与协作机器人。",
-          points: ["低成本高频采集", "即插即用校准", "可与视觉/力控结合"]
+          title: "三设备遥操作",
+          lead: "手臂遥操作明确围绕三个设备设计：上臂、前臂、手部，减少用户配置混乱。",
+          points: ["按角色绑定设备", "启动前完成安全标定", "真实输出前先预览机器人动作"]
         },
         {
-          title: "可扩展能力",
-          lead: "支持多机协同、传感器融合与自定义动作标签，形成可复用的具身智能数据管线。",
-          points: ["开放 SDK 与数据格式", "多终端监控与管理", "自动化采集与回放"]
+          title: "一站式数据管线",
+          lead: "后续软件能力会把采集、质量检查、标签、回放和导出串成完整数据采集系统。",
+          points: ["数据集会话管理", "标注与质检流程", "机器人与仿真数据导出"]
         }
       ]
     },
@@ -208,7 +208,7 @@ const copy = {
       lead: "与 SiriusCeption 团队沟通部署方案，开启具身智能数据与遥操作实践。"
     },
     footer: {
-      tagline: "具身智能数据与遥操作平台",
+      tagline: "具身智能数据采集系统",
       locations: "北京 · 上海 · 深圳"
     }
   }
@@ -326,15 +326,15 @@ export default function Home() {
           <h2>{locale === "en" ? "Explore SiriusCeption" : "浏览 SiriusCeption"}</h2>
           <p>
             {locale === "en"
-              ? "The website is now split into focused pages so the homepage stays clear while deeper product, application, software, media, and research content can grow independently."
-              : "官网已拆分为独立页面：首页保持清晰，产品、应用、软件、视频和研究内容可以分别扩展。"}
+              ? "The website now presents SiriusCeption as an embodied-intelligence data acquisition system: hardware is the current product layer, while software pages describe the path toward an end-to-end data workflow."
+              : "官网现在要把 SiriusCeption 表达为具身智能数据采集系统：当前产品层是硬件，软件页面体现未来端到端数据流程。"}
           </p>
         </div>
         <div className="hub-grid reveal">
           <a className="hub-card highlight" href="/product">
             <span className="step-index">01</span>
             <h3>{locale === "en" ? "Product" : "产品"}</h3>
-            <p>{locale === "en" ? "Hardware versions, sensing stack, and system capabilities." : "硬件版本、传感栈与系统能力。"}</p>
+            <p>{locale === "en" ? "Current hardware product layer and future data-system architecture." : "当前硬件产品层与未来数据系统架构。"}</p>
           </a>
           <a className="hub-card" href="/applications">
             <span className="step-index">02</span>
@@ -344,7 +344,7 @@ export default function Home() {
           <a className="hub-card" href="/software">
             <span className="step-index">03</span>
             <h3>{locale === "en" ? "Software" : "软件"}</h3>
-            <p>{locale === "en" ? "High-level companion software story without exposing operator details." : "只展示配套软件定位，不公开具体操作细节。"}</p>
+            <p>{locale === "en" ? "Future acquisition workflow: onboarding, validation, teleop, labeling, replay, and export." : "未来采集流程：接入、质检、遥操作、标注、回放和导出。"}</p>
           </a>
           <a className="hub-card" href="/videos">
             <span className="step-index">04</span>
