@@ -217,27 +217,7 @@ const copy = {
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
-  const [teleopIds, setTeleopIds] = useState({ upper: "1", fore: "2", hand: "3" });
-  const [teleopLengths, setTeleopLengths] = useState({ upper: "0.30", fore: "0.25" });
-  const [teleopPose, setTeleopPose] = useState("forward");
   const t = useMemo(() => copy[locale], [locale]);
-
-  const assignedTeleopIds = Object.values(teleopIds).map((id) => id.trim()).filter(Boolean);
-  const hasThreeTeleopDevices = assignedTeleopIds.length === 3;
-  const duplicateTeleopIds = assignedTeleopIds.filter((id, index) => assignedTeleopIds.indexOf(id) !== index);
-  const hasUniqueTeleopDevices = new Set(assignedTeleopIds).size === assignedTeleopIds.length;
-  const teleopReady = hasThreeTeleopDevices && hasUniqueTeleopDevices;
-  const teleopBlockReason = !hasThreeTeleopDevices
-    ? (locale === "en" ? "Needs 3 devices" : "需要 3 个设备")
-    : !hasUniqueTeleopDevices
-      ? (locale === "en" ? "Fix duplicate IDs" : "修正重复 ID")
-      : (locale === "en" ? "Ready to calibrate" : "可进入标定");
-  const teleopRoles = [
-    { key: "upper", labelEn: "Upper arm", labelZh: "上臂", id: teleopIds.upper, body: locale === "en" ? "Shoulder → elbow segment" : "肩部 → 肘部骨段" },
-    { key: "fore", labelEn: "Forearm", labelZh: "前臂", id: teleopIds.fore, body: locale === "en" ? "Elbow → wrist segment" : "肘部 → 腕部骨段" },
-    { key: "hand", labelEn: "Hand", labelZh: "手部", id: teleopIds.hand, body: locale === "en" ? "Wrist / hand orientation" : "腕部 / 手部朝向" }
-  ];
-  const teleopCommand = `python teleop_3joint_visualizer.py --upper-id ${teleopIds.upper || "<upper>"} --fore-id ${teleopIds.fore || "<fore>"} --hand-id ${teleopIds.hand || "<hand>"} --l-upper ${teleopLengths.upper || "0.30"} --l-fore ${teleopLengths.fore || "0.25"} --init-pose ${teleopPose} --earth-frame SEU --port 9999`;
 
   return (
     <main className="page" data-locale={locale}>
@@ -405,148 +385,35 @@ export default function Home() {
 
       <section id="software" className="section software">
         <div className="section-title">
-          <h2>{locale === "en" ? "Client Workflow" : "客户端使用流程"}</h2>
-          <p>{locale === "en" ? "Five focused pages: configure nodes, monitor UDP receiver data, visualize pose, calibrate three-device teleop, then inspect robot-specific control with a real URDF viewer." : "五个页面分工明确：节点配置、接收端监控、姿态可视化、三设备遥操作标定，以及带真实 URDF 视图的机器人控制。"}</p>
+          <h2>{locale === "en" ? "Software Platform" : "软件平台"}</h2>
+          <p>
+            {locale === "en"
+              ? "A private companion software layer for device setup, motion visualization, teleoperation, and robot integration. Detailed operator screens are provided during deployment, not exposed on the public website."
+              : "配套软件用于设备设置、动作可视化、遥操作与机器人集成。具体操作页面只在部署交付中提供，不在官网公开展示。"}
+          </p>
         </div>
         <div className="software-steps reveal">
           <article className="step-card">
             <span className="step-index">01</span>
-            <h3>{locale === "en" ? "Node Config" : "节点配置"}</h3>
-            <p>{locale === "en" ? "USB serial setup for ID, Wi-Fi, receiver IP, UDP port, and stream rate." : "通过 USB 串口设置 ID、Wi-Fi、接收端 IP、UDP 端口与发送频率。"}</p>
+            <h3>{locale === "en" ? "Device setup" : "设备接入"}</h3>
+            <p>{locale === "en" ? "Guided onboarding for SiriusCeption wearable nodes and receiver-side readiness." : "为 SiriusCeption 可穿戴节点与接收端就绪状态提供引导式接入。"}</p>
           </article>
           <article className="step-card">
             <span className="step-index">02</span>
-            <h3>{locale === "en" ? "Receiver Monitor" : "接收端监控"}</h3>
-            <p>{locale === "en" ? "Start UDP, view devices, packet rate, age, quaternion, gyro, and accel." : "启动 UDP，查看设备、包频率、延迟、四元数、陀螺仪与加速度。"}</p>
+            <h3>{locale === "en" ? "Motion preview" : "动作预览"}</h3>
+            <p>{locale === "en" ? "Visualization tools help teams validate motion quality before using data downstream." : "通过可视化工具确认动作质量，再进入后续数据或控制流程。"}</p>
           </article>
           <article className="step-card">
             <span className="step-index">03</span>
-            <h3>{locale === "en" ? "Pose Visualizer" : "姿态可视化"}</h3>
-            <p>{locale === "en" ? "Select device, calibrate, and inspect live orientation for teleoperation debugging." : "选择设备、校准，并查看实时姿态，用于遥操作调试。"}</p>
-          </article>
-          <article className="step-card">
-            <span className="step-index">04</span>
-            <h3>{locale === "en" ? "Teleop Console" : "遥操作控制台"}</h3>
-            <p>{locale === "en" ? "Bind three live IMU nodes to upper arm, forearm, and hand, calibrate them together, then start teleop frame preview." : "绑定上臂、前臂、手部三个在线 IMU 节点，统一标定后启动遥操作帧预览。"}</p>
+            <h3>{locale === "en" ? "Teleoperation workflow" : "遥操作流程"}</h3>
+            <p>{locale === "en" ? "Arm teleoperation is designed around a three-wearable interaction model for stable upper-limb mapping." : "手臂遥操作围绕三设备交互模型设计，以保证上肢映射稳定。"}</p>
           </article>
           <article className="step-card highlight-step">
-            <span className="step-index">05</span>
-            <h3>{locale === "en" ? "Robot Control" : "机器人控制"}</h3>
-            <p>{locale === "en" ? "Select Unitree Z1 or another robot profile, inspect joint mapping, and use the real URDF viewer with the robot base fixed at the world origin." : "选择 Unitree Z1 或其他机器人模型，检查关节映射，并在真实 URDF 视图中确认机器人底座固定在世界原点。"}</p>
+            <span className="step-index">04</span>
+            <h3>{locale === "en" ? "Robot integration" : "机器人集成"}</h3>
+            <p>{locale === "en" ? "Robot-specific mapping and preview remain gated until the target hardware and safety workflow are confirmed." : "机器人映射与预览会在目标硬件和安全流程确认后再开放。"}</p>
           </article>
         </div>
-
-        <div className="teleop-panel reveal delay-1">
-          <div className="teleop-copy">
-            <span className="tag">{locale === "en" ? "3-device teleop" : "三设备遥操作"}</span>
-            <h3>{locale === "en" ? "Teleop is now a software page, not just a script" : "遥操作现在是软件页面，不只是脚本"}</h3>
-            <p>
-              {locale === "en"
-                ? "The client has a dedicated Teleop page. It requires exactly three unique online SiriusCeption nodes before calibration: upper arm, forearm, and hand. The page blocks start until all three roles are live."
-                : "客户端已经加入独立 Teleop 页面。进入标定前必须有三个唯一且在线的 SiriusCeption 节点：上臂、前臂、手部；任一角色缺失或 ID 重复都会阻止启动。"}
-            </p>
-            <div className="teleop-status" data-ready={teleopReady}>
-              <strong>{teleopBlockReason}</strong>
-              <span>{assignedTeleopIds.length}/3 {locale === "en" ? "assigned" : "已绑定"}</span>
-            </div>
-            <div className="teleop-role-list" aria-label={locale === "en" ? "Required teleop device roles" : "遥操作必需设备角色"}>
-              {teleopRoles.map((role) => {
-                const roleId = role.id.trim();
-                const duplicate = roleId !== "" && duplicateTeleopIds.includes(roleId);
-                const valid = roleId !== "" && !duplicate;
-                return (
-                  <div className="teleop-role-card" data-valid={valid} key={role.key}>
-                    <span className="role-dot" />
-                    <div>
-                      <strong>{locale === "en" ? role.labelEn : role.labelZh}</strong>
-                      <p>{role.body}</p>
-                    </div>
-                    <em>{roleId ? `ID ${roleId}` : (locale === "en" ? "Unassigned" : "未绑定")}</em>
-                    {duplicate && <small>{locale === "en" ? "Duplicate ID" : "ID 重复"}</small>}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="teleop-config">
-            <div className="teleop-device-grid">
-              <label>
-                <span>{locale === "en" ? "Upper arm ID" : "上臂设备 ID"}</span>
-                <input value={teleopIds.upper} onChange={(event) => setTeleopIds({ ...teleopIds, upper: event.target.value })} inputMode="numeric" />
-              </label>
-              <label>
-                <span>{locale === "en" ? "Forearm ID" : "前臂设备 ID"}</span>
-                <input value={teleopIds.fore} onChange={(event) => setTeleopIds({ ...teleopIds, fore: event.target.value })} inputMode="numeric" />
-              </label>
-              <label>
-                <span>{locale === "en" ? "Hand ID" : "手部设备 ID"}</span>
-                <input value={teleopIds.hand} onChange={(event) => setTeleopIds({ ...teleopIds, hand: event.target.value })} inputMode="numeric" />
-              </label>
-            </div>
-
-            <div className="teleop-options">
-              <label>
-                <span>{locale === "en" ? "Upper length (m)" : "上臂长度 (m)"}</span>
-                <input value={teleopLengths.upper} onChange={(event) => setTeleopLengths({ ...teleopLengths, upper: event.target.value })} inputMode="decimal" />
-              </label>
-              <label>
-                <span>{locale === "en" ? "Forearm length (m)" : "前臂长度 (m)"}</span>
-                <input value={teleopLengths.fore} onChange={(event) => setTeleopLengths({ ...teleopLengths, fore: event.target.value })} inputMode="decimal" />
-              </label>
-              <label>
-                <span>{locale === "en" ? "Calibration pose" : "标定姿态"}</span>
-                <select value={teleopPose} onChange={(event) => setTeleopPose(event.target.value)}>
-                  <option value="forward">forward</option>
-                  <option value="down">down</option>
-                  <option value="left">left</option>
-                </select>
-              </label>
-            </div>
-
-            <div className="teleop-command">
-              <span>{locale === "en" ? "Launch command" : "启动命令"}</span>
-              <code>{teleopCommand}</code>
-            </div>
-
-            <div className="teleop-preview" data-ready={teleopReady}>
-              <div className="teleop-preview-head">
-                <span>{locale === "en" ? "Page interaction flow" : "页面交互流程"}</span>
-                <strong>{teleopReady ? (locale === "en" ? "3 devices mapped" : "3 个设备已映射") : teleopBlockReason}</strong>
-              </div>
-              <div className="arm-preview" aria-hidden="true">
-                <span className="joint shoulder" />
-                <span className="joint elbow" />
-                <span className="joint hand" />
-                <span className="link upper" />
-                <span className="link fore" />
-                <b className="label shoulder-label">{locale === "en" ? "upper" : "上臂"}</b>
-                <b className="label elbow-label">{locale === "en" ? "fore" : "前臂"}</b>
-                <b className="label hand-label">{locale === "en" ? "hand" : "手部"}</b>
-              </div>
-              <ol>
-                <li>{locale === "en" ? "Bind upper / forearm / hand IDs" : "绑定上臂 / 前臂 / 手部 ID"}</li>
-                <li>{locale === "en" ? "Verify three unique live nodes in Receiver Monitor" : "在接收端监控确认三个唯一在线节点"}</li>
-                <li>{locale === "en" ? "Calibrate all three together, then start teleop preview" : "三设备同步标定后启动遥操作预览"}</li>
-              </ol>
-            </div>
-
-            <div className="teleop-actions">
-              <button className="cta primary small" disabled={!teleopReady} type="button">
-                {teleopReady ? (locale === "en" ? "Start Teleop Preview" : "启动遥操作预览") : teleopBlockReason}
-              </button>
-              <a className="cta ghost small" href="/docs#teleop">
-                {locale === "en" ? "Open Teleop guide" : "打开遥操作指南"}
-              </a>
-              <a className="cta ghost small" href="/software/teleop_3joint_visualizer.py" download>
-                {locale === "en" ? "Download Python script" : "下载 Python 脚本"}
-              </a>
-            </div>
-          </div>
-        </div>
-        <a className="cta ghost software-doc-link" href="/docs">
-          {locale === "en" ? "Read product docs" : "查看产品文档"}
-        </a>
       </section>
 
       <section id="media" className="section media">
