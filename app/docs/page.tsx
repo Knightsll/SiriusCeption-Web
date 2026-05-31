@@ -11,7 +11,7 @@ const copy = {
     title: "SiriusCeption Product & Software Guide",
     lead:
       "A practical product documentation page for teams evaluating, installing, configuring, and operating the SiriusCeption IMU motion-capture system.",
-    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleoperation SDK"],
+    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleop Console"],
     sections: [
       {
         id: "overview",
@@ -60,20 +60,21 @@ const copy = {
         items: [
           "Node Config: USB serial setup for ID, Wi-Fi, receiver IP, UDP port, and streaming rate.",
           "Receiver Monitor: start/stop UDP receiver, inspect connected devices and live packet status.",
-          "Pose Visualizer: select devices, calibrate, and inspect live orientation for teleoperation debugging."
+          "Pose Visualizer: select one device, calibrate, and inspect live orientation for debugging.",
+          "Teleop Console: bind upper arm, forearm, and hand IDs; the page requires three unique online devices before calibration and start."
         ]
       },
       {
         id: "teleop",
         label: "05",
-        title: "Teleoperation SDK",
+        title: "Teleop Console",
         lead:
-          "The Python teleoperation layer turns UDP IMU data into a three-segment arm pose. It supports calibration poses, coordinate-frame selection, segment lengths, and robot-base offsets.",
+          "The SiriusCeption client now has a dedicated Teleop page for a three-IMU arm workflow. It turns the Python teleoperation parameters into a guided UI and blocks unsafe starts until all required devices are present.",
         items: [
           "Teleop requires exactly three IMU devices: upper arm, forearm, and hand, each with a unique saved node ID.",
-          "Use the Teleop Console on the home page to bind the three IDs, set segment lengths, and generate the `teleop_3joint_visualizer.py` launch command.",
-          "Choose `init_pose`: down, forward, or left; choose `earth_frame`: SEU/BNO08X, ENU, NED, or NWU.",
-          "Run calibration while the operator holds still, then read positions and hand rotation for downstream robot control."
+          "Open the Teleop page, bind the three role IDs, and confirm each role is online in the live role cards.",
+          "Set upper/forearm segment lengths, `init_pose`, `earth_frame`, calibration duration, output rate, and optional `base_offset`.",
+          "Click Apply Settings, Calibrate All while the operator holds still, then Start Teleop to inspect the live command-frame preview."
         ]
       },
       {
@@ -103,7 +104,7 @@ const copy = {
     terminalTitle: "Serial console example",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "Recommended first-run flow",
-    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat IDs for the remaining body segments and validate them in Receiver Monitor before calibrating the Pose Visualizer."
+    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, then open Teleop Console for role binding and calibration."
   },
   zh: {
     back: "返回首页",
@@ -111,7 +112,7 @@ const copy = {
     title: "SiriusCeption 产品与软件使用指南",
     lead:
       "面向评估、安装、配置和使用 SiriusCeption IMU 动作捕捉系统的文档页，集中说明产品信息、连接方式、节点配置、接收端监控与遥操作数据链路。",
-    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作 SDK"],
+    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作控制台"],
     sections: [
       {
         id: "overview",
@@ -160,20 +161,21 @@ const copy = {
         items: [
           "Node Config：通过 USB 串口配置 ID、Wi-Fi、接收端 IP、UDP 端口和发送频率。",
           "Receiver Monitor：启动/停止 UDP 接收端，查看在线设备和实时数据包状态。",
-          "Pose Visualizer：选择设备、执行校准、查看实时姿态，用于遥操作调试。"
+          "Pose Visualizer：选择单个设备、执行校准、查看实时姿态，用于调试。",
+          "Teleop Console：绑定上臂、前臂、手部 ID；必须三个唯一设备都在线后才能标定和启动。"
         ]
       },
       {
         id: "teleop",
         label: "05",
-        title: "遥操作 SDK",
+        title: "遥操作控制台",
         lead:
-          "Python 遥操作层把 UDP IMU 数据转换成三段手臂位姿，支持标定姿态、坐标系选择、肢段长度和机器人底座偏移。",
+          "SiriusCeption 客户端已经加入独立 Teleop 页面，用于三 IMU 手臂遥操作流程。它把 Python 遥操作参数变成可操作 UI，并在必要设备未就绪时阻止启动。",
         items: [
           "遥操作必须使用三个 IMU 设备：上臂、前臂、手部，并且每个设备都需要唯一且已保存的节点 ID。",
-          "在首页 Teleop Console 中绑定三个 ID，设置肢段长度，并生成 `teleop_3joint_visualizer.py` 启动命令。",
-          "选择 `init_pose`：down、forward 或 left；选择 `earth_frame`：SEU/BNO08X、ENU、NED 或 NWU。",
-          "操作者保持静止完成标定，然后读取 positions 与 hand_R 供下游机器人控制使用。"
+          "打开 Teleop 页面，绑定三个角色 ID，并在角色卡片中确认每个角色在线。",
+          "设置上臂/前臂长度、`init_pose`、`earth_frame`、标定时长、输出频率以及可选 `base_offset`。",
+          "点击 Apply Settings，操作者保持静止后执行 Calibrate All，然后 Start Teleop 查看实时 command-frame preview。"
         ]
       },
       {
@@ -203,7 +205,7 @@ const copy = {
     terminalTitle: "串口命令示例",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "推荐首次使用流程",
-    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他身体节点分配 ID，并在 Receiver Monitor 中验证所有节点，最后进入 Pose Visualizer 标定。"
+    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，最后进入 Teleop Console 绑定角色并标定。"
   }
 } as const;
 

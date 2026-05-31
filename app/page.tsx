@@ -395,7 +395,7 @@ export default function Home() {
       <section id="software" className="section software">
         <div className="section-title">
           <h2>{locale === "en" ? "Client Workflow" : "客户端使用流程"}</h2>
-          <p>{locale === "en" ? "Three focused pages: configure nodes, monitor receiver data, visualize pose." : "三个页面分工明确：节点配置、接收端监控、姿态可视化。"}</p>
+          <p>{locale === "en" ? "Four focused pages: configure nodes, monitor UDP receiver data, visualize one-node pose, then run the three-device Teleop Console." : "四个页面分工明确：节点配置、接收端监控、单设备姿态可视化，以及三设备遥操作控制台。"}</p>
         </div>
         <div className="software-steps reveal">
           <article className="step-card">
@@ -416,18 +416,18 @@ export default function Home() {
           <article className="step-card highlight-step">
             <span className="step-index">04</span>
             <h3>{locale === "en" ? "Teleop Console" : "遥操作控制台"}</h3>
-            <p>{locale === "en" ? "Bind three IMU nodes to upper arm, forearm, and hand, then launch the teleop visualizer." : "绑定上臂、前臂、手部三个 IMU 节点，然后启动遥操作可视化。"}</p>
+            <p>{locale === "en" ? "Bind three live IMU nodes to upper arm, forearm, and hand, calibrate them together, then start teleop frame preview." : "绑定上臂、前臂、手部三个在线 IMU 节点，统一标定后启动遥操作帧预览。"}</p>
           </article>
         </div>
 
         <div className="teleop-panel reveal delay-1">
           <div className="teleop-copy">
             <span className="tag">{locale === "en" ? "3-device teleop" : "三设备遥操作"}</span>
-            <h3>{locale === "en" ? "Teleop setup from the Python visualizer" : "从 Python 可视化脚本生成遥操作配置"}</h3>
+            <h3>{locale === "en" ? "Teleop is now a software page, not just a script" : "遥操作现在是软件页面，不只是脚本"}</h3>
             <p>
               {locale === "en"
-                ? "The teleop script requires exactly three SiriusCeption nodes: upper arm, forearm, and hand. This interaction makes the requirement explicit before calibration."
-                : "遥操作脚本必须使用三个 SiriusCeption 节点：上臂、前臂、手部。这里把三设备绑定作为显式步骤，避免用户只连接一个设备就进入标定。"}
+                ? "The client has a dedicated Teleop page. It requires exactly three unique online SiriusCeption nodes before calibration: upper arm, forearm, and hand. The page blocks start until all three roles are live."
+                : "客户端已经加入独立 Teleop 页面。进入标定前必须有三个唯一且在线的 SiriusCeption 节点：上臂、前臂、手部；任一角色缺失或 ID 重复都会阻止启动。"}
             </p>
             <div className="teleop-status" data-ready={teleopReady}>
               <strong>{teleopReady ? (locale === "en" ? "Ready to calibrate" : "可进入标定") : (locale === "en" ? "Needs 3 unique devices" : "需要 3 个唯一设备")}</strong>
@@ -476,11 +476,11 @@ export default function Home() {
             </div>
 
             <div className="teleop-actions">
-              <a className="cta primary small" href="/software/teleop_3joint_visualizer.py" download>
-                {locale === "en" ? "Download script" : "下载 teleop 脚本"}
+              <a className="cta primary small" href="/docs#teleop">
+                {locale === "en" ? "Open Teleop guide" : "打开遥操作指南"}
               </a>
-              <a className="cta ghost small" href="/docs#teleop">
-                {locale === "en" ? "Read teleop docs" : "查看遥操作文档"}
+              <a className="cta ghost small" href="/software/teleop_3joint_visualizer.py" download>
+                {locale === "en" ? "Download Python script" : "下载 Python 脚本"}
               </a>
             </div>
           </div>
