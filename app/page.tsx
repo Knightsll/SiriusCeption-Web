@@ -217,7 +217,16 @@ const copy = {
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
+  const [teleopIds, setTeleopIds] = useState({ upper: "1", fore: "2", hand: "3" });
+  const [teleopLengths, setTeleopLengths] = useState({ upper: "0.30", fore: "0.25" });
+  const [teleopPose, setTeleopPose] = useState("forward");
   const t = useMemo(() => copy[locale], [locale]);
+
+  const assignedTeleopIds = Object.values(teleopIds).filter(Boolean);
+  const hasThreeTeleopDevices = assignedTeleopIds.length === 3;
+  const hasUniqueTeleopDevices = new Set(assignedTeleopIds).size === assignedTeleopIds.length;
+  const teleopReady = hasThreeTeleopDevices && hasUniqueTeleopDevices;
+  const teleopCommand = `python teleop_3joint_visualizer.py --upper-id ${teleopIds.upper || "<upper>"} --fore-id ${teleopIds.fore || "<fore>"} --hand-id ${teleopIds.hand || "<hand>"} --l-upper ${teleopLengths.upper || "0.30"} --l-fore ${teleopLengths.fore || "0.25"} --init-pose ${teleopPose} --earth-frame SEU --port 9999`;
 
   return (
     <main className="page" data-locale={locale}>
@@ -404,6 +413,77 @@ export default function Home() {
             <h3>{locale === "en" ? "Pose Visualizer" : "姿态可视化"}</h3>
             <p>{locale === "en" ? "Select device, calibrate, and inspect live orientation for teleoperation debugging." : "选择设备、校准，并查看实时姿态，用于遥操作调试。"}</p>
           </article>
+          <article className="step-card highlight-step">
+            <span className="step-index">04</span>
+            <h3>{locale === "en" ? "Teleop Console" : "遥操作控制台"}</h3>
+            <p>{locale === "en" ? "Bind three IMU nodes to upper arm, forearm, and hand, then launch the teleop visualizer." : "绑定上臂、前臂、手部三个 IMU 节点，然后启动遥操作可视化。"}</p>
+          </article>
+        </div>
+
+        <div className="teleop-panel reveal delay-1">
+          <div className="teleop-copy">
+            <span className="tag">{locale === "en" ? "3-device teleop" : "三设备遥操作"}</span>
+            <h3>{locale === "en" ? "Teleop setup from the Python visualizer" : "从 Python 可视化脚本生成遥操作配置"}</h3>
+            <p>
+              {locale === "en"
+                ? "The teleop script requires exactly three SiriusCeption nodes: upper arm, forearm, and hand. This interaction makes the requirement explicit before calibration."
+                : "遥操作脚本必须使用三个 SiriusCeption 节点：上臂、前臂、手部。这里把三设备绑定作为显式步骤，避免用户只连接一个设备就进入标定。"}
+            </p>
+            <div className="teleop-status" data-ready={teleopReady}>
+              <strong>{teleopReady ? (locale === "en" ? "Ready to calibrate" : "可进入标定") : (locale === "en" ? "Needs 3 unique devices" : "需要 3 个唯一设备")}</strong>
+              <span>{assignedTeleopIds.length}/3 {locale === "en" ? "assigned" : "已绑定"}</span>
+            </div>
+          </div>
+
+          <div className="teleop-config">
+            <div className="teleop-device-grid">
+              <label>
+                <span>{locale === "en" ? "Upper arm ID" : "上臂设备 ID"}</span>
+                <input value={teleopIds.upper} onChange={(event) => setTeleopIds({ ...teleopIds, upper: event.target.value })} inputMode="numeric" />
+              </label>
+              <label>
+                <span>{locale === "en" ? "Forearm ID" : "前臂设备 ID"}</span>
+                <input value={teleopIds.fore} onChange={(event) => setTeleopIds({ ...teleopIds, fore: event.target.value })} inputMode="numeric" />
+              </label>
+              <label>
+                <span>{locale === "en" ? "Hand ID" : "手部设备 ID"}</span>
+                <input value={teleopIds.hand} onChange={(event) => setTeleopIds({ ...teleopIds, hand: event.target.value })} inputMode="numeric" />
+              </label>
+            </div>
+
+            <div className="teleop-options">
+              <label>
+                <span>{locale === "en" ? "Upper length (m)" : "上臂长度 (m)"}</span>
+                <input value={teleopLengths.upper} onChange={(event) => setTeleopLengths({ ...teleopLengths, upper: event.target.value })} inputMode="decimal" />
+              </label>
+              <label>
+                <span>{locale === "en" ? "Forearm length (m)" : "前臂长度 (m)"}</span>
+                <input value={teleopLengths.fore} onChange={(event) => setTeleopLengths({ ...teleopLengths, fore: event.target.value })} inputMode="decimal" />
+              </label>
+              <label>
+                <span>{locale === "en" ? "Calibration pose" : "标定姿态"}</span>
+                <select value={teleopPose} onChange={(event) => setTeleopPose(event.target.value)}>
+                  <option value="forward">forward</option>
+                  <option value="down">down</option>
+                  <option value="left">left</option>
+                </select>
+              </label>
+            </div>
+
+            <div className="teleop-command">
+              <span>{locale === "en" ? "Launch command" : "启动命令"}</span>
+              <code>{teleopCommand}</code>
+            </div>
+
+            <div className="teleop-actions">
+              <a className="cta primary small" href="/software/teleop_3joint_visualizer.py" download>
+                {locale === "en" ? "Download script" : "下载 teleop 脚本"}
+              </a>
+              <a className="cta ghost small" href="/docs#teleop">
+                {locale === "en" ? "Read teleop docs" : "查看遥操作文档"}
+              </a>
+            </div>
+          </div>
         </div>
         <a className="cta ghost software-doc-link" href="/docs">
           {locale === "en" ? "Read product docs" : "查看产品文档"}

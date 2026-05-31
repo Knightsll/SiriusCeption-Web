@@ -70,7 +70,8 @@ const copy = {
         lead:
           "The Python teleoperation layer turns UDP IMU data into a three-segment arm pose. It supports calibration poses, coordinate-frame selection, segment lengths, and robot-base offsets.",
         items: [
-          "Create a UDPIMUServer, then map upper-arm, forearm, and hand IDs into SiriusCeptionTeleop.",
+          "Teleop requires exactly three IMU devices: upper arm, forearm, and hand, each with a unique saved node ID.",
+          "Use the Teleop Console on the home page to bind the three IDs, set segment lengths, and generate the `teleop_3joint_visualizer.py` launch command.",
           "Choose `init_pose`: down, forward, or left; choose `earth_frame`: SEU/BNO08X, ENU, NED, or NWU.",
           "Run calibration while the operator holds still, then read positions and hand rotation for downstream robot control."
         ]
@@ -169,7 +170,8 @@ const copy = {
         lead:
           "Python 遥操作层把 UDP IMU 数据转换成三段手臂位姿，支持标定姿态、坐标系选择、肢段长度和机器人底座偏移。",
         items: [
-          "先创建 UDPIMUServer，再把上臂、前臂和手部 ID 映射到 SiriusCeptionTeleop。",
+          "遥操作必须使用三个 IMU 设备：上臂、前臂、手部，并且每个设备都需要唯一且已保存的节点 ID。",
+          "在首页 Teleop Console 中绑定三个 ID，设置肢段长度，并生成 `teleop_3joint_visualizer.py` 启动命令。",
           "选择 `init_pose`：down、forward 或 left；选择 `earth_frame`：SEU/BNO08X、ENU、NED 或 NWU。",
           "操作者保持静止完成标定，然后读取 positions 与 hand_R 供下游机器人控制使用。"
         ]
