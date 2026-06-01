@@ -344,7 +344,7 @@ export default function Home() {
           <a className="hub-card" href="/software">
             <span className="step-index">03</span>
             <h3>{locale === "en" ? "Software" : "软件"}</h3>
-            <p>{locale === "en" ? "Future acquisition workflow: onboarding, validation, teleop, labeling, replay, and export." : "未来采集流程：接入、质检、遥操作、标注、回放和导出。"}</p>
+            <p>{locale === "en" ? "Beginner testing flow: device setup, three-device binding, calibration, and simulator preview." : "新手测试流程：设备接入、三设备绑定、标定和 simulator 预览。"}</p>
           </a>
           <a className="hub-card" href="/videos">
             <span className="step-index">04</span>
