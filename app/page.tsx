@@ -32,7 +32,7 @@ const copy = {
         {
           title: "Three-device teleoperation",
           lead: "The arm teleop workflow is designed around three devices: upper arm, forearm, and hand.",
-          points: ["Role-based device binding", "Safe calibration before start", "Robot preview before real output"]
+          points: ["Role-based device binding", "Safe calibration before start", "Simulator preview before any real robot"]
         },
         {
           title: "One-stop data pipeline",
@@ -96,7 +96,7 @@ const copy = {
         {
           tag: "Teleoperation",
           title: "Low-latency link optimization for teleop systems",
-          body: "End-to-end pipeline tactics from sensing to control output."
+          body: "End-to-end pipeline tactics from sensing to simulator preview."
         },
         {
           tag: "Hardware",
@@ -142,7 +142,7 @@ const copy = {
         {
           title: "三设备遥操作",
           lead: "手臂遥操作明确围绕三个设备设计：上臂、前臂、手部，减少用户配置混乱。",
-          points: ["按角色绑定设备", "启动前完成安全标定", "真实输出前先预览机器人动作"]
+          points: ["按角色绑定设备", "启动前完成安全标定", "先在 simulator 中预览动作"]
         },
         {
           title: "一站式数据管线",

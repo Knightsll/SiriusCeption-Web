@@ -61,7 +61,7 @@ const copy = {
           "Receiver Monitor: start/stop UDP receiver, inspect connected devices and live packet status.",
           "Pose Visualizer: select one device, calibrate, and inspect live orientation for debugging.",
           "Teleop Console: bind upper arm, forearm, and hand IDs; the page requires three unique online devices before calibration and start.",
-          "Robot Control: select Unitree Z1 or another robot profile, inspect joint mapping and limits, and use the Real URDF Viewer as a preview/debug view only; it is not yet driven directly by SiriusCeption devices."
+          "Robot Control: select a robot simulator profile, inspect joint mapping and limits, and use the Real URDF Viewer as a beginner-friendly simulator/debug view only; it does not operate a physical robot."
         ]
       },
       {
@@ -82,12 +82,12 @@ const copy = {
         label: "06",
         title: "Robot Control",
         lead:
-          "Robot Control is a robot-specific preview/debug stage after three-IMU calibration: select the target robot, inspect joint mapping, and validate the model before any future real output is armed. The Real URDF Viewer is not yet controlled directly by SiriusCeption devices.",
+          "Robot Control is a simulator-focused learning and debugging stage after three-IMU calibration: select the target robot model, inspect joint mapping, and validate motion inside the Real URDF Viewer without operating a physical robot.",
         items: [
           "Select Unitree Z1, SO-100/SO-101 style arm, Unitree G1, Custom 6DoF, Franka Panda, UR5e, or xArm6 from the model selector.",
-          "Review joint names, limits, command format, and keep the Operator gate separate from Enable output.",
-          "The Real URDF Viewer renders Unitree Z1 meshes with the robot base fixed at the world origin; it is for model inspection and command-shape preview, not live device teleoperation yet.",
-          "Use the viewer to confirm base frame, joint tree, and expected command-preview shape before connecting any future robot SDK/CAN/serial transport."
+          "Review joint names, limits, command format, and keep the simulator state clearly separated from any physical-robot control concept.",
+          "The Real URDF Viewer renders robot meshes with the base fixed at the world origin; it is for novice testing, model inspection, and simulator motion preview.",
+          "Use the viewer to understand base frame, joint tree, expected command shape, and gripper preview in a safe simulator-only environment."
         ]
       },
       {
@@ -117,7 +117,7 @@ const copy = {
     terminalTitle: "Serial console example",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "Recommended first-run flow",
-    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, open Teleop Console for role binding and calibration, then move to Robot Control for model selection and URDF-based command preview."
+    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, open Teleop Console for role binding and calibration, then move to Robot Control for simulator model selection and URDF-based motion preview."
   },
   zh: {
     back: "返回首页",
@@ -176,7 +176,7 @@ const copy = {
           "Receiver Monitor：启动/停止 UDP 接收端，查看在线设备和实时数据包状态。",
           "Pose Visualizer：选择单个设备、执行校准、查看实时姿态，用于调试。",
           "Teleop Console：绑定上臂、前臂、手部 ID；必须三个唯一设备都在线后才能标定和启动。",
-          "Robot Control：选择 Unitree Z1 或其他机器人模型，检查关节映射和限位；Real URDF Viewer 目前只作为预览/调试视图，并不能直接由 SiriusCeption 设备驱动遥操作。"
+          "Robot Control：选择机器人 simulator 模型，检查关节映射和限位；Real URDF Viewer 面向新手测试和理解流程，不操作真实机械臂。"
         ]
       },
       {
@@ -197,12 +197,12 @@ const copy = {
         label: "06",
         title: "机器人控制",
         lead:
-          "Robot Control 是三 IMU 标定之后的机器人预览/调试阶段：选择目标机器人、检查关节映射，并在未来接入真实输出前验证模型。Real URDF Viewer 目前还不能直接由 SiriusCeption 设备控制。",
+          "Robot Control 是三 IMU 标定之后的 simulator 学习/调试阶段：选择目标机器人模型、检查关节映射，并在 Real URDF Viewer 中验证动作，不操作真实机械臂。",
         items: [
           "可在模型选择器中选择 Unitree Z1、SO-100/SO-101、Unitree G1、Custom 6DoF、Franka Panda、UR5e 或 xArm6。",
-          "检查关节名称、限位、命令格式，并保持 Operator gate 与 Enable output 分离。",
-          "Real URDF Viewer 会渲染 Unitree Z1 mesh，并让机器人底座固定在世界原点；它目前用于模型检查和命令形状预览，不是实时设备遥操作。",
-          "连接任何未来机器人 SDK/CAN/串口传输前，先用该视图确认 base frame、joint tree 和预期 command preview 形状。"
+          "检查关节名称、限位、命令格式，并把 simulator 状态与真实机械臂控制概念明确分开。",
+          "Real URDF Viewer 会渲染机器人 mesh，并让机器人底座固定在世界原点；它用于新手测试、模型检查和 simulator 动作预览。",
+          "用户可以在安全的 simulator-only 环境中理解 base frame、joint tree、预期 command 形状和 gripper preview。"
         ]
       },
       {
@@ -232,7 +232,7 @@ const copy = {
     terminalTitle: "串口命令示例",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "推荐首次使用流程",
-    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，进入 Teleop Console 绑定角色并标定，最后进入 Robot Control 选择机器人模型并查看基于 URDF 的命令预览。"
+    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，进入 Teleop Console 绑定角色并标定，最后进入 Robot Control 选择 simulator 机器人模型并查看基于 URDF 的动作预览。"
   }
 } as const;
 
