@@ -13,12 +13,20 @@ type InteractiveDeviceModelProps = {
 const STATIC_RENDER = "/renders/siriusception-device-transparent.webp";
 const OPTIMIZED_MODEL = "/models/siriusception-device-optimized.glb";
 
-function isStaticOnlyViewport() {
+function prefersStaticRender() {
   if (typeof window === "undefined") return true;
-  return (
-    window.matchMedia("(max-width: 767px)").matches ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function mobileCanLoad3d() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(max-width: 767px)").matches && !prefersStaticRender();
+}
+
+function getViewerPixelRatio() {
+  if (typeof window === "undefined") return 1;
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  return Math.min(window.devicePixelRatio || 1, isMobile ? 1.35 : 1.8);
 }
 
 function materialForMesh(THREE: ThreeModule, name: string, object: Object3D) {
@@ -94,7 +102,7 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    if (!isStaticOnlyViewport()) {
+    if (!prefersStaticRender()) {
       setShouldLoad3d(true);
     }
   }, []);
@@ -103,9 +111,9 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
     const shell = shellRef.current;
     if (!shell) return;
 
-    const mediaQuery = window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)");
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateStaticMode = () => {
-      const nextStaticOnly = isStaticOnlyViewport();
+      const nextStaticOnly = prefersStaticRender();
       setStaticOnly(nextStaticOnly);
       if (nextStaticOnly) {
         setShouldLoad3d(false);
@@ -118,9 +126,9 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
     if (!mediaQuery.matches) {
       let didRequest3d = false;
       const loadWhenNearViewport = () => {
-        if (didRequest3d || isStaticOnlyViewport()) return;
+        if (didRequest3d || prefersStaticRender()) return;
         const rect = shell.getBoundingClientRect();
-        const margin = 280;
+        const margin = mobileCanLoad3d() ? 420 : 280;
         const nearViewport = rect.top < window.innerHeight + margin && rect.bottom > -margin;
         if (nearViewport) {
           didRequest3d = true;
@@ -171,8 +179,8 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
         const camera = new THREE.PerspectiveCamera(33, 1, 0.001, 10);
         camera.position.set(0.0, 0.018, 0.23);
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+        const renderer = new THREE.WebGLRenderer({ antialias: !mobileCanLoad3d(), alpha: true, powerPreference: "high-performance" });
+        renderer.setPixelRatio(getViewerPixelRatio());
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 0.82;

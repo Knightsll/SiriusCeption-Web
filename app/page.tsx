@@ -6,15 +6,15 @@ import { InteractiveDeviceModel } from "./components/InteractiveDeviceModel";
 
 const copy = {
   en: {
-    nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
+    nav: { product: "Sirius Nova", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
-      eyebrow: "Embodied Intelligence Data Acquisition System",
-      title1: "SiriusCeption",
-      title2: "Embodied Data Collection",
-      title3: "From wearable hardware to a one-stop data platform",
+      eyebrow: "First Product · Wearable IMU Node",
+      title1: "Sirius Nova",
+      title2: "Wearable motion capture",
+      title3: "for embodied data and simulator-first teleop",
       lead:
-        "SiriusCeption starts with wearable IMU hardware today, and is evolving into a one-stop embodied-intelligence data acquisition system covering capture, teleoperation, validation, labeling, replay, and robot-ready datasets."
+        "Sirius Nova is the first SiriusCeption product: a wearable IMU node for reliable human-motion capture, three-device arm teleoperation, and the first hardware layer of a future embodied-intelligence data acquisition system."
     },
     metrics: [
       { metric: "Hardware now", meta: "Wearable IMU capture" },
@@ -116,15 +116,15 @@ const copy = {
     }
   },
   zh: {
-    nav: { product: "产品", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
+    nav: { product: "Sirius Nova", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
-      eyebrow: "具身智能数据采集系统",
-      title1: "SiriusCeption",
-      title2: "具身智能数据采集",
-      title3: "从可穿戴硬件走向一站式数据平台",
+      eyebrow: "首款产品 · 可穿戴 IMU 节点",
+      title1: "Sirius Nova",
+      title2: "可穿戴动作采集",
+      title3: "面向具身数据与 simulator-first 遥操作",
       lead:
-        "SiriusCeption 现阶段以可穿戴 IMU 硬件为核心，未来目标是形成覆盖采集、遥操作、质检、标注、回放与机器人数据导出的具身智能一站式数据采集系统。"
+        "Sirius Nova 是 SiriusCeption 的第一个产品：一个用于稳定人体动作采集、三设备手臂遥操作和具身智能数据采集系统第一层硬件的可穿戴 IMU 节点。"
     },
     metrics: [
       { metric: "当前硬件产品", meta: "可穿戴 IMU 采集" },
@@ -231,7 +231,7 @@ export default function Home() {
           <span className="brand-name">SiriusCeption</span>
         </div>
         <nav className="nav-links">
-          <a href="/product">{t.nav.product}</a>
+          <a href="/products/sirius-nova">{t.nav.product}</a>
           <a href="/applications">{t.nav.cases}</a>
           <a href="/software">{t.nav.software}</a>
           <a href="/docs">{t.nav.docs}</a>
@@ -324,12 +324,12 @@ export default function Home() {
 
       <section className="section device-showcase reveal">
         <div className="device-showcase-copy">
-          <p className="eyebrow">{locale === "en" ? "Hardware Preview" : "硬件预览"}</p>
-          <h2>{locale === "en" ? "Explore the wearable IMU node in 3D" : "以 3D 方式查看可穿戴 IMU 节点"}</h2>
+          <p className="eyebrow">{locale === "en" ? "Sirius Nova · 3D Preview" : "Sirius Nova · 3D 预览"}</p>
+          <h2>{locale === "en" ? "Inspect the first wearable IMU node in 3D" : "以 3D 方式查看首款可穿戴 IMU 节点"}</h2>
           <p>
             {locale === "en"
-              ? "The interactive model sits with the product story instead of competing with the hero system visual. Drag to inspect the enclosure, ports, and hardware details."
-              : "交互式模型放在产品介绍区域，而不是抢占首页 Hero 的系统视觉。可以拖拽查看外壳、接口和硬件细节。"}
+              ? "Sirius Nova is the tangible product on the site. Drag to inspect the enclosure, USB-C, inlay geometry, and wearable hardware details; on mobile, the same 3D viewer loads with a lighter renderer and falls back to a static render when needed."
+              : "Sirius Nova 是官网中需要被明确呈现的实体产品。可以拖拽查看外壳、USB-C、原始 inlay 几何和可穿戴硬件细节；移动端也会加载轻量 3D 预览，必要时回退到静态渲染图。"}
           </p>
         </div>
         <InteractiveDeviceModel locale={locale} />
@@ -340,15 +340,15 @@ export default function Home() {
           <h2>{locale === "en" ? "Explore SiriusCeption" : "浏览 SiriusCeption"}</h2>
           <p>
             {locale === "en"
-              ? "The website now presents SiriusCeption as an embodied-intelligence data acquisition system: hardware is the current product layer, while software pages describe the path toward an end-to-end data workflow."
-              : "官网现在要把 SiriusCeption 表达为具身智能数据采集系统：当前产品层是硬件，软件页面体现未来端到端数据流程。"}
+              ? "Sirius Nova is our first product, while SiriusCeption is the larger product system: Nova captures reliable wearable IMU data today; the website should frame it as the hardware entry point into future capture, teleop, validation, replay, and export workflows."
+              : "Sirius Nova 是我们的第一个产品，SiriusCeption 是更大的产品系统：Nova 负责当前稳定的可穿戴 IMU 数据采集；官网整体应把它呈现为未来采集、遥操作、质检、回放和导出流程的硬件入口。"}
           </p>
         </div>
         <div className="hub-grid reveal">
-          <a className="hub-card highlight" href="/product">
+          <a className="hub-card highlight" href="/products/sirius-nova">
             <span className="step-index">01</span>
-            <h3>{locale === "en" ? "Product" : "产品"}</h3>
-            <p>{locale === "en" ? "Current hardware product layer and future data-system architecture." : "当前硬件产品层与未来数据系统架构。"}</p>
+            <h3>{locale === "en" ? "Sirius Nova" : "Sirius Nova"}</h3>
+            <p>{locale === "en" ? "Our first wearable IMU product: motion capture hardware for embodied data and three-device teleop." : "我们的首款可穿戴 IMU 产品：面向具身数据和三设备遥操作的动作采集硬件。"}</p>
           </a>
           <a className="hub-card" href="/applications">
             <span className="step-index">02</span>
