@@ -89,9 +89,15 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
   const hostRef = useRef<HTMLDivElement | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
   const [shouldLoad3d, setShouldLoad3d] = useState(false);
-  const [staticOnly, setStaticOnly] = useState(true);
+  const [staticOnly, setStaticOnly] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (!isStaticOnlyViewport()) {
+      setShouldLoad3d(true);
+    }
+  }, []);
 
   useEffect(() => {
     const shell = shellRef.current;
@@ -110,20 +116,28 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
     mediaQuery.addEventListener("change", updateStaticMode);
 
     if (!mediaQuery.matches) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setShouldLoad3d(true);
-            observer.disconnect();
-          }
-        },
-        { rootMargin: "280px 0px", threshold: 0.05 }
-      );
-      observer.observe(shell);
+      let didRequest3d = false;
+      const loadWhenNearViewport = () => {
+        if (didRequest3d || isStaticOnlyViewport()) return;
+        const rect = shell.getBoundingClientRect();
+        const margin = 280;
+        const nearViewport = rect.top < window.innerHeight + margin && rect.bottom > -margin;
+        if (nearViewport) {
+          didRequest3d = true;
+          setShouldLoad3d(true);
+          window.removeEventListener("scroll", loadWhenNearViewport);
+          window.removeEventListener("resize", loadWhenNearViewport);
+        }
+      };
+
+      window.addEventListener("scroll", loadWhenNearViewport, { passive: true });
+      window.addEventListener("resize", loadWhenNearViewport);
+      loadWhenNearViewport();
 
       return () => {
         mediaQuery.removeEventListener("change", updateStaticMode);
-        observer.disconnect();
+        window.removeEventListener("scroll", loadWhenNearViewport);
+        window.removeEventListener("resize", loadWhenNearViewport);
       };
     }
 
@@ -163,7 +177,7 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 0.82;
         renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.shadowMap.type = THREE.PCFShadowMap;
         renderer.setClearColor(0x000000, 0);
         renderer.domElement.className = "interactive-device-canvas";
         host.appendChild(renderer.domElement);

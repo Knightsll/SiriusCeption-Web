@@ -282,10 +282,57 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-visual reveal delay-1">
-          <InteractiveDeviceModel locale={locale} />
+          <div className="device-card">
+            <div className="device-glow" />
+            <div className="device-frame">
+              <div className="device-screen">
+                <span className="pulse" />
+                <p>{locale === "en" ? "Full-body capture · Robot mapping" : "全身捕捉 · 机器人映射"}</p>
+                <small>{locale === "en" ? "Real-time sensor fusion" : "实时传感器融合"}</small>
+              </div>
+              <div className="device-stats">
+                <div>
+                  <strong>96Hz</strong>
+                  <span>{locale === "en" ? "Sampling" : "采样率"}</span>
+                </div>
+                <div>
+                  <strong>0.8°</strong>
+                  <span>{locale === "en" ? "Pose error" : "姿态误差"}</span>
+                </div>
+                <div>
+                  <strong>{locale === "en" ? "Wireless" : "无线"}</strong>
+                  <span>{locale === "en" ? "Freedom" : "自由移动"}</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="signal-lines" aria-hidden="true" />
           <div className="data-stream" aria-hidden="true" />
+          <div className="robot-hologram" aria-hidden="true">
+            <div className="robot-core">
+              <div className="robot-head" />
+              <div className="robot-body" />
+              <div className="robot-arm left" />
+              <div className="robot-arm right" />
+              <div className="robot-leg left" />
+              <div className="robot-leg right" />
+              <div className="scan-lines" />
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className="section device-showcase reveal">
+        <div className="device-showcase-copy">
+          <p className="eyebrow">{locale === "en" ? "Hardware Preview" : "硬件预览"}</p>
+          <h2>{locale === "en" ? "Explore the wearable IMU node in 3D" : "以 3D 方式查看可穿戴 IMU 节点"}</h2>
+          <p>
+            {locale === "en"
+              ? "The interactive model sits with the product story instead of competing with the hero system visual. Drag to inspect the enclosure, ports, and hardware details."
+              : "交互式模型放在产品介绍区域，而不是抢占首页 Hero 的系统视觉。可以拖拽查看外壳、接口和硬件细节。"}
+          </p>
+        </div>
+        <InteractiveDeviceModel locale={locale} />
       </section>
 
       <section className="section overview-hub">
