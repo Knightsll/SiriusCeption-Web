@@ -332,6 +332,119 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: clamp(420px, 45vw, 620px);
+}
+
+.interactive-device-shell {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 92vw);
+  aspect-ratio: 1 / 0.86;
+  border-radius: 34px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 46% 52%, rgba(53, 240, 177, 0.18), transparent 42%),
+    radial-gradient(circle at 62% 22%, rgba(44, 197, 255, 0.16), transparent 48%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px) saturate(1.1);
+}
+
+.interactive-device-shell::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  border: 1px dashed rgba(53, 240, 177, 0.22);
+  pointer-events: none;
+  animation: rotate 26s linear infinite;
+}
+
+.interactive-device-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 9% 12%;
+  height: 32%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35), transparent 68%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.interactive-device-static {
+  position: absolute;
+  inset: 8%;
+  z-index: 2;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 360ms ease;
+}
+
+.interactive-device-shell.is-loaded .interactive-device-static {
+  opacity: 0;
+}
+
+.interactive-device-shell.is-static .interactive-device-static {
+  opacity: 1;
+}
+
+.interactive-device-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.interactive-device-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.interactive-device-canvas:active {
+  cursor: grabbing;
+}
+
+.interactive-device-status,
+.interactive-device-hint {
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(7, 11, 16, 0.58);
+  color: rgba(233, 240, 244, 0.76);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+
+.interactive-device-status {
+  top: 50%;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.interactive-device-hint {
+  bottom: 18px;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.interactive-device-fallback {
+  position: absolute;
+  inset: 8%;
+  z-index: 4;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
 }
 
 .device-card {

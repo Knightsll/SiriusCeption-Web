@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useLocale, type Locale } from "./useLocale";
+import { InteractiveDeviceModel } from "./components/InteractiveDeviceModel";
 
 const copy = {
   en: {
@@ -281,43 +282,9 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-visual reveal delay-1">
-          <div className="device-card">
-            <div className="device-glow" />
-            <div className="device-frame">
-              <div className="device-screen">
-                <span className="pulse" />
-                <p>{locale === "en" ? "Full-body capture · Robot mapping" : "全身捕捉 · 机器人映射"}</p>
-                <small>{locale === "en" ? "Real-time sensor fusion" : "实时传感器融合"}</small>
-              </div>
-              <div className="device-stats">
-                <div>
-                  <strong>96Hz</strong>
-                  <span>{locale === "en" ? "Sampling" : "采样率"}</span>
-                </div>
-                <div>
-                  <strong>0.8°</strong>
-                  <span>{locale === "en" ? "Pose error" : "姿态误差"}</span>
-                </div>
-                <div>
-                  <strong>{locale === "en" ? "Wireless" : "无线"}</strong>
-                  <span>{locale === "en" ? "Freedom" : "自由移动"}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <InteractiveDeviceModel locale={locale} />
           <div className="signal-lines" aria-hidden="true" />
           <div className="data-stream" aria-hidden="true" />
-          <div className="robot-hologram" aria-hidden="true">
-            <div className="robot-core">
-              <div className="robot-head" />
-              <div className="robot-body" />
-              <div className="robot-arm left" />
-              <div className="robot-arm right" />
-              <div className="robot-leg left" />
-              <div className="robot-leg right" />
-              <div className="scan-lines" />
-            </div>
-          </div>
         </div>
       </section>
 
