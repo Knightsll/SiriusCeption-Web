@@ -112,7 +112,7 @@ const copy = {
     },
     footer: {
       tagline: "Embodied Intelligence Data Acquisition System",
-      locations: "Beijing · Shanghai · Shenzhen"
+      locations: "Oulu · Shenzhen"
     }
   },
   zh: {
@@ -210,7 +210,7 @@ const copy = {
     },
     footer: {
       tagline: "具身智能数据采集系统",
-      locations: "北京 · 上海 · 深圳"
+      locations: "Oulu · Shenzhen"
     }
   }
 } as const;
