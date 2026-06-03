@@ -15,9 +15,9 @@ const copy = {
     ctaPrimary: "Discuss deployment",
     ctaSecondary: "Read docs",
     metrics: [
-      ["Arm set", "Robotic-arm teleoperation · €1,000 / set"],
-      ["17 nodes", "Humanoid full-body motion capture · €3,000 / set"],
-      ["3D view", "Desktop and mobile product inspection"]
+      ["1–500 Hz", "Configurable UDP stream frequency per node"],
+      ["≈39 × 65 × 24 mm", "Compact wearable enclosure model bounds"],
+      ["17 nodes", "Humanoid full-body motion capture · €3,000 / set"]
     ],
     viewerEyebrow: "Interactive hardware",
     viewerTitle: "Inspect Sirius Nova in 3D",
@@ -38,14 +38,18 @@ const copy = {
       "Keep product messaging centered on Sirius Nova as the hardware product rather than naming the test device count as a product.",
       "Use the validation software to check device quality and motion mapping before production data capture."
     ],
-    specsTitle: "Specs and pricing",
+    specsTitle: "Performance, specifications, and pricing",
     specs: [
-      ["Form", "Wearable wireless IMU node"],
-      ["Role", "Motion capture hardware layer"],
-      ["Arm teleoperation", "Configured set for robotic-arm use · €1,000 / set"],
-      ["Full-body mocap", "17-node set for humanoid-robot motion capture · €3,000 / set"],
-      ["Software", "Validation and debugging tools for device quality and motion mapping"],
-      ["Direction", "Foundation for the future SiriusCeption data workflow"]
+      ["Product form", "Wearable wireless IMU motion-capture node"],
+      ["Dimensions", "Approx. 39 × 65 × 24 mm from the Sirius Nova source model bounds"],
+      ["Compute / network", "ESP32-C3 based node with Wi-Fi UDP streaming and USB-C serial configuration"],
+      ["Stream frequency", "Configurable `udp_hz` / rate from 1–500 Hz; 100 Hz is the recommended first-run validation setting"],
+      ["Motion output", "Quaternion orientation, gyroscope, and acceleration data streamed per node"],
+      ["Precision model", "Calibration-backed orientation tracking; live packet rate, packet age, and signal quality checks verify whether a capture setup is ready"],
+      ["Node management", "Unique saved node ID / slave_id for receiver binding, role assignment, and multi-node sessions"],
+      ["Arm teleoperation", "Configured set for robotic-arm teleoperation data capture · €1,000 / set"],
+      ["Full-body mocap", "17-node set for humanoid-robot full-body motion capture · €3,000 / set"],
+      ["Software", "Validation and debugging tools for setup, signal quality, calibration, and motion mapping"]
     ]
   },
   zh: {
@@ -58,9 +62,9 @@ const copy = {
     ctaPrimary: "沟通部署",
     ctaSecondary: "查看文档",
     metrics: [
-      ["机械臂套装", "机械臂遥操作 · €1,000 / 套"],
-      ["17 节点", "人形机器人全身动作捕捉 · €3,000 / 套"],
-      ["3D 查看", "桌面与移动端产品检查"]
+      ["1–500 Hz", "单节点 UDP 数据发送频率可配置"],
+      ["约 39 × 65 × 24 mm", "紧凑型可穿戴外壳模型边界"],
+      ["17 节点", "人形机器人全身动作捕捉 · €3,000 / 套"]
     ],
     viewerEyebrow: "交互式硬件",
     viewerTitle: "以 3D 查看 Sirius Nova",
@@ -81,14 +85,18 @@ const copy = {
       "产品表达以 Sirius Nova 硬件产品为中心，不把测试用设备数量写成独立产品。",
       "通过验证软件检查设备质量和动作映射，再进入正式数据采集。"
     ],
-    specsTitle: "规格与价格",
+    specsTitle: "产品性能、规格与价格",
     specs: [
-      ["形态", "可穿戴无线 IMU 节点"],
-      ["角色", "动作捕捉硬件层"],
-      ["机械臂遥操作", "机械臂应用套装 · €1,000 / 套"],
-      ["全身动作捕捉", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
-      ["软件", "用于设备质量和动作映射验证的调试工具"],
-      ["方向", "未来 SiriusCeption 数据工作流的基础"]
+      ["产品形态", "可穿戴无线 IMU 动作捕捉节点"],
+      ["尺寸", "根据 Sirius Nova 源模型边界，约 39 × 65 × 24 mm"],
+      ["计算 / 网络", "基于 ESP32-C3 的节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
+      ["数据频率", "`udp_hz` / rate 可配置为 1–500 Hz；首次部署验证建议从 100 Hz 开始"],
+      ["动作输出", "每个节点输出四元数姿态、陀螺仪和加速度数据"],
+      ["精度模型", "通过标定支撑姿态跟踪；通过实时包频率、包延迟和信号质量检查确认采集条件是否达标"],
+      ["节点管理", "每个节点保存唯一 node ID / slave_id，用于接收端绑定、角色分配和多节点会话"],
+      ["机械臂遥操作", "机械臂遥操作数据采集套装 · €1,000 / 套"],
+      ["全身动作捕捉", "17 节点人形机器人全身动作捕捉套装 · €3,000 / 套"],
+      ["软件", "用于设备设置、信号质量、标定和动作映射验证的调试工具"]
     ]
   }
 } as const;

@@ -47,14 +47,18 @@ const copy = {
               "For humanoid-robot full-body motion capture. The full-body configuration uses 17 Sirius Nova nodes."
           }
         ],
-        specsTitle: "Specifications",
+        specsTitle: "Product specifications",
         specs: [
-          ["Product type", "Wearable wireless IMU node"],
-          ["Platform role", "Hardware layer for embodied data acquisition"],
+          ["Product type", "Wearable wireless IMU motion-capture node"],
+          ["Dimensions", "Compact wearable enclosure; source model bounds approx. 39 × 65 × 24 mm"],
+          ["Streaming frequency", "Configurable UDP stream rate from 1–500 Hz; 100 Hz recommended for first-run validation"],
+          ["Motion output", "Live quaternion orientation, gyroscope, and acceleration data per node"],
+          ["Precision workflow", "Calibration-backed orientation tracking; packet rate, packet age, and signal quality are validated before capture"],
+          ["Connectivity", "ESP32-C3 wireless node with Wi-Fi UDP streaming and USB-C serial configuration"],
+          ["Node identity", "Each node stores a unique ID for receiver binding, role assignment, and multi-node capture"],
           ["Arm package", "Robotic-arm teleoperation data capture · €1,000 / set"],
           ["Full-body package", "17-node humanoid motion-capture set · €3,000 / set"],
-          ["Software", "Validation/debugging for setup, signal quality, calibration, and motion mapping"],
-          ["Product detail", "Dedicated 3D inspection page for Sirius Nova"]
+          ["Software", "Validation/debugging for setup, signal quality, calibration, and motion mapping"]
         ],
         demos: [
           {
@@ -120,14 +124,18 @@ const copy = {
               "面向人形机器人的全身动作捕捉。全身配置使用 17 个 Sirius Nova 节点。"
           }
         ],
-        specsTitle: "规格参数",
+        specsTitle: "产品性能与规格",
         specs: [
-          ["产品类型", "可穿戴无线 IMU 节点"],
-          ["平台角色", "具身智能数据采集的硬件层"],
+          ["产品类型", "可穿戴无线 IMU 动作捕捉节点"],
+          ["尺寸", "紧凑型可穿戴外壳；源模型边界约 39 × 65 × 24 mm"],
+          ["数据频率", "UDP 发送频率可配置为 1–500 Hz；首次部署验证建议从 100 Hz 开始"],
+          ["动作数据", "每个节点实时输出四元数姿态、陀螺仪和加速度数据"],
+          ["精度工作流", "通过标定支撑姿态跟踪；采集前验证包频率、包延迟与信号质量"],
+          ["连接方式", "ESP32-C3 无线节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
+          ["节点识别", "每个节点保存唯一 ID，用于接收端绑定、角色分配和多节点采集"],
           ["机械臂套装", "机械臂遥操作数据采集 · €1,000 / 套"],
           ["全身套装", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
-          ["软件", "用于设备设置、信号质量、标定和动作映射验证的调试工具"],
-          ["产品详情", "Sirius Nova 独立 3D 产品检查页"]
+          ["软件", "用于设备设置、信号质量、标定和动作映射验证的调试工具"]
         ],
         demos: [
           {
