@@ -21,7 +21,7 @@ const copy = {
         items: [
           "Use human motion as a low-friction interface for robot teleoperation and data generation.",
           "Collect reusable motion demonstrations for embodied-intelligence training data.",
-          "Start with hardware-based robotic-arm teleoperation data capture, then extend toward managed sessions, labels, replay, export, and full-body workflows."
+          "Start with single-arm or dual-arm robotic-arm teleoperation data capture, then extend toward managed sessions, labels, replay, export, and full-body humanoid workflows."
         ]
       },
       {
@@ -29,7 +29,7 @@ const copy = {
         label: "02",
         title: "Hardware components",
         lead:
-          "The current hardware project is an ESP32-C3 based wearable IMU node with firmware-side configuration storage, serial console commands, Wi-Fi networking, and UDP streaming.",
+          "The current hardware project is an ESP32-C3 based wearable data collector node with firmware-side configuration storage, serial console commands, Wi-Fi networking, and UDP streaming.",
         items: [
           "Node ID: unique `id` / `slave_id` used by the receiver and visualizer.",
           "Network: Wi-Fi SSID/password stored in flash and editable over USB serial.",
@@ -69,10 +69,10 @@ const copy = {
         label: "05",
         title: "Teleop Console",
         lead:
-          "The SiriusCeption client now has a dedicated Teleop page for a three-IMU arm workflow. It turns the Python teleoperation parameters into a guided UI and blocks unsafe starts until all required devices are present.",
+          "The SiriusCeption client includes guided Teleop workflows for arm kits. It turns teleoperation parameters into a guided UI and blocks unsafe starts until all required devices are present.",
         items: [
-          "Teleop requires exactly three IMU devices: upper arm, forearm, and hand, each with a unique saved node ID.",
-          "Open the Teleop page, bind the three role IDs, and confirm each role is online in the live role cards.",
+          "Single-arm and dual-arm kits bind the required role IDs for each arm, with each physical node using a unique saved node ID.",
+          "Open the Teleop page, bind the role IDs for the purchased kit, and confirm each role is online in the live role cards.",
           "Set upper/forearm segment lengths, `init_pose`, `earth_frame`, calibration duration, output rate, and optional `base_offset`.",
           "Click Apply Settings, Calibrate All while the operator holds still, then Start Teleop to inspect the live command-frame preview."
         ]
@@ -117,7 +117,7 @@ const copy = {
     terminalTitle: "Serial console example",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "Recommended first-run flow",
-    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining arm nodes, verify all three in Receiver Monitor, open Teleop Console for role binding and calibration, then move to Robot Control for simulator model selection and URDF-based motion preview."
+    ctaLead: "Configure one node end-to-end first. After one node streams reliably, repeat unique IDs for the remaining nodes in the purchased kit, verify them in Receiver Monitor, open Teleop Console for role binding and calibration, then move to Robot Control for simulator model selection and URDF-based motion preview."
   },
   zh: {
     back: "返回首页",
@@ -136,7 +136,7 @@ const copy = {
         items: [
           "把人体动作变成低门槛的机器人遥操作与数据生成接口。",
           "采集可复用的动作示教数据，用于具身智能训练。",
-          "可先从硬件驱动的机械臂遥操作数据采集开始，再扩展到可管理的数据会话、标签、回放、导出和全身采集流程。"
+          "可先从单臂或双臂机械臂遥操作数据采集开始，再扩展到可管理的数据会话、标签、回放、导出和人形机器人全身流程。"
         ]
       },
       {
@@ -144,7 +144,7 @@ const copy = {
         label: "02",
         title: "硬件组成",
         lead:
-          "当前硬件项目是基于 ESP32-C3 的可穿戴 IMU 节点，固件支持配置存储、串口命令、Wi-Fi 网络连接与 UDP 数据发送。",
+          "当前硬件项目是基于 ESP32-C3 的可穿戴数据采集节点，固件支持配置存储、串口命令、Wi-Fi 网络连接与 UDP 数据发送。",
         items: [
           "节点 ID：唯一的 `id` / `slave_id`，用于接收端和可视化页面识别设备。",
           "网络配置：Wi-Fi SSID/密码保存在 Flash 中，可通过 USB 串口修改。",
@@ -184,10 +184,10 @@ const copy = {
         label: "05",
         title: "遥操作控制台",
         lead:
-          "SiriusCeption 客户端已经加入独立 Teleop 页面，用于三 IMU 手臂遥操作流程。它把 Python 遥操作参数变成可操作 UI，并在必要设备未就绪时阻止启动。",
+          "SiriusCeption 客户端包含面向手臂套装的 Teleop 引导流程。它把遥操作参数变成可操作 UI，并在必要设备未就绪时阻止启动。",
         items: [
-          "遥操作必须使用三个 IMU 设备：上臂、前臂、手部，并且每个设备都需要唯一且已保存的节点 ID。",
-          "打开 Teleop 页面，绑定三个角色 ID，并在角色卡片中确认每个角色在线。",
+          "单臂和双臂套装按每条手臂绑定所需角色 ID，每个物理节点都需要唯一且已保存的节点 ID。",
+          "打开 Teleop 页面，按购买套装绑定角色 ID，并在角色卡片中确认每个角色在线。",
           "设置上臂/前臂长度、`init_pose`、`earth_frame`、标定时长、输出频率以及可选 `base_offset`。",
           "点击 Apply Settings，操作者保持静止后执行 Calibrate All，然后 Start Teleop 查看实时 command-frame preview。"
         ]
@@ -232,7 +232,7 @@ const copy = {
     terminalTitle: "串口命令示例",
     terminalLines: ["CONFIG on", "SHOW", "SET id 3", "SET ssid Sirius", "SET pass 88884444", "SET host 192.168.1.92", "SET port 9999", "SET udp_hz 100", "SAVE"],
     ctaTitle: "推荐首次使用流程",
-    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为其他手臂节点分配唯一 ID，在 Receiver Monitor 中验证三个节点均在线，进入 Teleop Console 绑定角色并标定，最后进入 Robot Control 选择 simulator 机器人模型并查看基于 URDF 的动作预览。"
+    ctaLead: "先完整配置并跑通一个节点。确认单节点稳定发送后，再为购买套装中的其他节点分配唯一 ID，在 Receiver Monitor 中验证节点均在线，进入 Teleop Console 绑定角色并标定，最后进入 Robot Control 选择 simulator 机器人模型并查看基于 URDF 的动作预览。"
   }
 } as const;
 

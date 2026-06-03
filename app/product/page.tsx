@@ -18,7 +18,7 @@ const copy = {
     quoteCta: "Request deployment plan",
     demosTitle: "Product demos",
     demosLead:
-      "See Sirius Nova in the two deployment modes that matter for purchase decisions: robotic-arm teleoperation and full-body humanoid motion capture.",
+      "See Sirius Nova in purchasable deployment modes: single-arm and dual-arm robotic teleoperation, plus full-body humanoid motion capture and teleoperation.",
     videosCta: "View full video library",
     products: [
       {
@@ -26,46 +26,53 @@ const copy = {
         name: "Sirius Nova",
         status: "Current product",
         href: "/products/sirius-nova",
-        label: "Wearable IMU node",
+        label: "Embodied-AI data collector",
         summary:
-          "A wearable IMU node for embodied-intelligence data acquisition, sold as configured sets for robotic-arm teleoperation data and humanoid full-body motion capture.",
+          "A wearable embodied-AI data collector node for motion data acquisition, sold as single-arm, dual-arm, and full-body kits with matched pose and robot-teleoperation software.",
         priceLead: "From",
-        price: "€1,000",
-        priceNote: "per robotic-arm teleoperation set",
+        price: "€599",
+        priceNote: "per single-arm kit",
         packageTitle: "Available packages",
         packages: [
           {
-            title: "Robotic-arm teleoperation set",
-            price: "€1,000 / set",
+            title: "Single-arm kit",
+            price: "€599 / set",
             body:
-              "For mechanical-arm / robotic-arm teleoperation data capture and robot-control demonstrations. Presented as a Sirius Nova arm-teleoperation set, not as a temporary test-device count."
+              "For one robotic arm or mechanical arm. Includes single-arm pose tracking and single-arm robotic-arm teleoperation software."
           },
           {
-            title: "Full-body motion-capture set",
-            price: "€3,000 / set",
+            title: "Dual-arm kit",
+            price: "€1,199 / kit",
             body:
-              "For humanoid-robot full-body motion capture. The full-body configuration uses 17 Sirius Nova nodes."
+              "For two-arm robotic teleoperation and bimanual data capture. Includes dual-arm pose tracking and dual-arm robotic-arm teleoperation software."
+          },
+          {
+            title: "Full-body humanoid kit",
+            price: "€2,999 / kit",
+            body:
+              "For humanoid robots. Includes full-body pose tracking and humanoid robot teleoperation software."
           }
         ],
         specsTitle: "Product specifications",
         specs: [
-          ["Product type", "Wearable wireless IMU motion-capture node"],
+          ["Product type", "Wearable wireless embodied-AI data collector node"],
           ["Dimensions", "Compact wearable enclosure; source model bounds approx. 39 × 65 × 24 mm"],
           ["Streaming frequency", "Configurable UDP stream rate from 1–500 Hz; 100 Hz recommended for first-run validation"],
           ["Motion output", "Live quaternion orientation, gyroscope, and acceleration data per node"],
           ["Precision workflow", "Calibration-backed orientation tracking; packet rate, packet age, and signal quality are validated before capture"],
           ["Connectivity", "ESP32-C3 wireless node with Wi-Fi UDP streaming and USB-C serial configuration"],
           ["Node identity", "Each node stores a unique ID for receiver binding, role assignment, and multi-node capture"],
-          ["Arm package", "Robotic-arm teleoperation data capture · €1,000 / set"],
-          ["Full-body package", "17-node humanoid motion-capture set · €3,000 / set"],
-          ["Software", "Validation/debugging for setup, signal quality, calibration, and motion mapping"]
+          ["Single-arm kit", "Single-arm pose tracking + single-arm robotic-arm teleoperation software · €599 / set"],
+          ["Dual-arm kit", "Dual-arm pose tracking + dual-arm robotic-arm teleoperation software · €1,199 / kit"],
+          ["Full-body kit", "Full-body pose tracking + humanoid robot teleoperation software · €2,999 / kit"],
+          ["Software", "Package-matched pose tracking, teleoperation, validation, calibration, and motion-mapping tools"]
         ],
         demos: [
           {
             mode: "Robotic-arm teleoperation",
             title: "PiPER Arm Teleoperation",
             url: "https://www.youtube.com/embed/z-4OFV3XAUA",
-            body: "Shows the €1,000 robotic-arm teleoperation set as a practical robot-control data capture workflow."
+            body: "Shows the single-arm kit as a practical robotic-arm teleoperation and data-capture workflow."
           },
           {
             mode: "Robotic-arm teleoperation",
@@ -77,7 +84,7 @@ const copy = {
             mode: "Full-body motion capture",
             title: "Full-body Pose Tracking",
             url: "https://www.youtube.com/embed/IEHnCtcOQJ8",
-            body: "Evidence for the €3,000 17-node full-body configuration for humanoid-robot motion data."
+            body: "Evidence for the full-body kit for humanoid-robot pose tracking and teleoperation data."
           }
         ]
       }
@@ -95,7 +102,7 @@ const copy = {
     buyCta: "联系购买",
     quoteCta: "获取部署方案",
     demosTitle: "产品演示",
-    demosLead: "查看 Sirius Nova 的两种交付形态：机械臂遥操作与人形机器人全身动作捕捉。",
+    demosLead: "查看 Sirius Nova 的可购买交付形态：单臂、双臂机械臂遥操作，以及人形机器人全身动作捕捉与遥操作。",
     videosCta: "查看完整视频库",
     products: [
       {
@@ -103,46 +110,53 @@ const copy = {
         name: "Sirius Nova",
         status: "当前产品",
         href: "/products/sirius-nova",
-        label: "可穿戴 IMU 节点",
+        label: "具身智能数据采集节点",
         summary:
-          "Sirius Nova 是面向具身智能数据采集的可穿戴 IMU 节点，可按机械臂遥操作数据套装或人形机器人全身动作捕捉套装交付。",
+          "Sirius Nova 是面向具身智能数据采集的可穿戴数据采集节点，可按单臂、双臂和全身套装交付，并配套对应的位姿与机器人遥操作软件。",
         priceLead: "起售价",
-        price: "€1,000",
-        priceNote: "每套机械臂遥操作套装",
+        price: "€599",
+        priceNote: "每套单臂套装",
         packageTitle: "可购买套装",
         packages: [
           {
-            title: "机械臂遥操作套装",
-            price: "€1,000 / 套",
+            title: "单臂套装",
+            price: "€599 / 套",
             body:
-              "面向机械臂 / 机器人手臂的遥操作数据采集与机器人控制示教。页面呈现为 Sirius Nova 的机械臂遥操作套装，不把测试用设备数量写成产品身份。"
+              "面向单个机械臂 / 机器人手臂。包括单臂位姿与单臂机械臂遥操作软件。"
           },
           {
-            title: "全身动作捕捉套装",
-            price: "€3,000 / 套",
+            title: "双臂套装",
+            price: "€1,199 / 套",
             body:
-              "面向人形机器人的全身动作捕捉。全身配置使用 17 个 Sirius Nova 节点。"
+              "面向双机械臂遥操作和双臂数据采集。包括双臂位姿与双臂机械臂遥操作软件。"
+          },
+          {
+            title: "全身人形机器人套装",
+            price: "€2,999 / 套",
+            body:
+              "面向人形机器人。包括全身位姿与人形机器人遥操作软件。"
           }
         ],
         specsTitle: "产品性能与规格",
         specs: [
-          ["产品类型", "可穿戴无线 IMU 动作捕捉节点"],
+          ["产品类型", "可穿戴具身智能数据采集节点"],
           ["尺寸", "紧凑型可穿戴外壳；源模型边界约 39 × 65 × 24 mm"],
           ["数据频率", "UDP 发送频率可配置为 1–500 Hz；首次部署验证建议从 100 Hz 开始"],
           ["动作数据", "每个节点实时输出四元数姿态、陀螺仪和加速度数据"],
           ["精度工作流", "通过标定支撑姿态跟踪；采集前验证包频率、包延迟与信号质量"],
           ["连接方式", "ESP32-C3 无线节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
           ["节点识别", "每个节点保存唯一 ID，用于接收端绑定、角色分配和多节点采集"],
-          ["机械臂套装", "机械臂遥操作数据采集 · €1,000 / 套"],
-          ["全身套装", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
-          ["软件", "用于设备设置、信号质量、标定和动作映射验证的调试工具"]
+          ["单臂套装", "单臂位姿 + 单臂机械臂遥操作软件 · €599 / 套"],
+          ["双臂套装", "双臂位姿 + 双臂机械臂遥操作软件 · €1,199 / 套"],
+          ["全身套装", "全身位姿 + 人形机器人遥操作软件 · €2,999 / 套"],
+          ["软件", "按套装配套位姿、遥操作、设备设置、标定和动作映射验证工具"]
         ],
         demos: [
           {
             mode: "机械臂遥操作",
             title: "PiPER 机械臂遥操作",
             url: "https://www.youtube.com/embed/z-4OFV3XAUA",
-            body: "展示 €1,000 机械臂遥操作套装在机器人控制数据采集中的实际工作流。"
+            body: "展示单臂套装在机械臂遥操作与机器人控制数据采集中的实际工作流。"
           },
           {
             mode: "机械臂遥操作",
@@ -154,7 +168,7 @@ const copy = {
             mode: "全身动作捕捉",
             title: "全身姿态跟踪",
             url: "https://www.youtube.com/embed/IEHnCtcOQJ8",
-            body: "作为 €3,000、17 节点全身配置面向人形机器人动作数据的演示证据。"
+            body: "作为全身套装面向人形机器人全身位姿与遥操作数据的演示证据。"
           }
         ]
       }

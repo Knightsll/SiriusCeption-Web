@@ -18,13 +18,13 @@ const copy = {
       },
       {
         title: "Role mapping for capture",
-        body: "For robotic-arm data capture, users explicitly map different Sirius Nova device IDs to required body or control roles.",
-        points: ["Role IDs", "Duplicate-ID protection", "Capture readiness"]
+        body: "For single-arm and dual-arm kits, users explicitly map Sirius Nova device IDs to the required arm/control roles before teleoperation.",
+        points: ["Single/dual-arm roles", "Duplicate-ID protection", "Capture readiness"]
       },
       {
         title: "Calibration & validation",
-        body: "The UI helps users verify calibration quality and motion mapping before collecting embodied-intelligence data.",
-        points: ["Guided calibration", "Motion quality check", "Recoverable errors"]
+        body: "The UI helps users verify single-arm, dual-arm, or full-body calibration quality and motion mapping before collecting embodied-intelligence data.",
+        points: ["Guided calibration", "Motion quality check", "Full-body validation"]
       },
       {
         title: "Robot-model inspection",
@@ -47,13 +47,13 @@ const copy = {
       },
       {
         title: "采集角色映射",
-        body: "针对机械臂数据采集，用户把不同 Sirius Nova 设备 ID 明确映射到需要的身体或控制角色。",
-        points: ["角色 ID", "重复 ID 防护", "采集就绪"]
+        body: "针对单臂和双臂套装，用户把不同 Sirius Nova 设备 ID 明确映射到所需手臂 / 控制角色，再进入遥操作。",
+        points: ["单臂 / 双臂角色", "重复 ID 防护", "采集就绪"]
       },
       {
         title: "标定与验证",
-        body: "UI 帮助用户在采集具身智能数据前验证标定质量和动作映射效果。",
-        points: ["引导式标定", "动作质量检查", "异常可恢复"]
+        body: "UI 帮助用户在采集具身智能数据前验证单臂、双臂或全身的标定质量和动作映射效果。",
+        points: ["引导式标定", "动作质量检查", "全身验证"]
       },
       {
         title: "机器人模型检查",

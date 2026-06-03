@@ -28,11 +28,11 @@ const copy = {
         {
           title: "Embodied data collector hardware",
           lead: "Reliable wearable nodes collect human motion as the first layer of the embodied data stack.",
-          points: ["3D pose & motion reconstruction", "Arm-only and full-body expansion path", "Stable field-ready capture sessions"]
+          points: ["3D pose & motion reconstruction", "Single-arm, dual-arm, and full-body kits", "Stable field-ready capture sessions"]
         },
         {
           title: "Robot teleoperation data",
-          lead: "Arm teleoperation is one configuration for collecting robot-control data; the device count is an implementation detail, not the product identity.",
+          lead: "Single-arm and dual-arm kits target robotic-arm teleoperation; full-body kits target humanoid robot pose and teleoperation data.",
           points: ["Role-based device binding", "Calibration before capture", "Robot-control data generation"]
         },
         {
@@ -53,8 +53,8 @@ const copy = {
         },
         {
           tag: "Teleoperation",
-          title: "Real-time robot control",
-          body: "Low-latency mapping and motion reconstruction for remote work, hazardous environments, and complex collaboration."
+          title: "Robot teleoperation kits",
+          body: "Single-arm and dual-arm kits focus on robotic-arm teleoperation, while the full-body kit supports humanoid robot pose and teleoperation workflows."
         },
         {
           tag: "Immersive",
@@ -138,11 +138,11 @@ const copy = {
         {
           title: "可穿戴采集硬件",
           lead: "以稳定的可穿戴节点采集人体动作，作为具身智能数据栈的第一层。",
-          points: ["3D 姿态捕捉与动作重建", "从手臂版本扩展到全身采集", "支持高频真实场景采集"]
+          points: ["3D 姿态捕捉与动作重建", "单臂、双臂与全身套装", "支持高频真实场景采集"]
         },
         {
           title: "机器人遥操作数据",
-          lead: "机械臂遥操作是采集机器人控制数据的一种配置；设备数量是实现细节，不是产品身份。",
+          lead: "单臂和双臂套装面向机械臂遥操作；全身套装面向人形机器人的全身位姿与遥操作数据。",
           points: ["按角色绑定设备", "采集前完成标定", "生成机器人控制数据"]
         },
         {
@@ -163,8 +163,8 @@ const copy = {
         },
         {
           tag: "遥操作",
-          title: "机器人实时控制",
-          body: "低延迟姿态映射与动作重建，支持远程作业、危险环境操控与复杂协作任务。"
+          title: "机器人遥操作套装",
+          body: "单臂和双臂套装聚焦机械臂遥操作，全身套装支持人形机器人的全身位姿与遥操作流程。"
         },
         {
           tag: "沉浸式",
