@@ -9,19 +9,19 @@ const copy = {
     badge: "Product Docs",
     title: "SiriusCeption Data Acquisition System Guide",
     lead:
-      "A practical guide for teams evaluating the current SiriusCeption IMU hardware product and the software path toward a one-stop embodied-intelligence data acquisition system.",
-    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose visualization", "Teleop Console", "Robot Control"],
+      "A practical guide for teams evaluating SiriusCeption as a hardware-based embodied-intelligence data acquisition platform for robot teleoperation, control demonstrations, and reusable training datasets.",
+    quick: ["Product overview", "Hardware connection", "Node configuration", "Receiver monitor", "Pose validation", "Teleoperation data", "Robot dataset workflow"],
     sections: [
       {
         id: "overview",
         label: "01",
         title: "What SiriusCeption is",
         lead:
-          "SiriusCeption is currently a wearable IMU hardware product for robot teleoperation and embodied-AI data collection. The product direction is a one-stop data acquisition system where hardware, receiver software, teleop, validation, labeling, replay, and export work as one workflow.",
+          "SiriusCeption is a hardware-based embodied-intelligence data acquisition platform. Sirius Nova is the first hardware facility for capturing human motion, robot teleoperation demonstrations, full-body motion data, and reusable robot-control datasets.",
         items: [
-          "Use human motion as a low-friction control interface for robots and simulation.",
+          "Use human motion as a low-friction interface for robot teleoperation and data generation.",
           "Collect reusable motion demonstrations for embodied-intelligence training data.",
-          "Start with hardware-based arm teleoperation, then extend toward managed data sessions, labels, replay, and full-body workflows."
+          "Start with hardware-based robotic-arm teleoperation data capture, then extend toward managed sessions, labels, replay, export, and full-body workflows."
         ]
       },
       {
@@ -53,15 +53,15 @@ const copy = {
       {
         id: "software",
         label: "04",
-        title: "Software pages",
+        title: "Validation software",
         lead:
-          "The SiriusCeption client separates hardware setup, receiver status, and motion debugging into focused pages so operators can find the right tool quickly.",
+          "The SiriusCeption client is a validation and debugging tool for the hardware data-acquisition workflow. It helps users confirm device setup, signal quality, calibration, and motion mapping before production capture.",
         items: [
           "Node Config: USB serial setup for ID, Wi-Fi, receiver IP, UDP port, and streaming rate.",
           "Receiver Monitor: start/stop UDP receiver, inspect connected devices and live packet status.",
-          "Pose Visualizer: select one device, calibrate, and inspect live orientation for debugging.",
-          "Teleop Console: bind upper arm, forearm, and hand IDs; the page requires three unique online devices before calibration and start.",
-          "Robot Control: select a robot simulator profile, inspect joint mapping and limits, and use the Real URDF Viewer as a beginner-friendly simulator/debug view only; it does not operate a physical robot."
+          "Pose Visualizer: select one device, calibrate, and inspect live orientation for signal-quality validation.",
+          "Teleop Console: bind required role IDs and validate that each device is unique, online, and calibrated before capturing teleoperation data.",
+          "Robot model tools: inspect joint mapping, limits, and expected command/data shape so teams can validate the data pipeline before real deployment."
         ]
       },
       {
@@ -80,14 +80,14 @@ const copy = {
       {
         id: "robot-control",
         label: "06",
-        title: "Robot Control",
+        title: "Robot data workflow",
         lead:
-          "Robot Control is a simulator-focused learning and debugging stage after three-IMU calibration: select the target robot model, inspect joint mapping, and validate motion inside the Real URDF Viewer without operating a physical robot.",
+          "Robot data workflow connects calibrated wearable motion to robot-model mapping, control-demonstration data, and dataset validation. The software views are support tools for checking that mapping before production capture or deployment.",
         items: [
           "Select Unitree Z1, SO-100/SO-101 style arm, Unitree G1, Custom 6DoF, Franka Panda, UR5e, or xArm6 from the model selector.",
-          "Review joint names, limits, command format, and keep the simulator state clearly separated from any physical-robot control concept.",
-          "The Real URDF Viewer renders robot meshes with the base fixed at the world origin; it is for novice testing, model inspection, and simulator motion preview.",
-          "Use the viewer to understand base frame, joint tree, expected command shape, and gripper preview in a safe simulator-only environment."
+          "Review joint names, limits, command format, and the expected dataset schema for downstream robot-control workflows.",
+          "Robot-model viewers help teams inspect base frame, joint tree, limits, and expected motion mapping before collecting production data.",
+          "Use the validation view to understand base frame, joint tree, expected command shape, and gripper/motion data before real deployment."
         ]
       },
       {
@@ -124,19 +124,19 @@ const copy = {
     badge: "产品文档",
     title: "SiriusCeption 数据采集系统指南",
     lead:
-      "面向评估当前 SiriusCeption IMU 硬件产品以及未来一站式具身智能数据采集系统的软件路线，集中说明连接、配置、监控、遥操作与数据链路。",
-    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态可视化", "遥操作控制台", "机器人控制"],
+      "面向评估 SiriusCeption 硬件化具身智能数据采集平台的团队，说明其如何支持机器人遥操作、控制示教和可复用训练数据集。",
+    quick: ["产品概览", "硬件连接", "节点配置", "接收端监控", "姿态验证", "遥操作数据", "机器人数据流程"],
     sections: [
       {
         id: "overview",
         label: "01",
         title: "SiriusCeption 是什么",
         lead:
-          "SiriusCeption 当前是用于机器人遥操作与具身智能数据采集的可穿戴 IMU 硬件产品。长期方向是一站式数据采集系统，让硬件、接收端软件、遥操作、质量验证、标注、回放和导出形成一个完整流程。",
+          "SiriusCeption 是硬件化的具身智能数据采集平台。Sirius Nova 是第一款硬件设施，用于采集人体动作、机器人遥操作示教、全身动作数据和可复用的机器人控制数据集。",
         items: [
-          "把人体动作变成低门槛的机器人与仿真控制接口。",
+          "把人体动作变成低门槛的机器人遥操作与数据生成接口。",
           "采集可复用的动作示教数据，用于具身智能训练。",
-          "可先从硬件驱动的手臂遥操作开始，再扩展到可管理的数据会话、标签、回放和全身采集流程。"
+          "可先从硬件驱动的机械臂遥操作数据采集开始，再扩展到可管理的数据会话、标签、回放、导出和全身采集流程。"
         ]
       },
       {
@@ -168,15 +168,15 @@ const copy = {
       {
         id: "software",
         label: "04",
-        title: "软件页面说明",
+        title: "验证软件说明",
         lead:
-          "SiriusCeption 客户端把硬件设置、接收端状态和动作调试拆成独立页面，让用户快速找到对应工具。",
+          "SiriusCeption 客户端是服务于硬件数据采集流程的验证和调试工具，帮助用户在正式采集前确认设备设置、信号质量、标定和动作映射。",
         items: [
           "Node Config：通过 USB 串口配置 ID、Wi-Fi、接收端 IP、UDP 端口和发送频率。",
           "Receiver Monitor：启动/停止 UDP 接收端，查看在线设备和实时数据包状态。",
-          "Pose Visualizer：选择单个设备、执行校准、查看实时姿态，用于调试。",
-          "Teleop Console：绑定上臂、前臂、手部 ID；必须三个唯一设备都在线后才能标定和启动。",
-          "Robot Control：选择机器人 simulator 模型，检查关节映射和限位；Real URDF Viewer 面向新手测试和理解流程，不操作真实机械臂。"
+          "Pose Visualizer：选择单个设备、执行校准、查看实时姿态，用于信号质量验证。",
+          "Teleop Console：绑定所需角色 ID，并验证每个设备唯一、在线、已标定后再采集遥操作数据。",
+          "机器人模型工具：检查关节映射、限位和预期命令/数据形态，帮助团队在真实部署前验证数据链路。"
         ]
       },
       {
@@ -195,14 +195,14 @@ const copy = {
       {
         id: "robot-control",
         label: "06",
-        title: "机器人控制",
+        title: "机器人数据流程",
         lead:
-          "Robot Control 是三 IMU 标定之后的 simulator 学习/调试阶段：选择目标机器人模型、检查关节映射，并在 Real URDF Viewer 中验证动作，不操作真实机械臂。",
+          "机器人数据流程把标定后的可穿戴动作连接到机器人模型映射、控制示教数据和数据集验证。软件视图是用于正式采集或部署前检查映射的支持工具。",
         items: [
           "可在模型选择器中选择 Unitree Z1、SO-100/SO-101、Unitree G1、Custom 6DoF、Franka Panda、UR5e 或 xArm6。",
-          "检查关节名称、限位、命令格式，并把 simulator 状态与真实机械臂控制概念明确分开。",
-          "Real URDF Viewer 会渲染机器人 mesh，并让机器人底座固定在世界原点；它用于新手测试、模型检查和 simulator 动作预览。",
-          "用户可以在安全的 simulator-only 环境中理解 base frame、joint tree、预期 command 形状和 gripper preview。"
+          "检查关节名称、限位、命令格式和下游机器人控制工作流所需的数据结构。",
+          "机器人模型视图帮助团队检查 base frame、joint tree、限位和预期动作映射，再进入正式数据采集。",
+          "用户可以通过验证视图理解 base frame、joint tree、预期 command 形状和 gripper / motion 数据，再进入真实部署。"
         ]
       },
       {

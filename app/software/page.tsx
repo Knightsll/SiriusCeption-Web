@@ -7,58 +7,58 @@ const copy = {
   en: {
     back: "Home",
     badge: "Software",
-    title: "Beginner-friendly Simulator Software",
+    title: "Validation software for the data acquisition platform",
     lead:
-      "SiriusCeption software helps new users test devices, understand the three-IMU teleop workflow, and preview robot motion in a safe simulator. It is not designed to operate a physical robot from the public UI.",
+      "SiriusCeption software is an operator tool for device validation, signal checking, calibration, and motion-mapping debugging. It supports the hardware data-acquisition platform; it is not the final product structure by itself.",
     cards: [
       {
-        title: "Device setup & status",
-        body: "Guide users from hardware connection to a reliable receiver state before any teleop workflow starts.",
+        title: "Device setup & signal quality",
+        body: "Guide users from hardware connection to reliable receiver status before production capture starts.",
         points: ["Node identity", "Receiver readiness", "Online / stale status"]
       },
       {
-        title: "Three-device role binding",
-        body: "Before control starts, users explicitly map different SiriusCeption device IDs to upper arm, forearm, and hand.",
-        points: ["Upper arm ID", "Forearm ID", "Hand ID", "Duplicate-ID protection"]
+        title: "Role mapping for capture",
+        body: "For robotic-arm data capture, users explicitly map different Sirius Nova device IDs to required body or control roles.",
+        points: ["Role IDs", "Duplicate-ID protection", "Capture readiness"]
       },
       {
-        title: "Calibration & safe preview",
-        body: "The UI walks beginners through calibration and keeps algorithm details inside the protected backend layer.",
-        points: ["Guided calibration", "Backend-only teleop logic", "Graceful error recovery"]
+        title: "Calibration & validation",
+        body: "The UI helps users verify calibration quality and motion mapping before collecting embodied-intelligence data.",
+        points: ["Guided calibration", "Motion quality check", "Recoverable errors"]
       },
       {
-        title: "Real URDF simulator",
-        body: "Robot Control is a simulator learning view: users see robot motion and gripper preview without sending commands to real hardware.",
-        points: ["URDF model preview", "Joint-limit feedback", "Simulator-only operation"]
+        title: "Robot-model inspection",
+        body: "Robot and URDF views are validation aids for understanding mapping, limits, and expected data shape before real deployment.",
+        points: ["URDF model inspection", "Joint-limit feedback", "Dataset readiness"]
       }
     ]
   },
   zh: {
     back: "首页",
     badge: "软件",
-    title: "面向新手的 Simulator 软件",
+    title: "面向数据采集平台的验证软件",
     lead:
-      "SiriusCeption 软件用于帮助新手测试设备、理解三 IMU 遥操作流程，并在安全的 simulator 中预览机器人动作。公开 UI 不用于真实控制机械臂。",
+      "SiriusCeption 软件是给用户做设备验证、信号检查、标定和动作映射调试的操作工具。它服务于硬件数据采集平台，本身不是产品的最终结构。",
     cards: [
       {
-        title: "设备接入与状态",
-        body: "先引导用户完成硬件连接与接收端状态确认，再进入任何遥操作流程。",
+        title: "设备接入与信号质量",
+        body: "在正式采集前，引导用户完成硬件连接并确认接收端状态稳定。",
         points: ["节点身份", "接收端就绪", "在线 / stale 状态"]
       },
       {
-        title: "三设备角色绑定",
-        body: "启动控制前，用户必须把不同的 SiriusCeption 设备 ID 明确绑定到上臂、前臂和手部。",
-        points: ["上臂 ID", "前臂 ID", "手部 ID", "重复 ID 防护"]
+        title: "采集角色映射",
+        body: "针对机械臂数据采集，用户把不同 Sirius Nova 设备 ID 明确映射到需要的身体或控制角色。",
+        points: ["角色 ID", "重复 ID 防护", "采集就绪"]
       },
       {
-        title: "标定与安全预览",
-        body: "UI 引导新手完成标定，同时把末端计算与 gripper 等核心逻辑保留在受保护的后端层。",
-        points: ["引导式标定", "后端封装遥操作逻辑", "异常不中断全局"]
+        title: "标定与验证",
+        body: "UI 帮助用户在采集具身智能数据前验证标定质量和动作映射效果。",
+        points: ["引导式标定", "动作质量检查", "异常可恢复"]
       },
       {
-        title: "Real URDF Simulator",
-        body: "Robot Control 是 simulator 学习视图：用户可以看到机器人动作和 gripper preview，但不会向真实硬件发送控制命令。",
-        points: ["URDF 模型预览", "关节限位反馈", "仅 simulator 操作"]
+        title: "机器人模型检查",
+        body: "机器人和 URDF 视图是理解映射、限位和预期数据形态的验证工具，用于正式部署前检查。",
+        points: ["URDF 模型检查", "关节限位反馈", "数据集就绪"]
       }
     ]
   }

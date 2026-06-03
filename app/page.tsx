@@ -12,18 +12,18 @@ const copy = {
       eyebrow: "First Product · Wearable IMU Node",
       title1: "Sirius Nova",
       title2: "Wearable motion capture",
-      title3: "for embodied data and simulator-first teleop",
+      title3: "for embodied data acquisition",
       lead:
-        "Sirius Nova is the first SiriusCeption product: a wearable IMU node for reliable human-motion capture, three-device arm teleoperation, and the first hardware layer of a future embodied-intelligence data acquisition system."
+        "Sirius Nova is the first SiriusCeption product: a wearable IMU node and hardware facility for embodied-intelligence data acquisition, robotic teleoperation, and real-world robot-control datasets."
     },
     metrics: [
       { metric: "Hardware now", meta: "Wearable IMU capture" },
-      { metric: "3-device teleop", meta: "Upper arm · forearm · hand" },
+      { metric: "Robot data", meta: "Teleoperation · capture · control" },
       { metric: "Data platform next", meta: "Capture · label · replay · export" }
     ],
     product: {
-      title: "Hardware Today, Data System Tomorrow",
-      lead: "The current product is the wearable motion-capture hardware layer; the product direction is a one-stop embodied data acquisition workflow from device setup to robot-ready datasets.",
+      title: "Hardware foundation for an embodied data platform",
+      lead: "Sirius Nova is the hardware foundation of the SiriusCeption embodied-intelligence data acquisition platform: capture motion, support teleoperation, and produce robot-ready datasets.",
       cards: [
         {
           title: "Wearable capture hardware",
@@ -31,9 +31,9 @@ const copy = {
           points: ["3D pose & motion reconstruction", "Arm-only and full-body expansion path", "Stable field-ready capture sessions"]
         },
         {
-          title: "Three-device teleoperation",
-          lead: "The arm teleop workflow is designed around three devices: upper arm, forearm, and hand.",
-          points: ["Role-based device binding", "Safe calibration before start", "Simulator preview before any real robot"]
+          title: "Robot teleoperation data",
+          lead: "Arm teleoperation is one configuration for collecting robot-control data; the device count is an implementation detail, not the product identity.",
+          points: ["Role-based device binding", "Calibration before capture", "Robot-control data generation"]
         },
         {
           title: "One-stop data pipeline",
@@ -122,18 +122,18 @@ const copy = {
       eyebrow: "首款产品 · 可穿戴 IMU 节点",
       title1: "Sirius Nova",
       title2: "可穿戴动作采集",
-      title3: "面向具身数据与 simulator-first 遥操作",
+      title3: "面向具身智能数据采集",
       lead:
-        "Sirius Nova 是 SiriusCeption 的第一个产品：一个用于稳定人体动作采集、三设备手臂遥操作和具身智能数据采集系统第一层硬件的可穿戴 IMU 节点。"
+        "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身智能数据采集、机器人遥操作和真实机器人控制数据集的可穿戴 IMU 节点与硬件设施。"
     },
     metrics: [
       { metric: "当前硬件产品", meta: "可穿戴 IMU 采集" },
-      { metric: "三设备遥操作", meta: "上臂 · 前臂 · 手部" },
+      { metric: "机器人数据", meta: "遥操作 · 采集 · 控制" },
       { metric: "未来数据平台", meta: "采集 · 标注 · 回放 · 导出" }
     ],
     product: {
-      title: "当前是硬件，目标是数据系统",
-      lead: "现阶段产品重点是可穿戴动作采集硬件；长期方向是把设备接入、遥操作、数据质检、标注、回放和导出整合为一站式具身智能数据采集系统。",
+      title: "具身数据平台的硬件基础",
+      lead: "Sirius Nova 是 SiriusCeption 具身智能数据采集平台的硬件基础：采集动作、支持遥操作，并产出面向机器人的可用数据集。",
       cards: [
         {
           title: "可穿戴采集硬件",
@@ -141,9 +141,9 @@ const copy = {
           points: ["3D 姿态捕捉与动作重建", "从手臂版本扩展到全身采集", "支持高频真实场景采集"]
         },
         {
-          title: "三设备遥操作",
-          lead: "手臂遥操作明确围绕三个设备设计：上臂、前臂、手部，减少用户配置混乱。",
-          points: ["按角色绑定设备", "启动前完成安全标定", "先在 simulator 中预览动作"]
+          title: "机器人遥操作数据",
+          lead: "机械臂遥操作是采集机器人控制数据的一种配置；设备数量是实现细节，不是产品身份。",
+          points: ["按角色绑定设备", "采集前完成标定", "生成机器人控制数据"]
         },
         {
           title: "一站式数据管线",
@@ -340,15 +340,15 @@ export default function Home() {
           <h2>{locale === "en" ? "Explore SiriusCeption" : "浏览 SiriusCeption"}</h2>
           <p>
             {locale === "en"
-              ? "Sirius Nova is our first product, while SiriusCeption is the larger product system: Nova captures reliable wearable IMU data today; the website should frame it as the hardware entry point into future capture, teleop, validation, replay, and export workflows."
-              : "Sirius Nova 是我们的第一个产品，SiriusCeption 是更大的产品系统：Nova 负责当前稳定的可穿戴 IMU 数据采集；官网整体应把它呈现为未来采集、遥操作、质检、回放和导出流程的硬件入口。"}
+              ? "Sirius Nova is our first product, while SiriusCeption is the larger product system: Nova captures reliable wearable IMU data today and becomes the hardware entry point into capture, teleoperation, validation, replay, and export workflows."
+              : "Sirius Nova 是我们的第一个产品，SiriusCeption 是更大的产品系统：Nova 负责当前稳定的可穿戴 IMU 数据采集，并作为采集、遥操作、质检、回放和导出流程的硬件入口。"}
           </p>
         </div>
         <div className="hub-grid reveal">
           <a className="hub-card highlight" href="/products/sirius-nova">
             <span className="step-index">01</span>
             <h3>{locale === "en" ? "Sirius Nova" : "Sirius Nova"}</h3>
-            <p>{locale === "en" ? "Our first wearable IMU product: motion capture hardware for embodied data and three-device teleop." : "我们的首款可穿戴 IMU 产品：面向具身数据和三设备遥操作的动作采集硬件。"}</p>
+            <p>{locale === "en" ? "Our first wearable IMU product: hardware for embodied-intelligence data acquisition and robot-control datasets." : "我们的首款可穿戴 IMU 产品：面向具身智能数据采集和机器人控制数据集的硬件设施。"}</p>
           </a>
           <a className="hub-card" href="/applications">
             <span className="step-index">02</span>
@@ -358,7 +358,7 @@ export default function Home() {
           <a className="hub-card" href="/software">
             <span className="step-index">03</span>
             <h3>{locale === "en" ? "Software" : "软件"}</h3>
-            <p>{locale === "en" ? "Beginner testing flow: device setup, three-device binding, calibration, and simulator preview." : "新手测试流程：设备接入、三设备绑定、标定和 simulator 预览。"}</p>
+            <p>{locale === "en" ? "Validation tools for device setup, signal quality, calibration, and motion mapping before data capture." : "用于正式采集前的设备设置、信号质量、标定和动作映射验证工具。"}</p>
           </a>
           <a className="hub-card" href="/videos">
             <span className="step-index">04</span>

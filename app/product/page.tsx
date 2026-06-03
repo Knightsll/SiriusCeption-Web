@@ -19,21 +19,21 @@ const copy = {
         status: "Current product",
         href: "/products/sirius-nova",
         summary:
-          "A wearable IMU node product for embodied motion data, available as configured sets for robotic-arm teleoperation and full-body motion capture.",
+          "A wearable IMU node and hardware facility for embodied-intelligence data acquisition, available as configured sets for robotic-arm teleoperation data and full-body motion capture.",
         specsTitle: "Sirius Nova specs",
         specs: [
           ["Device type", "Wearable wireless IMU node"],
           ["Primary use", "Motion capture hardware layer"],
           ["Sensor workflow", "Real-time orientation / motion data for receiver software"],
           ["Preview", "3D product inspection on the Sirius Nova page"],
-          ["Software context", "Node config, receiver monitor, pose visualizer, and simulator preview"]
+          ["Software context", "Validation and debugging tools for device setup, signal quality, and motion mapping"]
         ],
         offeringsTitle: "Configured sets",
         offerings: [
           {
             title: "Robotic-arm teleoperation set",
             body:
-              "For robotic-arm teleoperation and simulator preview. This is presented as a Sirius Nova set for robot-arm use, not as a separate three-device product.",
+              "For robotic-arm teleoperation data capture and robot-control demonstrations. This is presented as a Sirius Nova set configured for robot-arm data acquisition.",
             price: "€1,000 / set"
           },
           {
@@ -61,21 +61,21 @@ const copy = {
         status: "当前产品",
         href: "/products/sirius-nova",
         summary:
-          "Sirius Nova 是面向具身动作数据的可穿戴 IMU 节点产品，可按机械臂遥操作套装或全身动作捕捉套装交付。",
+          "Sirius Nova 是面向具身智能数据采集的可穿戴 IMU 节点与硬件设施，可按机械臂遥操作数据套装或全身动作捕捉套装交付。",
         specsTitle: "Sirius Nova 规格",
         specs: [
           ["设备类型", "可穿戴无线 IMU 节点"],
           ["核心用途", "动作捕捉硬件层"],
           ["传感工作流", "面向接收端软件的实时姿态 / 动作数据"],
           ["产品预览", "在 Sirius Nova 页面查看 3D 产品模型"],
-          ["软件语境", "节点配置、接收端监控、姿态可视化和仿真预览"]
+          ["软件语境", "用于设备设置、信号质量和动作映射验证的调试工具"]
         ],
         offeringsTitle: "套装与价格",
         offerings: [
           {
             title: "机械臂遥操作套装",
             body:
-              "面向机械臂遥操作与仿真预览。页面上应作为 Sirius Nova 的机械臂应用套装呈现，不把“三设备”写成一个独立产品。",
+              "面向机械臂遥操作数据采集与机器人控制示教。页面上应作为 Sirius Nova 的机械臂应用套装呈现，不把设备数量写成一个独立产品。",
             price: "€1,000 / 套"
           },
           {

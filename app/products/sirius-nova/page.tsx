@@ -11,7 +11,7 @@ const copy = {
     eyebrow: "Sirius Nova · First Product",
     title: "Wearable IMU node for embodied motion data",
     lead:
-      "Sirius Nova is the first SiriusCeption product: a compact wearable IMU node for embodied motion data. It can be configured as a set for robotic-arm teleoperation or as a 17-node set for humanoid full-body motion capture.",
+      "Sirius Nova is the first SiriusCeption product: a compact wearable IMU node and hardware facility for embodied-intelligence data acquisition. It supports robotic-arm teleoperation data capture and 17-node humanoid full-body motion capture.",
     ctaPrimary: "Discuss deployment",
     ctaSecondary: "Read docs",
     metrics: [
@@ -23,20 +23,20 @@ const copy = {
     viewerTitle: "Inspect Sirius Nova in 3D",
     viewerLead:
       "Rotate the model to review the enclosure, USB-C opening, original inlay geometry, and wearable node proportions. Mobile devices now load the same 3D preview with a lighter renderer and keep static fallback for reduced-motion or failed WebGL.",
-    positioningTitle: "How the website should present it",
+    positioningTitle: "Sirius Nova in the platform",
     positioningLead:
-      "Sirius Nova should be framed as the concrete product users can understand and evaluate now. SiriusCeption remains the broader system vision: capture hardware today, then receiver software, teleop, validation, replay, labeling, and robot/simulator export as the workflow matures.",
+      "Sirius Nova is the hardware entry point into the SiriusCeption data acquisition platform: wearable motion capture today, then validated teleoperation sessions, replay, labeling, and robot-ready dataset export as the workflow matures.",
     positioning: [
-      { title: "Product first", body: "Lead with Sirius Nova as the physical product instead of making the homepage feel like only an abstract data platform." },
-      { title: "System context", body: "Explain that Nova is the hardware entry point into the larger SiriusCeption embodied data acquisition system." },
-      { title: "Simulator-first", body: "Keep public-facing control language careful: preview and debug in simulator, not direct real-robot operation from the website UI." }
+      { title: "Hardware facility", body: "Wearable IMU nodes capture motion signals that become the foundation of embodied-intelligence datasets." },
+      { title: "Platform context", body: "Nova connects the physical capture layer with validation software, teleoperation sessions, and robot-ready data export." },
+      { title: "Data platform foundation", body: "Present Nova as the hardware facility for embodied-intelligence data acquisition, teleoperation capture, and robot-control dataset generation." }
     ],
     workflowTitle: "Two deployment configurations",
     workflow: [
-      "Robotic-arm teleoperation: a Sirius Nova set for mechanical-arm motion mapping and simulator preview.",
+      "Robotic-arm teleoperation: a Sirius Nova set for capturing robot-control demonstrations and motion-control data.",
       "Full-body motion capture: a 17-node Sirius Nova set for humanoid-robot motion data.",
       "Keep product messaging centered on Sirius Nova as the hardware product rather than naming the test device count as a product.",
-      "Use receiver software and simulator views to validate motion before production data capture."
+      "Use the validation software to check device quality and motion mapping before production data capture."
     ],
     specsTitle: "Specs and pricing",
     specs: [
@@ -44,7 +44,7 @@ const copy = {
       ["Role", "Motion capture hardware layer"],
       ["Arm teleoperation", "Configured set for robotic-arm use · €1,000 / set"],
       ["Full-body mocap", "17-node set for humanoid-robot motion capture · €3,000 / set"],
-      ["Software", "Receiver monitor, node config, pose visualizer, simulator preview"],
+      ["Software", "Validation and debugging tools for device quality and motion mapping"],
       ["Direction", "Foundation for the future SiriusCeption data workflow"]
     ]
   },
@@ -54,7 +54,7 @@ const copy = {
     eyebrow: "Sirius Nova · 首款产品",
     title: "面向具身动作数据的可穿戴 IMU 节点",
     lead:
-      "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身动作数据的紧凑可穿戴 IMU 节点。它可以配置为机械臂遥操作套装，也可以配置为面向人形机器人的 17 节点全身动作捕捉套装。",
+      "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身智能数据采集的紧凑可穿戴 IMU 节点与硬件设施。它支持机械臂遥操作数据采集，也支持 17 节点人形机器人全身动作捕捉。",
     ctaPrimary: "沟通部署",
     ctaSecondary: "查看文档",
     metrics: [
@@ -66,20 +66,20 @@ const copy = {
     viewerTitle: "以 3D 查看 Sirius Nova",
     viewerLead:
       "旋转模型查看外壳、USB-C 开口、原始 inlay 几何和可穿戴节点比例。移动端现在也会加载同一个 3D 预览，使用更轻量的 renderer；reduced-motion 或 WebGL 失败时仍回退到静态图。",
-    positioningTitle: "官网应该如何呈现它",
+    positioningTitle: "Sirius Nova 在平台中的角色",
     positioningLead:
-      "Sirius Nova 应该作为用户现在可以理解和评估的具体产品被优先呈现。SiriusCeption 则保留为更大的系统愿景：当前是采集硬件，之后逐步连接接收端软件、遥操作、质检、回放、标注和机器人/仿真数据导出。",
+      "Sirius Nova 是进入 SiriusCeption 数据采集平台的硬件入口：当前承担可穿戴动作采集，后续连接经过验证的遥操作会话、回放、标注和面向机器人的数据集导出。",
     positioning: [
-      { title: "产品优先", body: "首页先讲清楚 Sirius Nova 这个实体产品，避免只像一个抽象数据平台。" },
-      { title: "系统语境", body: "说明 Nova 是进入 SiriusCeption 具身智能数据采集系统的硬件入口。" },
-      { title: "Simulator-first", body: "公开页面的控制表述要谨慎：强调 simulator 预览和调试，而不是官网 UI 直接控制真实机器人。" }
+      { title: "硬件设施", body: "可穿戴 IMU 节点采集动作信号，形成具身智能数据集的硬件基础。" },
+      { title: "平台语境", body: "Nova 连接物理采集层、验证软件、遥操作会话和面向机器人的数据导出。" },
+      { title: "数据平台基础", body: "把 Nova 呈现为具身智能数据采集、遥操作采集和机器人控制数据生成的硬件设施。" }
     ],
     workflowTitle: "两种套装配置",
     workflow: [
-      "机械臂遥操作：作为 Sirius Nova 的机械臂动作映射与仿真预览套装呈现。",
+      "机械臂遥操作：作为 Sirius Nova 的机器人控制示教与动作控制数据采集套装呈现。",
       "全身动作捕捉：使用 17 个 Sirius Nova 节点，面向人形机器人全身动作数据。",
       "产品表达以 Sirius Nova 硬件产品为中心，不把测试用设备数量写成独立产品。",
-      "通过接收端软件和仿真视图验证动作，再进入正式数据采集。"
+      "通过验证软件检查设备质量和动作映射，再进入正式数据采集。"
     ],
     specsTitle: "规格与价格",
     specs: [
@@ -87,7 +87,7 @@ const copy = {
       ["角色", "动作捕捉硬件层"],
       ["机械臂遥操作", "机械臂应用套装 · €1,000 / 套"],
       ["全身动作捕捉", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
-      ["软件", "接收端监控、节点配置、姿态可视化、仿真预览"],
+      ["软件", "用于设备质量和动作映射验证的调试工具"],
       ["方向", "未来 SiriusCeption 数据工作流的基础"]
     ]
   }

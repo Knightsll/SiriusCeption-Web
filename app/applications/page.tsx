@@ -6,12 +6,12 @@ import { useLocale, type Locale } from "../useLocale";
 const copy = {
   en: { back: "Home", badge: 'Applications', title: 'Applications', lead: 'How SiriusCeption grows from wearable hardware into an embodied-intelligence data acquisition system for robot learning.', cards: [
       { title: 'Embodied data acquisition', body: 'The primary value is collecting realistic, reusable human demonstration data for robot learning.', points: ['Workflow-level demonstrations', 'Micro-action detail', 'Dataset reuse'] },
-      { title: 'Robot teleoperation', body: 'Use three-device arm capture to map human intent into robot operation and data generation.', points: ['Upper arm · forearm · hand', 'Low-latency preview', 'Simulator-only testing'] },
+      { title: 'Robot teleoperation', body: 'Map human intent into robot operation and data generation through wearable arm capture.', points: ['Role-based device mapping', 'Low-latency motion capture', 'Robot-control data'] },
       { title: 'Immersive interaction', body: 'Use wearable motion as a natural interface.', points: ['Wear-and-go setup', 'Realtime feedback', 'Training and simulation'] }
     ] },
   zh: { back: "首页", badge: '应用', title: '应用场景', lead: 'SiriusCeption 如何从可穿戴硬件发展为面向机器人学习的具身智能数据采集系统。', cards: [
       { title: '具身智能数据采集', body: '核心价值是采集真实、可复用的人体示教数据，用于机器人学习。', points: ['流程级示教', '微动作细节', '数据集复用'] },
-      { title: '机器人遥操作', body: '通过三设备手臂采集，把人的操作意图映射到机器人控制与数据生成。', points: ['上臂 · 前臂 · 手部', '低延迟预览', '仅 simulator 测试'] },
+      { title: '机器人遥操作', body: '通过可穿戴手臂采集，把人的操作意图映射到机器人控制与数据生成。', points: ['按角色映射设备', '低延迟动作采集', '机器人控制数据'] },
       { title: '沉浸式交互', body: '把可穿戴动作用作自然交互接口。', points: ['即穿即用', '实时反馈', '训练与仿真'] }
     ] }
 } as const;
