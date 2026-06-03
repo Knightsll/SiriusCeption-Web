@@ -9,15 +9,15 @@ const copy = {
     nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
-      eyebrow: "First Product · Wearable IMU Node",
+      eyebrow: "First Product · Embodied AI Data Collector",
       title1: "Sirius Nova",
       title2: "Wearable motion capture",
       title3: "for embodied data acquisition",
       lead:
-        "Sirius Nova is the first SiriusCeption product: a wearable IMU node and hardware facility for embodied-intelligence data acquisition, robotic teleoperation, and real-world robot-control datasets."
+        "Sirius Nova is the first SiriusCeption product: an embodied-AI data collector node and hardware facility for motion data acquisition, robotic teleoperation, and real-world robot-control datasets."
     },
     metrics: [
-      { metric: "Hardware now", meta: "Wearable IMU capture" },
+      { metric: "Hardware now", meta: "Embodied data collection" },
       { metric: "Robot data", meta: "Teleoperation · capture · control" },
       { metric: "Data platform next", meta: "Capture · label · replay · export" }
     ],
@@ -26,8 +26,8 @@ const copy = {
       lead: "Sirius Nova is the hardware foundation of the SiriusCeption embodied-intelligence data acquisition platform: capture motion, support teleoperation, and produce robot-ready datasets.",
       cards: [
         {
-          title: "Wearable capture hardware",
-          lead: "Reliable IMU nodes collect human motion as the first layer of the embodied data stack.",
+          title: "Embodied data collector hardware",
+          lead: "Reliable wearable nodes collect human motion as the first layer of the embodied data stack.",
           points: ["3D pose & motion reconstruction", "Arm-only and full-body expansion path", "Stable field-ready capture sessions"]
         },
         {
@@ -119,15 +119,15 @@ const copy = {
     nav: { product: "产品", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
-      eyebrow: "首款产品 · 可穿戴 IMU 节点",
+      eyebrow: "首款产品 · 具身智能数据采集节点",
       title1: "Sirius Nova",
       title2: "可穿戴动作采集",
       title3: "面向具身智能数据采集",
       lead:
-        "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身智能数据采集、机器人遥操作和真实机器人控制数据集的可穿戴 IMU 节点与硬件设施。"
+        "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身智能数据采集、机器人遥操作和真实机器人控制数据集的数据采集节点与硬件设施。"
     },
     metrics: [
-      { metric: "当前硬件产品", meta: "可穿戴 IMU 采集" },
+      { metric: "当前硬件产品", meta: "具身数据采集" },
       { metric: "机器人数据", meta: "遥操作 · 采集 · 控制" },
       { metric: "未来数据平台", meta: "采集 · 标注 · 回放 · 导出" }
     ],
@@ -137,7 +137,7 @@ const copy = {
       cards: [
         {
           title: "可穿戴采集硬件",
-          lead: "以稳定的 IMU 节点采集人体动作，作为具身智能数据栈的第一层。",
+          lead: "以稳定的可穿戴节点采集人体动作，作为具身智能数据栈的第一层。",
           points: ["3D 姿态捕捉与动作重建", "从手臂版本扩展到全身采集", "支持高频真实场景采集"]
         },
         {
@@ -325,11 +325,11 @@ export default function Home() {
       <section className="section device-showcase reveal">
         <div className="device-showcase-copy">
           <p className="eyebrow">{locale === "en" ? "Sirius Nova · 3D Preview" : "Sirius Nova · 3D 预览"}</p>
-          <h2>{locale === "en" ? "Inspect the first wearable IMU node in 3D" : "以 3D 方式查看首款可穿戴 IMU 节点"}</h2>
+          <h2>{locale === "en" ? "Inspect the first embodied-AI data collector in 3D" : "以 3D 方式查看首款具身智能数据采集节点"}</h2>
           <p>
             {locale === "en"
-              ? "Sirius Nova is the tangible product on the site. Drag to inspect the enclosure, USB-C, inlay geometry, and wearable hardware details; on mobile, the same 3D viewer loads with a lighter renderer and falls back to a static render when needed."
-              : "Sirius Nova 是官网中需要被明确呈现的实体产品。可以拖拽查看外壳、USB-C、原始 inlay 几何和可穿戴硬件细节；移动端也会加载轻量 3D 预览，必要时回退到静态渲染图。"}
+              ? "Sirius Nova is the tangible data-collection node on the site. Drag to inspect the enclosure, USB-C, inlay geometry, and wearable hardware details; on mobile, the same 3D viewer loads with a lighter renderer and falls back to a static render when needed."
+              : "Sirius Nova 是官网中需要被明确呈现的数据采集节点。可以拖拽查看外壳、USB-C、原始 inlay 几何和可穿戴硬件细节；移动端也会加载轻量 3D 预览，必要时回退到静态渲染图。"}
           </p>
         </div>
         <InteractiveDeviceModel locale={locale} />
@@ -340,15 +340,15 @@ export default function Home() {
           <h2>{locale === "en" ? "Explore SiriusCeption" : "浏览 SiriusCeption"}</h2>
           <p>
             {locale === "en"
-              ? "Sirius Nova is our first product, while SiriusCeption is the larger product system: Nova captures reliable wearable IMU data today and becomes the hardware entry point into capture, teleoperation, validation, replay, and export workflows."
-              : "Sirius Nova 是我们的第一个产品，SiriusCeption 是更大的产品系统：Nova 负责当前稳定的可穿戴 IMU 数据采集，并作为采集、遥操作、质检、回放和导出流程的硬件入口。"}
+              ? "Sirius Nova is our first product, while SiriusCeption is the larger product system: Nova captures reliable wearable motion data today and becomes the hardware entry point into capture, teleoperation, validation, replay, and export workflows."
+              : "Sirius Nova 是我们的第一个产品，SiriusCeption 是更大的产品系统：Nova 负责当前稳定的可穿戴动作数据采集，并作为采集、遥操作、质检、回放和导出流程的硬件入口。"}
           </p>
         </div>
         <div className="hub-grid reveal">
           <a className="hub-card highlight" href="/products/sirius-nova">
             <span className="step-index">01</span>
             <h3>{locale === "en" ? "Sirius Nova" : "Sirius Nova"}</h3>
-            <p>{locale === "en" ? "Our first wearable IMU product: hardware for embodied-intelligence data acquisition and robot-control datasets." : "我们的首款可穿戴 IMU 产品：面向具身智能数据采集和机器人控制数据集的硬件设施。"}</p>
+            <p>{locale === "en" ? "Our first embodied-AI data collector: hardware for embodied-intelligence data acquisition and robot-control datasets." : "我们的首款具身智能数据采集节点：面向具身智能数据采集和机器人控制数据集的硬件设施。"}</p>
           </a>
           <a className="hub-card" href="/applications">
             <span className="step-index">02</span>
