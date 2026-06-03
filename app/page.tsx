@@ -6,7 +6,7 @@ import { InteractiveDeviceModel } from "./components/InteractiveDeviceModel";
 
 const copy = {
   en: {
-    nav: { product: "Sirius Nova", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
+    nav: { product: "Product", cases: "Applications", software: "Software", docs: "Docs", media: "Videos", blog: "Blog", videos: "Videos" },
     cta: { demo: "Book a Demo", plan: "Get a Plan", deck: "Download Deck", contact: "Contact Us", pricing: "Get Pricing" },
     hero: {
       eyebrow: "First Product · Wearable IMU Node",
@@ -116,7 +116,7 @@ const copy = {
     }
   },
   zh: {
-    nav: { product: "Sirius Nova", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
+    nav: { product: "产品", cases: "应用", software: "软件", docs: "文档", media: "视频", blog: "Blog", videos: "视频库" },
     cta: { demo: "预约演示", plan: "获取方案", deck: "下载产品手册", contact: "立即联系", pricing: "获取报价" },
     hero: {
       eyebrow: "首款产品 · 可穿戴 IMU 节点",
@@ -231,7 +231,7 @@ export default function Home() {
           <span className="brand-name">SiriusCeption</span>
         </div>
         <nav className="nav-links">
-          <a href="/products/sirius-nova">{t.nav.product}</a>
+          <a href="/product">{t.nav.product}</a>
           <a href="/applications">{t.nav.cases}</a>
           <a href="/software">{t.nav.software}</a>
           <a href="/docs">{t.nav.docs}</a>
