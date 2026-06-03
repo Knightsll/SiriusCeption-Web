@@ -292,7 +292,7 @@ export default function Home() {
               </div>
               <div className="device-stats">
                 <div>
-                  <strong>96Hz</strong>
+                  <strong>100Hz</strong>
                   <span>{locale === "en" ? "Sampling" : "采样率"}</span>
                 </div>
                 <div>

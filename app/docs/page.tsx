@@ -111,7 +111,7 @@ const copy = {
       ["pass", "Wi-Fi password"],
       ["host / host_ip", "Ubuntu receiver IP"],
       ["port / host_port", "UDP port, default 9999"],
-      ["udp_hz / rate", "Stream rate, 1–500 Hz"],
+      ["udp_hz / rate", "Stream rate, up to 100 Hz"],
       ["debug", "Debug mode, 0 or 1"]
     ],
     terminalTitle: "Serial console example",
@@ -226,7 +226,7 @@ const copy = {
       ["pass", "Wi-Fi 密码"],
       ["host / host_ip", "Ubuntu 接收端 IP"],
       ["port / host_port", "UDP 端口，默认 9999"],
-      ["udp_hz / rate", "发送频率，1–500 Hz"],
+      ["udp_hz / rate", "发送频率，最高 100 Hz"],
       ["debug", "调试模式，0 或 1"]
     ],
     terminalTitle: "串口命令示例",

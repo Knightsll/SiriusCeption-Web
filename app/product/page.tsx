@@ -57,7 +57,7 @@ const copy = {
         specs: [
           ["Product type", "Wearable wireless embodied-AI data collector node"],
           ["Dimensions", "Compact wearable enclosure; source model bounds approx. 39 × 65 × 24 mm"],
-          ["Streaming frequency", "Configurable UDP stream rate from 1–500 Hz; 100 Hz recommended for first-run validation"],
+          ["Streaming frequency", "Configurable UDP stream rate up to 100 Hz"],
           ["Motion output", "Live quaternion orientation, gyroscope, and acceleration data per node"],
           ["Precision workflow", "Calibration-backed orientation tracking; packet rate, packet age, and signal quality are validated before capture"],
           ["Connectivity", "ESP32-C3 wireless node with Wi-Fi UDP streaming and USB-C serial configuration"],
@@ -141,7 +141,7 @@ const copy = {
         specs: [
           ["产品类型", "可穿戴具身智能数据采集节点"],
           ["尺寸", "紧凑型可穿戴外壳；源模型边界约 39 × 65 × 24 mm"],
-          ["数据频率", "UDP 发送频率可配置为 1–500 Hz；首次部署验证建议从 100 Hz 开始"],
+          ["数据频率", "UDP 发送频率最高可配置到 100 Hz"],
           ["动作数据", "每个节点实时输出四元数姿态、陀螺仪和加速度数据"],
           ["精度工作流", "通过标定支撑姿态跟踪；采集前验证包频率、包延迟与信号质量"],
           ["连接方式", "ESP32-C3 无线节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],

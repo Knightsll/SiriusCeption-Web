@@ -15,7 +15,7 @@ const copy = {
     ctaPrimary: "Discuss deployment",
     ctaSecondary: "Read docs",
     metrics: [
-      ["1–500 Hz", "Configurable UDP stream frequency per node"],
+      ["Up to 100 Hz", "Configurable UDP stream frequency per node"],
       ["≈39 × 65 × 24 mm", "Compact wearable enclosure model bounds"],
       ["From €599", "Single-arm kit with pose and robotic-arm teleoperation software"]
     ],
@@ -44,7 +44,7 @@ const copy = {
       ["Product form", "Wearable wireless embodied-AI data collector node"],
       ["Dimensions", "Approx. 39 × 65 × 24 mm from the Sirius Nova source model bounds"],
       ["Compute / network", "ESP32-C3 based node with Wi-Fi UDP streaming and USB-C serial configuration"],
-      ["Stream frequency", "Configurable `udp_hz` / rate from 1–500 Hz; 100 Hz is the recommended first-run validation setting"],
+      ["Stream frequency", "Configurable `udp_hz` / rate up to 100 Hz"],
       ["Motion output", "Quaternion orientation, gyroscope, and acceleration data streamed per node"],
       ["Precision model", "Calibration-backed orientation tracking; live packet rate, packet age, and signal quality checks verify whether a capture setup is ready"],
       ["Node management", "Unique saved node ID / slave_id for receiver binding, role assignment, and multi-node sessions"],
@@ -64,7 +64,7 @@ const copy = {
     ctaPrimary: "沟通部署",
     ctaSecondary: "查看文档",
     metrics: [
-      ["1–500 Hz", "单节点 UDP 数据发送频率可配置"],
+      ["最高 100 Hz", "单节点 UDP 数据发送频率可配置"],
       ["约 39 × 65 × 24 mm", "紧凑型可穿戴外壳模型边界"],
       ["€599 起", "单臂套装，包含单臂位姿与机械臂遥操作软件"]
     ],
@@ -93,7 +93,7 @@ const copy = {
       ["产品形态", "可穿戴无线具身智能数据采集节点"],
       ["尺寸", "根据 Sirius Nova 源模型边界，约 39 × 65 × 24 mm"],
       ["计算 / 网络", "基于 ESP32-C3 的节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
-      ["数据频率", "`udp_hz` / rate 可配置为 1–500 Hz；首次部署验证建议从 100 Hz 开始"],
+      ["数据频率", "`udp_hz` / rate 最高可配置到 100 Hz"],
       ["动作输出", "每个节点输出四元数姿态、陀螺仪和加速度数据"],
       ["精度模型", "通过标定支撑姿态跟踪；通过实时包频率、包延迟和信号质量检查确认采集条件是否达标"],
       ["节点管理", "每个节点保存唯一 node ID / slave_id，用于接收端绑定、角色分配和多节点会话"],
