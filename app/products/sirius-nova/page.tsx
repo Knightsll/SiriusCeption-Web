@@ -138,7 +138,7 @@ export default function SiriusNovaPage() {
           <h1>{t.title}</h1>
           <p>{t.lead}</p>
           <div className="hero-actions">
-            <a className="cta primary" href="mailto:hello@siriusception.ai">{t.ctaPrimary}</a>
+            <a className="cta primary" href="mailto:SiriusCeption@outlook.com">{t.ctaPrimary}</a>
             <a className="cta ghost" href="/docs">{t.ctaSecondary}</a>
           </div>
           <div className="nova-metrics">

@@ -231,7 +231,7 @@ export default function ProductPage() {
             </div>
 
             <div className="product-actions">
-              <a className="cta primary" href="mailto:hello@siriusception.ai">{t.buyCta}</a>
+              <a className="cta primary" href="mailto:SiriusCeption@outlook.com">{t.buyCta}</a>
               <a className="cta ghost" href={selectedProduct.href}>{t.productCta}</a>
             </div>
           </div>
@@ -265,7 +265,7 @@ export default function ProductPage() {
                 </div>
               ))}
             </div>
-            <a className="software-doc-link cta ghost" href="mailto:hello@siriusception.ai">{t.quoteCta}</a>
+            <a className="software-doc-link cta ghost" href="mailto:SiriusCeption@outlook.com">{t.quoteCta}</a>
           </article>
         </div>
 

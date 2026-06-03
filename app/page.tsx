@@ -385,8 +385,8 @@ export default function Home() {
             <p>{t.closing.lead}</p>
           </div>
           <div className="closing-actions">
-            <button className="cta primary">{t.cta.contact}</button>
-            <button className="cta ghost">{t.cta.pricing}</button>
+            <a className="cta primary" href="mailto:SiriusCeption@outlook.com">{t.cta.contact}</a>
+            <a className="cta ghost" href="mailto:SiriusCeption@outlook.com">{t.cta.pricing}</a>
           </div>
         </div>
       </section>
@@ -398,7 +398,7 @@ export default function Home() {
         </div>
         <div className="footer-links">
           <span>{t.footer.locations}</span>
-          <span>hello@siriusception.ai</span>
+          <a href="mailto:SiriusCeption@outlook.com">SiriusCeption@outlook.com</a>
           <span>+86 010-0000-0000</span>
         </div>
       </footer>
