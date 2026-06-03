@@ -283,8 +283,10 @@ export function InteractiveDeviceModel({ locale }: InteractiveDeviceModelProps) 
             model.scale.setScalar(scale);
 
             // Initial pose: text face is readable, then OrbitControls auto-rotates slowly.
+            // Keep the model visually centered in the viewer window after fitting its bounds.
             model.rotation.set(THREE.MathUtils.degToRad(0), THREE.MathUtils.degToRad(-4), THREE.MathUtils.degToRad(270));
-            model.position.y += 0.024;
+            model.position.x -= 0.014;
+            model.position.y += 0.052;
 
             modelRoot.add(model);
             setLoaded(true);
