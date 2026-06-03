@@ -16,6 +16,10 @@ const copy = {
     productCta: "View Sirius Nova detail",
     buyCta: "Contact to order",
     quoteCta: "Request deployment plan",
+    demosTitle: "Product demos",
+    demosLead:
+      "See Sirius Nova in the two deployment modes that matter for purchase decisions: robotic-arm teleoperation and full-body humanoid motion capture.",
+    videosCta: "View full video library",
     products: [
       {
         id: "sirius-nova",
@@ -51,6 +55,26 @@ const copy = {
           ["Full-body package", "17-node humanoid motion-capture set · €3,000 / set"],
           ["Software", "Validation/debugging for setup, signal quality, calibration, and motion mapping"],
           ["Product detail", "Dedicated 3D inspection page for Sirius Nova"]
+        ],
+        demos: [
+          {
+            mode: "Robotic-arm teleoperation",
+            title: "PiPER Arm Teleoperation",
+            url: "https://www.youtube.com/embed/z-4OFV3XAUA",
+            body: "Shows the €1,000 robotic-arm teleoperation set as a practical robot-control data capture workflow."
+          },
+          {
+            mode: "Robotic-arm teleoperation",
+            title: "ABB Yumi Teleoperation",
+            url: "https://www.youtube.com/embed/Q75OV8lVS-o",
+            body: "A second arm platform example that supports the same mechanical-arm teleoperation positioning."
+          },
+          {
+            mode: "Full-body motion capture",
+            title: "Full-body Pose Tracking",
+            url: "https://www.youtube.com/embed/IEHnCtcOQJ8",
+            body: "Evidence for the €3,000 17-node full-body configuration for humanoid-robot motion data."
+          }
         ]
       }
     ]
@@ -66,6 +90,9 @@ const copy = {
     productCta: "查看 Sirius Nova 详情",
     buyCta: "联系购买",
     quoteCta: "获取部署方案",
+    demosTitle: "产品演示",
+    demosLead: "查看 Sirius Nova 的两种交付形态：机械臂遥操作与人形机器人全身动作捕捉。",
+    videosCta: "查看完整视频库",
     products: [
       {
         id: "sirius-nova",
@@ -101,6 +128,26 @@ const copy = {
           ["全身套装", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
           ["软件", "用于设备设置、信号质量、标定和动作映射验证的调试工具"],
           ["产品详情", "Sirius Nova 独立 3D 产品检查页"]
+        ],
+        demos: [
+          {
+            mode: "机械臂遥操作",
+            title: "PiPER 机械臂遥操作",
+            url: "https://www.youtube.com/embed/z-4OFV3XAUA",
+            body: "展示 €1,000 机械臂遥操作套装在机器人控制数据采集中的实际工作流。"
+          },
+          {
+            mode: "机械臂遥操作",
+            title: "ABB Yumi 机械臂遥操作",
+            url: "https://www.youtube.com/embed/Q75OV8lVS-o",
+            body: "用第二种机械臂平台补充说明同一套机械臂遥操作定位。"
+          },
+          {
+            mode: "全身动作捕捉",
+            title: "全身姿态跟踪",
+            url: "https://www.youtube.com/embed/IEHnCtcOQJ8",
+            body: "作为 €3,000、17 节点全身配置面向人形机器人动作数据的演示证据。"
+          }
         ]
       }
     ]
@@ -213,6 +260,34 @@ export default function ProductPage() {
             <a className="software-doc-link cta ghost" href="mailto:hello@siriusception.ai">{t.quoteCta}</a>
           </article>
         </div>
+
+        <section className="product-demo-section reveal delay-2">
+          <div className="section-title product-demo-title">
+            <p className="eyebrow">{selectedProduct.name}</p>
+            <h2>{t.demosTitle}</h2>
+            <p>{t.demosLead}</p>
+          </div>
+          <div className="product-demo-grid">
+            {selectedProduct.demos.map((demo) => (
+              <article className="media-card product-demo-card" key={demo.title}>
+                <div className="media-embed">
+                  <iframe
+                    src={demo.url}
+                    title={demo.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="product-demo-meta">
+                  <span>{demo.mode}</span>
+                  <h3>{demo.title}</h3>
+                  <p>{demo.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <a className="software-doc-link cta ghost" href="/videos">{t.videosCta}</a>
+        </section>
 
         <p className="product-coming-soon reveal delay-2">{t.comingSoon}</p>
       </section>
