@@ -1,24 +1,101 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useLocale, type Locale } from "../useLocale";
 
 const copy = {
-  en: { back: "Home", badge: 'Product system', title: 'SiriusCeption product architecture', lead: 'Sirius Nova is the first product in the SiriusCeption system. The product architecture begins with wearable IMU hardware today, then expands toward a one-stop embodied-intelligence data acquisition workflow.', cards: [
-      { title: 'Sirius Nova · first product', body: 'The dedicated product page focuses on the wearable IMU node, its 3D hardware preview, and the three-device arm workflow.', points: ['Open /products/sirius-nova', 'Wearable IMU node', '3D product inspection'] },
-      { title: 'Three-device teleop layer', body: 'Arm teleoperation is designed around three clearly assigned devices: upper arm, forearm, and hand.', points: ['Role-based binding', 'All-three-online gate', 'Simulator preview after calibration'] },
-      { title: 'Future data system', body: 'The platform direction is to unify capture sessions, data QA, labels, replay, and export.', points: ['Session management', 'Dataset validation', 'Robot/simulator data export'] }
-    ] },
-  zh: { back: "首页", badge: '产品系统', title: 'SiriusCeption 产品架构', lead: 'Sirius Nova 是 SiriusCeption 系统中的第一个产品。产品架构从当前可穿戴 IMU 硬件开始，逐步扩展为一站式具身智能数据采集流程。', cards: [
-      { title: 'Sirius Nova · 首款产品', body: '独立产品页会聚焦可穿戴 IMU 节点、3D 硬件预览和三设备手臂工作流。', points: ['打开 /products/sirius-nova', '可穿戴 IMU 节点', '3D 产品查看'] },
-      { title: '三设备遥操作层', body: '手臂遥操作围绕三个明确角色的设备设计：上臂、前臂、手部。', points: ['按角色绑定', '三设备在线门控', '标定后进入模拟预览'] },
-      { title: '未来数据系统', body: '平台方向是统一采集会话、数据质检、标签、回放和导出。', points: ['会话管理', '数据集验证', '机器人/仿真数据导出'] }
-    ] }
+  en: {
+    back: "Home",
+    badge: "Product system",
+    title: "SiriusCeption products",
+    lead:
+      "Product remains a top-level page because Sirius Nova is only the first product in the SiriusCeption system. Use the selector to browse the current product and leave room for future product lines.",
+    selectorLabel: "Select product",
+    comingSoon: "More SiriusCeption products will be added here as the system expands.",
+    products: [
+      {
+        id: "sirius-nova",
+        name: "Sirius Nova",
+        status: "Current product",
+        href: "/products/sirius-nova",
+        summary:
+          "A wearable IMU node product for embodied motion data, available as configured sets for robotic-arm teleoperation and full-body motion capture.",
+        specsTitle: "Sirius Nova specs",
+        specs: [
+          ["Device type", "Wearable wireless IMU node"],
+          ["Primary use", "Motion capture hardware layer"],
+          ["Sensor workflow", "Real-time orientation / motion data for receiver software"],
+          ["Preview", "3D product inspection on the Sirius Nova page"],
+          ["Software context", "Node config, receiver monitor, pose visualizer, and simulator preview"]
+        ],
+        offeringsTitle: "Configured sets",
+        offerings: [
+          {
+            title: "Robotic-arm teleoperation set",
+            body:
+              "For robotic-arm teleoperation and simulator preview. This is presented as a Sirius Nova set for robot-arm use, not as a separate three-device product.",
+            price: "€1,000 / set"
+          },
+          {
+            title: "Full-body motion-capture set",
+            body:
+              "For humanoid-robot full-body motion capture. The full-body configuration uses 17 Sirius Nova nodes.",
+            price: "€3,000 / set"
+          }
+        ]
+      }
+    ]
+  },
+  zh: {
+    back: "首页",
+    badge: "产品系统",
+    title: "SiriusCeption 产品",
+    lead:
+      "Product 需要保留为一级页面，因为 Sirius Nova 只是 SiriusCeption 系统中的第一个产品。这里通过下拉框选择当前产品，也为后续新增更多产品留出结构。",
+    selectorLabel: "选择产品",
+    comingSoon: "后续 SiriusCeption 的更多产品会继续添加在这里。",
+    products: [
+      {
+        id: "sirius-nova",
+        name: "Sirius Nova",
+        status: "当前产品",
+        href: "/products/sirius-nova",
+        summary:
+          "Sirius Nova 是面向具身动作数据的可穿戴 IMU 节点产品，可按机械臂遥操作套装或全身动作捕捉套装交付。",
+        specsTitle: "Sirius Nova 规格",
+        specs: [
+          ["设备类型", "可穿戴无线 IMU 节点"],
+          ["核心用途", "动作捕捉硬件层"],
+          ["传感工作流", "面向接收端软件的实时姿态 / 动作数据"],
+          ["产品预览", "在 Sirius Nova 页面查看 3D 产品模型"],
+          ["软件语境", "节点配置、接收端监控、姿态可视化和仿真预览"]
+        ],
+        offeringsTitle: "套装与价格",
+        offerings: [
+          {
+            title: "机械臂遥操作套装",
+            body:
+              "面向机械臂遥操作与仿真预览。页面上应作为 Sirius Nova 的机械臂应用套装呈现，不把“三设备”写成一个独立产品。",
+            price: "€1,000 / 套"
+          },
+          {
+            title: "全身动作捕捉套装",
+            body:
+              "面向人形机器人的全身动作捕捉。全身配置使用 17 个 Sirius Nova 节点。",
+            price: "€3,000 / 套"
+          }
+        ]
+      }
+    ]
+  }
 } as const;
 
-export default function SplitPage() {
+export default function ProductPage() {
   const [locale, setLocale] = useLocale();
   const t = useMemo(() => copy[locale], [locale]);
+  const [selectedProductId, setSelectedProductId] = useState<(typeof t.products)[number]["id"]>(t.products[0].id);
+  const selectedProduct = t.products.find((product) => product.id === selectedProductId) ?? t.products[0];
+
   return (
     <main className="page split-page" data-locale={locale}>
       <div className="bg-ambient" aria-hidden="true" />
@@ -53,20 +130,56 @@ export default function SplitPage() {
         <p>{t.lead}</p>
       </section>
 
-      <section className="section split-content">
-        <div className="cards reveal">
-          {t.cards.map((card, index) => (
-            <article className={`card ${index === 0 ? "highlight" : ""}`} key={card.title}>
-              <span className="step-index">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-              <ul>
-                {card.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-              {index === 0 ? <a className="software-doc-link cta ghost" href="/products/sirius-nova">Sirius Nova</a> : null}
-            </article>
-          ))}
+      <section className="section split-content product-catalog">
+        <div className="product-selector reveal">
+          <label htmlFor="product-select">{t.selectorLabel}</label>
+          <select id="product-select" value={selectedProductId} onChange={(event) => setSelectedProductId(event.target.value as typeof selectedProductId)}>
+            {t.products.map((product) => (
+              <option value={product.id} key={product.id}>{product.name}</option>
+            ))}
+          </select>
+          <span>{selectedProduct.status}</span>
         </div>
+
+        <article className="card highlight product-intro-card reveal delay-1">
+          <span className="step-index">01</span>
+          <h3>{selectedProduct.name}</h3>
+          <p>{selectedProduct.summary}</p>
+          <a className="software-doc-link cta ghost" href={selectedProduct.href}>Sirius Nova</a>
+        </article>
+
+        <div className="product-detail-grid reveal delay-2">
+          <article className="card product-spec-card">
+            <span className="step-index">02</span>
+            <h3>{selectedProduct.specsTitle}</h3>
+            <div className="config-grid product-spec-list">
+              {selectedProduct.specs.map(([label, value]) => (
+                <div className="config-row" key={label}>
+                  <code>{label}</code>
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="card product-offering-card">
+            <span className="step-index">03</span>
+            <h3>{selectedProduct.offeringsTitle}</h3>
+            <div className="product-offerings">
+              {selectedProduct.offerings.map((offering) => (
+                <div className="product-offering" key={offering.title}>
+                  <div>
+                    <h4>{offering.title}</h4>
+                    <p>{offering.body}</p>
+                  </div>
+                  <strong>{offering.price}</strong>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+
+        <p className="product-coming-soon reveal delay-2">{t.comingSoon}</p>
       </section>
     </main>
   );

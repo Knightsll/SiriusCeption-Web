@@ -23,7 +23,7 @@ check('home names Sirius Nova as the first product', home.includes('Sirius Nova'
 check('home links to Sirius Nova product page', home.includes('/products/sirius-nova'), 'Home nav or cards should link to the dedicated product page.');
 check('generic product page links to Sirius Nova', product.includes('/products/sirius-nova') && product.includes('Sirius Nova'), 'Product overview should direct users to the first product.');
 check('Sirius Nova route exists', productPageExists, `${productPagePath} should exist.`);
-check('Sirius Nova page contains product specifics', productPage.includes('Sirius Nova') && productPage.includes('three-device') && productPage.includes('3D'), 'Dedicated page should describe the hardware, teleop workflow, and 3D view.');
+check('Sirius Nova page contains product specifics', productPage.includes('Sirius Nova') && productPage.includes('robotic-arm') && productPage.includes('17-node') && productPage.includes('3D'), 'Dedicated page should describe the hardware, arm teleoperation set, full-body motion-capture set, and 3D view.');
 check('mobile viewport is not forced to static-only', !viewer.includes('(max-width: 767px)') || viewer.includes('mobileCanLoad3d'), 'Interactive viewer should allow mobile 3D while keeping reduced-motion fallback.');
 check('reduced motion still has static fallback', viewer.includes('prefers-reduced-motion: reduce') && viewer.includes('STATIC_RENDER'), 'Reduced-motion users should still get the static render fallback.');
 

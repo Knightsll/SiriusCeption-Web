@@ -11,12 +11,12 @@ const copy = {
     eyebrow: "Sirius Nova · First Product",
     title: "Wearable IMU node for embodied motion data",
     lead:
-      "Sirius Nova is the first SiriusCeption product: a compact wearable IMU node for reliable human-motion capture, three-device arm teleoperation, and simulator-first debugging before any real robot workflow.",
+      "Sirius Nova is the first SiriusCeption product: a compact wearable IMU node for embodied motion data. It can be configured as a set for robotic-arm teleoperation or as a 17-node set for humanoid full-body motion capture.",
     ctaPrimary: "Discuss deployment",
     ctaSecondary: "Read docs",
     metrics: [
-      ["3-device", "Upper arm · forearm · hand teleop"],
-      ["96Hz", "Target real-time sensing workflow"],
+      ["Arm set", "Robotic-arm teleoperation · €1,000 / set"],
+      ["17 nodes", "Humanoid full-body motion capture · €3,000 / set"],
       ["3D view", "Desktop and mobile product inspection"]
     ],
     viewerEyebrow: "Interactive hardware",
@@ -31,19 +31,20 @@ const copy = {
       { title: "System context", body: "Explain that Nova is the hardware entry point into the larger SiriusCeption embodied data acquisition system." },
       { title: "Simulator-first", body: "Keep public-facing control language careful: preview and debug in simulator, not direct real-robot operation from the website UI." }
     ],
-    workflowTitle: "Three-device arm workflow",
+    workflowTitle: "Two deployment configurations",
     workflow: [
-      "Configure each Sirius Nova node with a unique device ID.",
-      "Bind nodes to upper arm, forearm, and hand roles.",
-      "Calibrate before start and require all three roles online.",
-      "Preview mapped motion in simulator/URDF debugging views before production data capture."
+      "Robotic-arm teleoperation: a Sirius Nova set for mechanical-arm motion mapping and simulator preview.",
+      "Full-body motion capture: a 17-node Sirius Nova set for humanoid-robot motion data.",
+      "Keep product messaging centered on Sirius Nova as the hardware product rather than naming the test device count as a product.",
+      "Use receiver software and simulator views to validate motion before production data capture."
     ],
-    specsTitle: "Product focus",
+    specsTitle: "Specs and pricing",
     specs: [
-      ["Form", "Wearable IMU node"],
+      ["Form", "Wearable wireless IMU node"],
       ["Role", "Motion capture hardware layer"],
-      ["Workflow", "Data capture and three-device teleop"],
-      ["Software", "Receiver monitor, node config, pose visualizer, teleop console"],
+      ["Arm teleoperation", "Configured set for robotic-arm use · €1,000 / set"],
+      ["Full-body mocap", "17-node set for humanoid-robot motion capture · €3,000 / set"],
+      ["Software", "Receiver monitor, node config, pose visualizer, simulator preview"],
       ["Direction", "Foundation for the future SiriusCeption data workflow"]
     ]
   },
@@ -53,12 +54,12 @@ const copy = {
     eyebrow: "Sirius Nova · 首款产品",
     title: "面向具身动作数据的可穿戴 IMU 节点",
     lead:
-      "Sirius Nova 是 SiriusCeption 的第一个产品：一个紧凑的可穿戴 IMU 节点，用于稳定人体动作采集、三设备手臂遥操作，以及在进入真实机器人流程前的 simulator-first 调试。",
+      "Sirius Nova 是 SiriusCeption 的第一个产品：一个面向具身动作数据的紧凑可穿戴 IMU 节点。它可以配置为机械臂遥操作套装，也可以配置为面向人形机器人的 17 节点全身动作捕捉套装。",
     ctaPrimary: "沟通部署",
     ctaSecondary: "查看文档",
     metrics: [
-      ["三设备", "上臂 · 前臂 · 手部遥操作"],
-      ["96Hz", "面向实时感知的工作流目标"],
+      ["机械臂套装", "机械臂遥操作 · €1,000 / 套"],
+      ["17 节点", "人形机器人全身动作捕捉 · €3,000 / 套"],
       ["3D 查看", "桌面与移动端产品检查"]
     ],
     viewerEyebrow: "交互式硬件",
@@ -73,19 +74,20 @@ const copy = {
       { title: "系统语境", body: "说明 Nova 是进入 SiriusCeption 具身智能数据采集系统的硬件入口。" },
       { title: "Simulator-first", body: "公开页面的控制表述要谨慎：强调 simulator 预览和调试，而不是官网 UI 直接控制真实机器人。" }
     ],
-    workflowTitle: "三设备手臂工作流",
+    workflowTitle: "两种套装配置",
     workflow: [
-      "为每个 Sirius Nova 节点配置唯一设备 ID。",
-      "把节点绑定到上臂、前臂和手部角色。",
-      "启动前完成标定，并要求三个角色全部在线。",
-      "先在 simulator / URDF 调试视图里预览映射动作，再进入正式数据采集。"
+      "机械臂遥操作：作为 Sirius Nova 的机械臂动作映射与仿真预览套装呈现。",
+      "全身动作捕捉：使用 17 个 Sirius Nova 节点，面向人形机器人全身动作数据。",
+      "产品表达以 Sirius Nova 硬件产品为中心，不把测试用设备数量写成独立产品。",
+      "通过接收端软件和仿真视图验证动作，再进入正式数据采集。"
     ],
-    specsTitle: "产品焦点",
+    specsTitle: "规格与价格",
     specs: [
-      ["形态", "可穿戴 IMU 节点"],
-      ["角色", "动作采集硬件层"],
-      ["工作流", "数据采集与三设备遥操作"],
-      ["软件", "接收端监控、节点配置、姿态可视化、遥操作控制台"],
+      ["形态", "可穿戴无线 IMU 节点"],
+      ["角色", "动作捕捉硬件层"],
+      ["机械臂遥操作", "机械臂应用套装 · €1,000 / 套"],
+      ["全身动作捕捉", "17 节点人形机器人动作捕捉套装 · €3,000 / 套"],
+      ["软件", "接收端监控、节点配置、姿态可视化、仿真预览"],
       ["方向", "未来 SiriusCeption 数据工作流的基础"]
     ]
   }
