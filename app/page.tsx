@@ -1,8 +1,9 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, type Locale } from "./useLocale";
+import { useLocale } from "./useLocale";
 import { InteractiveDeviceModel } from "./components/InteractiveDeviceModel";
+import { SiteHeader } from "./components/SiteHeader";
 
 const copy = {
   en: {
@@ -225,33 +226,7 @@ export default function Home() {
       <div className="orb orb-a" aria-hidden="true" />
       <div className="orb orb-b" aria-hidden="true" />
       <div className="orb orb-c" aria-hidden="true" />
-      <header className="nav">
-        <div className="brand">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </div>
-        <nav className="nav-links">
-          <a href="/product">{t.nav.product}</a>
-          <a href="/applications">{t.nav.cases}</a>
-          <a href="/software">{t.nav.software}</a>
-          <a href="/docs">{t.nav.docs}</a>
-          <a href="/videos">{t.nav.media}</a>
-          <a href="/blog">{t.nav.blog}</a>
-        </nav>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select
-              value={locale}
-              onChange={(event) => setLocale(event.target.value as Locale)}
-              aria-label="Language"
-            >
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <button className="cta primary">{t.cta.demo}</button>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="hero">
         <div className="hero-text reveal">

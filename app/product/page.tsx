@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { InteractiveDeviceModel } from "../components/InteractiveDeviceModel";
-import { useLocale, type Locale } from "../useLocale";
+import { SiteHeader } from "../components/SiteHeader";
+import { useLocale } from "../useLocale";
 
 const copy = {
   en: {
@@ -10,7 +11,7 @@ const copy = {
     badge: "Product catalog",
     title: "SiriusCeption products",
     lead:
-      "Product remains a top-level catalog because Sirius Nova is only the first product in the SiriusCeption system. Choose a product below; future product lines can be added without changing the structure.",
+      "Explore the SiriusCeption product catalog. Sirius Nova is the current product line, with orderable kits for robotic-arm teleoperation, full-body humanoid workflows, and embodied-intelligence data acquisition.",
     selectorLabel: "Select product",
     comingSoon: "More SiriusCeption products will be added here as the hardware/data-acquisition system expands.",
     productCta: "View Sirius Nova detail",
@@ -28,7 +29,7 @@ const copy = {
         href: "/products/sirius-nova",
         label: "Embodied-AI data collector",
         summary:
-          "A wearable embodied-AI data collector node for motion data acquisition, sold as single-arm, dual-arm, and full-body kits with matched pose and robot-teleoperation software.",
+          "A wearable embodied-AI data collector node for motion data acquisition, sold as single-arm, dual-arm, and full-body kits with matched pose, calibration, and robot-teleoperation software. The public workflow covers USB-C configuration, Wi-Fi UDP streaming, local calibration, and HTTP/WebSocket handoff.",
         priceLead: "From",
         price: "€599",
         priceNote: "per single-arm kit",
@@ -57,11 +58,14 @@ const copy = {
         specs: [
           ["Product type", "Wearable wireless embodied-AI data collector node"],
           ["Dimensions", "Compact wearable enclosure; source model bounds approx. 39 × 65 × 24 mm"],
-          ["Streaming frequency", "Configurable UDP stream rate up to 100 Hz"],
-          ["Motion output", "Live quaternion orientation, gyroscope, and acceleration data per node"],
+          ["Streaming frequency", "Configurable UDP stream rate up to 100 Hz; 50 Hz is recommended on unstable Wi-Fi"],
+          ["Motion output", "Live quaternion orientation, gyroscope, and acceleration data per node, with receiver diagnostics for data rate, packet age, battery, and magnetometer status"],
           ["Precision workflow", "Calibration-backed orientation tracking; packet rate, packet age, and signal quality are validated before capture"],
           ["Connectivity", "ESP32-C3 wireless node with Wi-Fi UDP streaming and USB-C serial configuration"],
-          ["Node identity", "Each node stores a unique ID for receiver binding, role assignment, and multi-node capture"],
+          ["Device configuration", "Operator sets id, ssid, password, host LAN IP, port 9999, udp_hz, and debug from the SiriusCeption Client"],
+          ["Node identity", "Each physical node stores a saved ID for receiver binding, role assignment, and multi-node capture"],
+          ["Local interfaces", "Client exposes /api/imu/devices, /api/visualizer/frame, /api/teleop/frame, /api/robot/command, and ws://127.0.0.1:8000/ws/robot/command"],
+          ["Supported systems", "Released client packages cover Ubuntu and Windows"],
           ["Single-arm kit", "Single-arm pose tracking + single-arm robotic-arm teleoperation software · €599 / set"],
           ["Dual-arm kit", "Dual-arm pose tracking + dual-arm robotic-arm teleoperation software · €1,199 / kit"],
           ["Full-body kit", "Full-body pose tracking + humanoid robot teleoperation software · €2,999 / kit"],
@@ -95,7 +99,7 @@ const copy = {
     badge: "产品目录",
     title: "SiriusCeption 产品",
     lead:
-      "Product 需要保留为一级产品目录，因为 Sirius Nova 只是 SiriusCeption 系统中的第一个产品。下面通过下拉框选择当前产品，也为后续新增更多产品线保留结构。",
+      "浏览 SiriusCeption 产品目录。Sirius Nova 是当前产品线，提供面向机械臂遥操作、全身人形机器人流程和具身智能数据采集的可购买套装。",
     selectorLabel: "选择产品",
     comingSoon: "后续 SiriusCeption 的更多产品会随着硬件与数据采集系统扩展继续添加在这里。",
     productCta: "查看 Sirius Nova 详情",
@@ -112,7 +116,7 @@ const copy = {
         href: "/products/sirius-nova",
         label: "具身智能数据采集节点",
         summary:
-          "Sirius Nova 是面向具身智能数据采集的可穿戴数据采集节点，可按单臂、双臂和全身套装交付，并配套对应的位姿与机器人遥操作软件。",
+          "Sirius Nova 是面向具身智能数据采集的可穿戴数据采集节点，可按单臂、双臂和全身套装交付，并配套对应的位姿、标定和机器人遥操作软件。公开工作流覆盖 USB-C 配置、Wi-Fi UDP 数据发送、本地标定以及 HTTP/WebSocket 数据交接。",
         priceLead: "起售价",
         price: "€599",
         priceNote: "每套单臂套装",
@@ -141,11 +145,14 @@ const copy = {
         specs: [
           ["产品类型", "可穿戴具身智能数据采集节点"],
           ["尺寸", "紧凑型可穿戴外壳；源模型边界约 39 × 65 × 24 mm"],
-          ["数据频率", "UDP 发送频率最高可配置到 100 Hz"],
-          ["动作数据", "每个节点实时输出四元数姿态、陀螺仪和加速度数据"],
+          ["数据频率", "UDP 发送频率最高可配置到 100 Hz；Wi-Fi 不稳定时建议从 50 Hz 开始"],
+          ["动作数据", "每个节点实时输出四元数姿态、陀螺仪和加速度数据，并在接收端查看数据率、包延迟、电池与磁力计状态诊断"],
           ["精度工作流", "通过标定支撑姿态跟踪；采集前验证包频率、包延迟与信号质量"],
           ["连接方式", "ESP32-C3 无线节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
-          ["节点识别", "每个节点保存唯一 ID，用于接收端绑定、角色分配和多节点采集"],
+          ["设备配置", "用户在 SiriusCeption Client 中设置 id、ssid、password、电脑 LAN IP、9999 端口、udp_hz 与 debug"],
+          ["节点识别", "每个物理节点保存 node ID，用于接收端绑定、角色分配和多节点采集"],
+          ["本地接口", "Client 提供 /api/imu/devices、/api/visualizer/frame、/api/teleop/frame、/api/robot/command 和 ws://127.0.0.1:8000/ws/robot/command"],
+          ["支持系统", "发布版客户端覆盖 Ubuntu 与 Windows"],
           ["单臂套装", "单臂位姿 + 单臂机械臂遥操作软件 · €599 / 套"],
           ["双臂套装", "双臂位姿 + 双臂机械臂遥操作软件 · €1,199 / 套"],
           ["全身套装", "全身位姿 + 人形机器人遥操作软件 · €2,999 / 套"],
@@ -187,28 +194,7 @@ export default function ProductPage() {
       <div className="bg-ambient" aria-hidden="true" />
       <div className="orb orb-a" aria-hidden="true" />
       <div className="orb orb-b" aria-hidden="true" />
-      <header className="nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </a>
-        <nav className="nav-links">
-          <a href="/product">{locale === "en" ? "Product" : "产品"}</a>
-          <a href="/applications">{locale === "en" ? "Applications" : "应用"}</a>
-          <a href="/software">{locale === "en" ? "Software" : "软件"}</a>
-          <a href="/videos">{locale === "en" ? "Videos" : "视频"}</a>
-          <a href="/blog">Blog</a>
-        </nav>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)} aria-label="Language">
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <a className="cta ghost" href="/">{t.back}</a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="split-hero product-hero reveal">
         <span className="tag">{t.badge}</span>

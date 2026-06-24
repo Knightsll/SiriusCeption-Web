@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, type Locale } from "../useLocale";
+import { useLocale } from "../useLocale";
+import { SiteHeader } from "../components/SiteHeader";
 
 const copy = {
   en: {
@@ -13,23 +14,23 @@ const copy = {
     cards: [
       {
         title: "Device setup & signal quality",
-        body: "Guide users from hardware connection to reliable receiver status before production capture starts.",
-        points: ["Node identity", "Receiver readiness", "Online / stale status"]
+        body: "Guide users through USB-C device configuration, Wi-Fi UDP receiver setup, and live diagnostics before production capture starts.",
+        points: ["id / ssid / host / port", "0.0.0.0:9999 receiver", "Rate / age / battery diagnostics"]
       },
       {
         title: "Role mapping for capture",
         body: "For single-arm and dual-arm kits, users explicitly map Sirius Nova device IDs to the required arm/control roles before teleoperation.",
-        points: ["Single/dual-arm roles", "Duplicate-ID protection", "Capture readiness"]
+        points: ["Single/dual-arm roles", "Role readiness", "Capture readiness"]
       },
       {
         title: "Calibration & validation",
-        body: "The UI helps users verify single-arm, dual-arm, or full-body calibration quality and motion mapping before collecting embodied-intelligence data.",
-        points: ["Guided calibration", "Motion quality check", "Full-body validation"]
+        body: "The UI helps users verify single-device pose, arm motion preview, and full-body calibration quality before collecting embodied-intelligence data.",
+        points: ["Set Forward calibration", "Motion quality check", "Full-body validation"]
       },
       {
         title: "Robot-model inspection",
-        body: "Robot and URDF views are validation aids for understanding mapping, limits, and expected data shape before real deployment.",
-        points: ["URDF model inspection", "Joint-limit feedback", "Dataset readiness"]
+        body: "HTTP and WebSocket handoff views help teams validate command shape, robot model selection, limits, and data readiness before real deployment.",
+        points: ["/api/robot/command", "WebSocket stream", "Dataset readiness"]
       }
     ]
   },
@@ -42,23 +43,23 @@ const copy = {
     cards: [
       {
         title: "设备接入与信号质量",
-        body: "在正式采集前，引导用户完成硬件连接并确认接收端状态稳定。",
-        points: ["节点身份", "接收端就绪", "在线 / stale 状态"]
+        body: "在正式采集前，引导用户完成 USB-C 设备配置、Wi-Fi UDP 接收端设置和实时诊断。",
+        points: ["id / ssid / host / port", "0.0.0.0:9999 接收端", "频率 / 延迟 / 电池诊断"]
       },
       {
         title: "采集角色映射",
-        body: "针对单臂和双臂套装，用户把不同 Sirius Nova 设备 ID 明确映射到所需手臂 / 控制角色，再进入遥操作。",
-        points: ["单臂 / 双臂角色", "重复 ID 防护", "采集就绪"]
+        body: "针对单臂和双臂套装，用户把 Sirius Nova 设备 ID 明确映射到所需手臂 / 控制角色，再进入遥操作。",
+        points: ["单臂 / 双臂角色", "角色就绪", "采集就绪"]
       },
       {
         title: "标定与验证",
-        body: "UI 帮助用户在采集具身智能数据前验证单臂、双臂或全身的标定质量和动作映射效果。",
-        points: ["引导式标定", "动作质量检查", "全身验证"]
+        body: "UI 帮助用户在采集具身智能数据前验证单设备姿态、手臂动作预览或全身标定质量。",
+        points: ["Set Forward 标定", "动作质量检查", "全身验证"]
       },
       {
         title: "机器人模型检查",
-        body: "机器人和 URDF 视图是理解映射、限位和预期数据形态的验证工具，用于正式部署前检查。",
-        points: ["URDF 模型检查", "关节限位反馈", "数据集就绪"]
+        body: "HTTP 与 WebSocket 交接视图帮助团队在真实部署前验证命令形态、机器人模型选择、限位和数据就绪情况。",
+        points: ["/api/robot/command", "WebSocket 数据流", "数据集就绪"]
       }
     ]
   }
@@ -72,28 +73,7 @@ export default function SplitPage() {
       <div className="bg-ambient" aria-hidden="true" />
       <div className="orb orb-a" aria-hidden="true" />
       <div className="orb orb-b" aria-hidden="true" />
-      <header className="nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </a>
-        <nav className="nav-links">
-          <a href="/product">{locale === "en" ? "Product" : "产品"}</a>
-          <a href="/applications">{locale === "en" ? "Applications" : "应用"}</a>
-          <a href="/software">{locale === "en" ? "Software" : "软件"}</a>
-          <a href="/videos">{locale === "en" ? "Videos" : "视频"}</a>
-          <a href="/blog">Blog</a>
-        </nav>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)} aria-label="Language">
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <a className="cta ghost" href="/">{t.back}</a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="split-hero reveal">
         <span className="tag">{t.badge}</span>

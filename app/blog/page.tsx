@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, type Locale } from "../useLocale";
+import { useLocale } from "../useLocale";
+import { SiteHeader } from "../components/SiteHeader";
 
 const copy = {
   en: { back: "Home", badge: 'Blog', title: 'Blog / Research Updates', lead: 'Technical notes and roadmap updates around embodied-intelligence data acquisition: hardware today, one-stop data workflows next.', cards: [
@@ -24,28 +25,7 @@ export default function SplitPage() {
       <div className="bg-ambient" aria-hidden="true" />
       <div className="orb orb-a" aria-hidden="true" />
       <div className="orb orb-b" aria-hidden="true" />
-      <header className="nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </a>
-        <nav className="nav-links">
-          <a href="/product">{locale === "en" ? "Product" : "产品"}</a>
-          <a href="/applications">{locale === "en" ? "Applications" : "应用"}</a>
-          <a href="/software">{locale === "en" ? "Software" : "软件"}</a>
-          <a href="/videos">{locale === "en" ? "Videos" : "视频"}</a>
-          <a href="/blog">Blog</a>
-        </nav>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)} aria-label="Language">
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <a className="cta ghost" href="/">{t.back}</a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="split-hero reveal">
         <span className="tag">{t.badge}</span>

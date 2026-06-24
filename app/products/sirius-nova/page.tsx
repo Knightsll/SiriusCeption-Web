@@ -2,12 +2,13 @@
 
 import { useMemo } from "react";
 import { InteractiveDeviceModel } from "../../components/InteractiveDeviceModel";
-import { useLocale, type Locale } from "../../useLocale";
+import { SiteHeader } from "../../components/SiteHeader";
+import { useLocale } from "../../useLocale";
 
 const copy = {
   en: {
     back: "Home",
-    nav: { overview: "Overview", workflow: "Workflow", specs: "Specs", docs: "Docs" },
+    nav: { overview: "Overview", workflow: "Workflow", specs: "Specs", integration: "Interfaces", docs: "Docs" },
     eyebrow: "Sirius Nova · First Product",
     title: "Embodied-AI data collector for pose and teleoperation",
     lead:
@@ -36,18 +37,31 @@ const copy = {
       "Single-arm kit (€599): single-arm pose tracking and single-arm robotic-arm teleoperation software.",
       "Dual-arm kit (€1,199): dual-arm pose tracking and dual-arm robotic-arm teleoperation software.",
       "Full-body kit (€2,999): full-body pose tracking and humanoid robot teleoperation software.",
-      "Keep product messaging centered on Sirius Nova as the hardware product rather than naming the test device count as a product.",
-      "Use the validation software to check device quality and motion mapping before production data capture."
+      "Configure each Sirius Nova over USB-C with id, Wi-Fi SSID/password, host LAN IP, UDP port 9999, stream rate, and debug mode.",
+      "Start UDP Receiver on 0.0.0.0:9999, confirm online devices, packet rate, packet age, orientation, battery, and magnetometer diagnostics.",
+      "Calibrate in Pose Visualizer or Teleop Console; Set Forward uses the operator's current facing direction, so users do not need to face a fixed geographic direction.",
+      "Use the validation software to check device quality and motion mapping before production data capture or robot handoff."
     ],
     specsTitle: "Performance, specifications, and pricing",
+    integrationTitle: "Public local data interfaces",
+    integrationLead: "After configuration and calibration, SiriusCeption Client exposes local HTTP/WebSocket interfaces for external programs, simulators, and robot adapters.",
+    integration: [
+      ["Raw device status", "GET /api/imu/devices"],
+      ["Single-device calibrated pose", "GET /api/visualizer/frame"],
+      ["Three-device motion preview", "GET /api/teleop/frame"],
+      ["Low-latency robot stream", "ws://127.0.0.1:8000/ws/robot/command?rate_hz=50"],
+      ["Polling fallback", "GET /api/robot/command"]
+    ],
     specs: [
       ["Product form", "Wearable wireless embodied-AI data collector node"],
       ["Dimensions", "Approx. 39 × 65 × 24 mm from the Sirius Nova source model bounds"],
       ["Compute / network", "ESP32-C3 based node with Wi-Fi UDP streaming and USB-C serial configuration"],
-      ["Stream frequency", "Configurable `udp_hz` / rate up to 100 Hz"],
+      ["Stream frequency", "Configurable `udp_hz` / rate up to 100 Hz; use 50 Hz first on unstable Wi-Fi"],
       ["Motion output", "Quaternion orientation, gyroscope, and acceleration data streamed per node"],
+      ["Receiver diagnostics", "Device ID, source IP, data rate, online status, orientation, battery level, and magnetometer status"],
       ["Precision model", "Calibration-backed orientation tracking; live packet rate, packet age, and signal quality checks verify whether a capture setup is ready"],
-      ["Node management", "Unique saved node ID / slave_id for receiver binding, role assignment, and multi-node sessions"],
+      ["Node management", "Saved node ID / slave_id for receiver binding, role assignment, and multi-node sessions"],
+      ["Client support", "Ubuntu and Windows release packages; local browser UI opens at http://127.0.0.1:8000"],
       ["Single-arm kit", "Single-arm pose tracking + single-arm robotic-arm teleoperation software · €599 / set"],
       ["Dual-arm kit", "Dual-arm pose tracking + dual-arm robotic-arm teleoperation software · €1,199 / kit"],
       ["Full-body kit", "Full-body pose tracking + humanoid robot teleoperation software · €2,999 / kit"],
@@ -56,7 +70,7 @@ const copy = {
   },
   zh: {
     back: "首页",
-    nav: { overview: "概览", workflow: "工作流", specs: "规格", docs: "文档" },
+    nav: { overview: "概览", workflow: "工作流", specs: "规格", integration: "接口", docs: "文档" },
     eyebrow: "Sirius Nova · 首款产品",
     title: "面向位姿与遥操作的具身智能数据采集节点",
     lead:
@@ -85,18 +99,31 @@ const copy = {
       "单臂套装（€599）：包括单臂位姿与单臂机械臂遥操作软件。",
       "双臂套装（€1,199）：包括双臂位姿与双臂机械臂遥操作软件。",
       "全身套装（€2,999）：包括全身位姿与人形机器人遥操作软件。",
-      "产品表达以 Sirius Nova 硬件产品为中心，不把测试用设备数量写成独立产品。",
-      "通过验证软件检查设备质量和动作映射，再进入正式数据采集。"
+      "通过 USB-C 为每个 Sirius Nova 配置 id、Wi-Fi SSID/password、电脑 LAN IP、UDP 端口 9999、发送频率和 debug。",
+      "启动 0.0.0.0:9999 UDP Receiver，确认在线设备、包频率、包延迟、姿态、电池和磁力计诊断。",
+      "在 Pose Visualizer 或 Teleop Console 中标定；Set Forward 会把操作者当前朝向作为本次会话前方，不要求面向固定地理方向。",
+      "通过验证软件检查设备质量和动作映射，再进入正式数据采集或机器人接口交接。"
     ],
     specsTitle: "产品性能、规格与价格",
+    integrationTitle: "公开本地数据接口",
+    integrationLead: "完成配置和标定后，SiriusCeption Client 通过本地 HTTP/WebSocket 接口向外部程序、仿真器和机器人适配器交接数据。",
+    integration: [
+      ["原始设备状态", "GET /api/imu/devices"],
+      ["单设备标定姿态", "GET /api/visualizer/frame"],
+      ["三设备动作预览", "GET /api/teleop/frame"],
+      ["低延迟机器人数据流", "ws://127.0.0.1:8000/ws/robot/command?rate_hz=50"],
+      ["轮询备用接口", "GET /api/robot/command"]
+    ],
     specs: [
       ["产品形态", "可穿戴无线具身智能数据采集节点"],
       ["尺寸", "根据 Sirius Nova 源模型边界，约 39 × 65 × 24 mm"],
       ["计算 / 网络", "基于 ESP32-C3 的节点，支持 Wi-Fi UDP 数据流与 USB-C 串口配置"],
-      ["数据频率", "`udp_hz` / rate 最高可配置到 100 Hz"],
+      ["数据频率", "`udp_hz` / rate 最高可配置到 100 Hz；Wi-Fi 不稳定时先用 50 Hz"],
       ["动作输出", "每个节点输出四元数姿态、陀螺仪和加速度数据"],
+      ["接收端诊断", "设备 ID、来源 IP、数据率、在线状态、姿态、电池电量和磁力计状态"],
       ["精度模型", "通过标定支撑姿态跟踪；通过实时包频率、包延迟和信号质量检查确认采集条件是否达标"],
-      ["节点管理", "每个节点保存唯一 node ID / slave_id，用于接收端绑定、角色分配和多节点会话"],
+      ["节点管理", "保存的 node ID / slave_id 用于接收端绑定、角色分配和多节点会话"],
+      ["客户端支持", "Ubuntu 与 Windows 发布包；本地浏览器 UI 默认打开 http://127.0.0.1:8000"],
       ["单臂套装", "单臂位姿 + 单臂机械臂遥操作软件 · €599 / 套"],
       ["双臂套装", "双臂位姿 + 双臂机械臂遥操作软件 · €1,199 / 套"],
       ["全身套装", "全身位姿 + 人形机器人遥操作软件 · €2,999 / 套"],
@@ -114,27 +141,7 @@ export default function SiriusNovaPage() {
       <div className="bg-ambient" aria-hidden="true" />
       <div className="orb orb-a" aria-hidden="true" />
       <div className="orb orb-b" aria-hidden="true" />
-      <header className="nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </a>
-        <nav className="nav-links">
-          <a href="#overview">{t.nav.overview}</a>
-          <a href="#workflow">{t.nav.workflow}</a>
-          <a href="#specs">{t.nav.specs}</a>
-          <a href="/docs">{t.nav.docs}</a>
-        </nav>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)} aria-label="Language">
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <a className="cta ghost" href="/">{t.back}</a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="section nova-hero" id="overview">
         <div className="nova-hero-copy reveal">
@@ -193,6 +200,21 @@ export default function SiriusNovaPage() {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <p>{step}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section nova-specs" id="integration">
+        <div className="section-title">
+          <h2>{t.integrationTitle}</h2>
+          <p>{t.integrationLead}</p>
+        </div>
+        <div className="config-grid nova-spec-grid reveal">
+          {t.integration.map(([label, value]) => (
+            <div className="config-row" key={label}>
+              <code>{label}</code>
+              <span>{value}</span>
+            </div>
           ))}
         </div>
       </section>

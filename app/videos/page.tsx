@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, type Locale } from "../useLocale";
+import { useLocale } from "../useLocale";
+import { SiteHeader } from "../components/SiteHeader";
 
 const copy = {
   en: {
@@ -61,23 +62,7 @@ export default function VideosPage() {
       <div className="orb orb-b" aria-hidden="true" />
       <div className="orb orb-c" aria-hidden="true" />
 
-      <header className="nav">
-        <div className="brand">
-          <span className="brand-mark">SC</span>
-          <span className="brand-name">SiriusCeption</span>
-        </div>
-        <div className="nav-actions">
-          <div className="lang-select">
-            <select value={locale} onChange={(e) => setLocale(e.target.value as Locale)} aria-label="Language">
-              <option value="en">English</option>
-              <option value="zh">中文</option>
-            </select>
-          </div>
-          <a className="cta ghost" href="/">
-            {t.back}
-          </a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} setLocale={setLocale} />
 
       <section className="section video-hero">
         <div className="section-title">
